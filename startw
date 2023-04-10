@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+./genmodelw
+dart --version
+#./i18nw
+./imagew

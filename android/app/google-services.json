@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "324808388474",
+    "firebase_url": "https://solienlacdientuhumg.firebaseio.com",
+    "project_id": "solienlacdientuhumg",
+    "storage_bucket": "solienlacdientuhumg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324808388474:android:65d8ec98f1b76c715870c3",
+        "android_client_info": {
+          "package_name": "com.flutter.flutter_app_vibrator_strong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324808388474-1dcfigkpv3n7s234tk0v7784r9tilr11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY-u4WDMdl7BRDFtlvwXtjxz3trCM8gck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324808388474-1dcfigkpv3n7s234tk0v7784r9tilr11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
