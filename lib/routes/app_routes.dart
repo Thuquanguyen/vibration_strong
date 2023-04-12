@@ -5,7 +5,8 @@ abstract class Routes {
   Routes._();
 
   static const SPLASH = _Paths.SPLASH;
-  static const SETTING = _Paths.SETTING;
+  static const MAIN = _Paths.MAIN;
+  static const MUSIC = _Paths.MUSIC;
   static const MORE = _Paths.MORE;
   static const WELCOME = _Paths.WELCOME;
   static const PREMIUM = _Paths.PREMIUM;
@@ -19,8 +20,9 @@ abstract class Routes {
 abstract class _Paths {
   _Paths._();
   static const SPLASH = '/SPLASH';
+  static const MAIN = '/MAIN';
   static const VIBRATION = '/VIBRATION';
-  static const SETTING = '/SETTING';
+  static const MUSIC = '/MUSIC';
   static const MORE = '/MORE';
   static const WELCOME = '/WELCOME';
   static const PREMIUM = '/PREMIUM';

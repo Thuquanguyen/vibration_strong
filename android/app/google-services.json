@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "324808388474",
-    "firebase_url": "https://solienlacdientuhumg.firebaseio.com",
-    "project_id": "solienlacdientuhumg",
-    "storage_bucket": "solienlacdientuhumg.appspot.com"
+    "project_number": "458383404221",
+    "firebase_url": "https://phone-c2bd6-default-rtdb.firebaseio.com",
+    "project_id": "phone-c2bd6",
+    "storage_bucket": "phone-c2bd6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:324808388474:android:65d8ec98f1b76c715870c3",
+        "mobilesdk_app_id": "1:458383404221:android:57f1d413310e6c27cddbd4",
         "android_client_info": {
           "package_name": "com.flutter.flutter_app_vibrator_strong"
         }
       },
       "oauth_client": [
         {
-          "client_id": "324808388474-1dcfigkpv3n7s234tk0v7784r9tilr11.apps.googleusercontent.com",
+          "client_id": "458383404221-2abdje1ad8ns1nakl2h8pr6k9d26grq3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCY-u4WDMdl7BRDFtlvwXtjxz3trCM8gck"
+          "current_key": "AIzaSyDEMNbgcZaJUNPp76A2CPsoZxshfd0TNNI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "324808388474-1dcfigkpv3n7s234tk0v7784r9tilr11.apps.googleusercontent.com",
+              "client_id": "458383404221-2abdje1ad8ns1nakl2h8pr6k9d26grq3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

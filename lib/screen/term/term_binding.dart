@@ -5,6 +5,6 @@ import 'term_controller.dart';
 class TermBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => TermController());
+    Get.lazyPut(() => TermController(),fenix: true);
   }
 }

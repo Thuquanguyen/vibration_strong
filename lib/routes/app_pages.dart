@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/screen/main/main_binding.dart';
+import 'package:flutter_app_vibrator_strong/screen/main/main_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/more/more_binding.dart';
 import 'package:flutter_app_vibrator_strong/screen/more/more_screen.dart';
+import 'package:flutter_app_vibrator_strong/screen/music/music_binding.dart';
+import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
 
@@ -11,8 +16,6 @@ import '../screen/premium/premium_binding.dart';
 import '../screen/premium/premium_screen.dart';
 import '../screen/privacy/privacy_binding.dart';
 import '../screen/privacy/privacy_screen.dart';
-import '../screen/setting/setting_binding.dart';
-import '../screen/setting/setting_screen.dart';
 import '../screen/splash/splash_binding.dart';
 import '../screen/splash/splash_screen.dart';
 import '../screen/term/term_binding.dart';
@@ -31,7 +34,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.SPLASH,
-      page: () => const SplashScreen(),
+      page: () => SplashScreen(),
       binding: SplashBinding(),
     ),
     GetPage(
@@ -40,9 +43,14 @@ class AppPages {
       binding: VibrationBinding(),
     ),
     GetPage(
-      name: _Paths.SETTING,
-      page: () => SettingScreen(),
-      binding: SettingBinding(),
+      name: _Paths.MAIN,
+      page: () => const MainScreen(),
+      binding: MainBinding(),
+    ),
+    GetPage(
+      name: _Paths.MUSIC,
+      page: () => MusicScreen(),
+      binding: MusicBinding(),
     ),
     GetPage(
       name: _Paths.INFORMATION,

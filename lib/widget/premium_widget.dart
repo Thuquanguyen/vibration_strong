@@ -6,6 +6,9 @@ import '../core/assets/app_assets.dart';
 import '../core/common/imagehelper.dart';
 import '../core/theme/textstyles.dart';
 import '../routes/app_pages.dart';
+import '../screen/not_vibration/not_vibration_screen.dart';
+import '../screen/premium/premium_screen.dart';
+import '../utils/app_utils.dart';
 import '../utils/touchable.dart';
 
 class PremiumWidget extends StatelessWidget {
@@ -15,7 +18,7 @@ class PremiumWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Touchable(
       onTap: () {
-        Get.toNamed(Routes.PREMIUM);
+        goToScreen(PremiumScreen());
       },
       child: Container(
         decoration: BoxDecoration(

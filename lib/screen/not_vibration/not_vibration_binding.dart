@@ -5,6 +5,6 @@ import 'not_vibration_controller.dart';
 class NotVibrationBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => NotVibrationController());
+    Get.lazyPut(() => NotVibrationController(),fenix: true);
   }
 }

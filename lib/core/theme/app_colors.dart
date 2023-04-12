@@ -80,6 +80,7 @@ mixin AppColors {
   static Color customColor37 = const Color(0xFF007AFF);
   static Color customColor38 = const Color(0xFF111111);
   static Color customColor39 = const Color(0xFFFFE7E7);
+  static Color customColor40 = const Color(0xff7FB9F9);
   static Color shimmerImageColor = Colors.grey.shade100;
   static Color shimmerBaseColor = Colors.grey.shade300;
   static Color shimmerHighlightColor = Colors.grey.shade400;

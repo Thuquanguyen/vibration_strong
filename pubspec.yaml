@@ -61,6 +61,9 @@ dev_dependencies:
   just_audio: ^0.9.32
   firebase_auth: ^4.4.0
   google_sign_in: ^6.0.2
+  flutter_html:
+  filling_slider: ^0.0.3
+  flutter_custom_clippers: ^2.1.0
   in_app_purchase: ^3.1.5
   intl:
   recase: ^4.1.0
@@ -88,10 +91,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/ic_splat.jpg
-    - assets/images/ic_crow.png
-    - assets/images/ic_app.png
-    - assets/images/image_1.jpeg
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+    - assets/music/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -119,3 +122,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_native_splash:
+  image: assets/images/img_splash.png
+  color: "F4F3F1"
+  fill: true

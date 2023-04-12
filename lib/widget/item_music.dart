@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_controller.dart';
+import 'package:flutter_app_vibrator_strong/utils/app_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
@@ -11,12 +13,15 @@ import '../core/model/music_model.dart';
 import '../core/theme/textstyles.dart';
 import '../in_app_manage.dart';
 import '../routes/app_pages.dart';
+import '../screen/music/music_controller.dart';
+import '../screen/premium/premium_screen.dart';
 import '../utils/touchable.dart';
 
 class ItemMusic extends StatelessWidget {
-  ItemMusic({Key? key, this.musicModel, this.index})
+  ItemMusic({Key? key, this.musicModel,this.controller, this.index})
       : super(key: key);
   MusicModel? musicModel;
+  MusicController? controller;
   int? index;
 
   @override
@@ -24,13 +29,13 @@ class ItemMusic extends StatelessWidget {
     return Touchable(
       onTap: () {
         if (!IAPConnection().isAvailable && index != 0 && index != 1) {
-          Navigator.of(context).pop();
-          Get.toNamed(Routes.PREMIUM);
+          goToScreen(PremiumScreen());
         } else {
-          // controller?.changeSelectedMusic(index ?? 0);
+          controller?.changeSelectedMusic(index ?? 0);
+          musicModel?.onTab?.call();
           AudioPlayerVibration().currentUrl = musicModel?.path ?? AppAssets.musicCover1;
           AudioPlayerVibration()
-              .playAudio();
+              .playAudio(title: musicModel?.title ?? '');
         }
       },
       child: Card(

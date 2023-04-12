@@ -5,6 +5,6 @@ import 'premium_controller.dart';
 class PremiumBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => PremiumController());
+    Get.lazyPut(() => PremiumController(),fenix: true);
   }
 }

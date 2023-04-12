@@ -1,5 +1,9 @@
 class AppAssets {
 	//Assets in images
+	static const String icApp = 'assets/images/ic_app.png';
+	static const String icCrow = 'assets/images/ic_crow.png';
+	static const String icSplat = 'assets/images/ic_splat.jpg';
+	static const String image1 = 'assets/images/image_1.jpeg';
 	static const String imgBacground = 'assets/images/img_bacground.png';
 	static const String imgBgPremium = 'assets/images/img_bg_premium.png';
 	static const String imgBreeze = 'assets/images/img_breeze.png';
@@ -21,7 +25,7 @@ class AppAssets {
 
 	//Assets in icons
 	static const String icMagic = 'assets/icons/ic_Magic.png';
-	static const String icApp = 'assets/icons/ic_app.png';
+	static const String icApp1 = 'assets/icons/ic_app.png';
 	static const String icBack = 'assets/icons/ic_back.svg';
 	static const String icBreeze = 'assets/icons/ic_breeze.png';
 	static const String icDotted = 'assets/icons/ic_dotted.png';
@@ -53,8 +57,13 @@ class AppAssets {
 	static const String secretGarden = 'assets/music/Secret Garden.mp3';
 	static const String songFromSecretGarden = 'assets/music/Song From Secret Garden.mp3';
 	static const String theDayDream = 'assets/music/The Day Dream.mp3';
+	static const String forever1 = 'assets/music/forever_1.mp3';
 
   static const Map<String, bool> hasAsset = {
+	'assets/images/ic_app.png': true,
+	'assets/images/ic_crow.png': true,
+	'assets/images/ic_splat.jpg': true,
+	'assets/images/image_1.jpeg': true,
 	'assets/images/img_bacground.png': true,
 	'assets/images/img_bg_premium.png': true,
 	'assets/images/img_breeze.png': true,
@@ -104,5 +113,6 @@ class AppAssets {
 	'assets/music/Secret Garden.mp3': true,
 	'assets/music/Song From Secret Garden.mp3': true,
 	'assets/music/The Day Dream.mp3': true,
+	'assets/music/forever_1.mp3': true,
 };
 }

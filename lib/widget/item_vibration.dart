@@ -9,12 +9,16 @@ import '../core/model/vibration_model.dart';
 import '../core/theme/textstyles.dart';
 import '../in_app_manage.dart';
 import '../routes/app_pages.dart';
+import '../screen/premium/premium_screen.dart';
+import '../screen/vibration/vibration_controller.dart';
+import '../utils/app_utils.dart';
 import '../utils/touchable.dart';
 
 class ItemVibration extends StatelessWidget {
-  ItemVibration({Key? key, this.vibrationModel, this.index})
+  ItemVibration({Key? key, this.vibrationModel,this.controller, this.index})
       : super(key: key);
   VibrationModel? vibrationModel;
+  VibrationController? controller;
   int? index;
 
   @override
@@ -23,13 +27,12 @@ class ItemVibration extends StatelessWidget {
       onTap: () {
         if (!IAPConnection().isAvailable &&  index != 0 && index != 1) {
           Vibration.cancel();
-          Get.toNamed(Routes.PREMIUM);
+          goToScreen(PremiumScreen());
         } else {
-          // controller?.changeSelected(index ?? 0);
+          controller?.changeSelected(index ?? 0);
           Vibration.cancel();
           vibrationModel?.onTap?.call();
         }
-        vibrationModel?.onTap?.call();
       },
       child: Container(
         decoration: const BoxDecoration(
