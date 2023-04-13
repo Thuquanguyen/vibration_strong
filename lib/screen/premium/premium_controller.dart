@@ -88,6 +88,15 @@ class PremiumController extends BaseController {
     }
   }
 
+  getTitle(){
+    if(indexSelected.value == 0){
+      return 'You have 1 week to use the advanced features of the app.';
+    }else if(indexSelected.value == 1){
+      return 'You have 1 month to use the advanced features of the app. In addition, you get an additional 10 days discount.';
+    }
+    return 'You get to use advanced features for life.';
+  }
+
   Future<void> buy() async {
 
     final purchaseParam =

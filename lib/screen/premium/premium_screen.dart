@@ -33,34 +33,34 @@ class PremiumScreen extends GetView<PremiumController> {
                     begin: FractionalOffset.topLeft,
                     end: FractionalOffset.bottomRight,
                     colors: [
-                  Colors.purple.withOpacity(0.9),
-                  Colors.red.withOpacity(0.9),
-                ],
+                      Colors.purple.withOpacity(0.9),
+                      Colors.red.withOpacity(0.9),
+                    ],
                     stops: const [
-                  0.0,
-                  0.5
-                ])),
+                      0.0,
+                      0.5
+                    ])),
           ),
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
               padding: EdgeInsets.only(
-                  left: 20.w, right: 16.w, top: Dimens.screenPaddingTop + 20),
+                  left: 20.w, right: 16.w, top: Dimens.screenPaddingTop + 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                       child: Touchable(
-                    onTap: () {
-                      controller.restore();
-                    },
-                    child: Text(
-                      (IAPConnection().isAvailable) ? 'Restore' : '',
-                      style: TextStyles.defaultStyle
-                          .setColor(Colors.white.withOpacity(1)),
-                    ),
-                  )),
+                        onTap: () {
+                          controller.restore();
+                        },
+                        child: Text(
+                          (IAPConnection().isAvailable) ? 'Restore' : '',
+                          style: TextStyles.defaultStyle
+                              .setColor(Colors.white.withOpacity(1)),
+                        ),
+                      )),
                   Touchable(
                       onTap: () {
                         if (Get.currentRoute == Routes.MAIN) {
@@ -83,7 +83,7 @@ class PremiumScreen extends GetView<PremiumController> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 120.h),
+            margin: EdgeInsets.only(top: 100.h),
             child: Stack(
               children: [
                 Column(
@@ -101,148 +101,165 @@ class PremiumScreen extends GetView<PremiumController> {
                     ),
                     Expanded(
                         child: Container(
-                      width: Dimens.screenWidth,
-                      color: const Color.fromRGBO(235, 241, 248, 1),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Experience VibratorZen\nat full power',
-                            textAlign: TextAlign.center,
-                            style: TextStyles.defaultStyle.bold
-                                .setHeight(1.2)
-                                .setTextSize(20.sp)
-                                .setColor(Colors.black),
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          _item('All power levels and he 15 custom massages'),
-                          _item(
-                              'Improve your sleep with a relaxing music library to doze off to'),
-                          _item(
-                              'Access the meditation library for inner peace, boosted brainpower and much more!'),
-                          _item('Vibration in Background'),
-                          _item('All Ads disabled'),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Obx(() => Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  ...controller.packages.value
-                                      .asMap()
-                                      .entries
-                                      .map((e) => Touchable(
-                                          onTap: () {
-                                            controller.onChangeSelected(e.key);
-                                          },
-                                          child: _itemPackage(e.value)))
-                                      .toList()
-                                ],
-                              )),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Expanded(
-                              child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                boxShadow: kElevationToShadow[3],
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(30.r),
-                                    topRight: Radius.circular(30.r))),
-                            child: Column(
-                              children: [
-                                const Spacer(),
-                                Touchable(
-                                    onTap: () {
-                                      controller.buy();
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.pinkAccent
-                                              .withOpacity(0.9),
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.pinkAccent
-                                                    .withOpacity(0.5),
-                                                offset: const Offset(0, 0),
-                                                blurRadius: 5,
-                                                spreadRadius: 0)
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(50.r)),
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 15.h),
-                                      child: Center(
-                                        child: Obx(() => Text(
-                                              controller.indexSelected.value ==
-                                                      1
-                                                  ? 'Get Promotion and Subscribe'
-                                                  : 'Subscribe',
-                                              style: TextStyles.body2.bold
-                                                  .setTextSize(16.sp)
-                                                  .setColor(Colors.white),
+                          width: Dimens.screenWidth,
+                          color: const Color.fromRGBO(235, 241, 248, 1),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Experience VibratorZen\nat full power',
+                                textAlign: TextAlign.center,
+                                style: TextStyles.defaultStyle.bold
+                                    .setHeight(1.2)
+                                    .setTextSize(20.sp)
+                                    .setColor(Colors.black),
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              Obx(() => _item(controller.getTitle())),
+                              _item(
+                                  'All power levels and he 15 custom massages'),
+                              _item(
+                                  'Improve your sleep with a relaxing music library to doze off to'),
+                              _item(
+                                  'Access the meditation library for inner peace, boosted brainpower and much more!'),
+                              _item('Vibration in Background'),
+                              _item('All Ads disabled'),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              Obx(() =>
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      ...controller.packages.value
+                                          .asMap()
+                                          .entries
+                                          .map((e) =>
+                                          Touchable(
+                                              onTap: () {
+                                                controller.onChangeSelected(
+                                                    e.key);
+                                              },
+                                              child: _itemPackage(e.value)))
+                                          .toList()
+                                    ],
+                                  )),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20.w),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: kElevationToShadow[3],
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(30.r),
+                                            topRight: Radius.circular(30.r))),
+                                    child: Column(
+                                      children: [
+                                        const Spacer(),
+                                        Touchable(
+                                            onTap: () {
+                                              controller.buy();
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pinkAccent
+                                                      .withOpacity(0.9),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.pinkAccent
+                                                            .withOpacity(0.5),
+                                                        offset: const Offset(
+                                                            0, 0),
+                                                        blurRadius: 5,
+                                                        spreadRadius: 0)
+                                                  ],
+                                                  borderRadius:
+                                                  BorderRadius.circular(50.r)),
+                                              padding:
+                                              EdgeInsets.symmetric(
+                                                  vertical: 15.h),
+                                              child: Center(
+                                                child: Obx(() =>
+                                                    Text(
+                                                      controller.indexSelected
+                                                          .value ==
+                                                          1
+                                                          ? 'Get Promotion and Subscribe'
+                                                          : 'Subscribe',
+                                                      style: TextStyles.body2
+                                                          .bold
+                                                          .setTextSize(16.sp)
+                                                          .setColor(
+                                                          Colors.white),
+                                                    )),
+                                              ),
                                             )),
-                                      ),
-                                    )),
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                                Text(
-                                  'Premium user has unlimited access to the services. Payment will be charged to Google Account at purchase confirmation.',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyles.defaultStyle
-                                      .setTextSize(10.sp),
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                        child: Center(
-                                      child: Touchable(
-                                        onTap: () {
-                                          controller.openPrivacy();
-                                        },
-                                        child: Text(
-                                          "Privacy Policy",
-                                          style: TextStyles.defaultStyle
-                                              .setColor(Colors.black)
-                                              .copyWith(
-                                                  decoration:
-                                                      TextDecoration.underline,
-                                                  fontSize: 12.sp),
+                                        SizedBox(
+                                          height: 20.h,
                                         ),
-                                      ),
-                                    )),
-                                    Expanded(
-                                        child: Center(
-                                      child: Touchable(
-                                          onTap: () {
-                                            controller.openTerm();
-                                          },
-                                          child: Text(
-                                            "Terms & Conditions",
-                                            style: TextStyles.defaultStyle
-                                                .setColor(Colors.black)
-                                                .copyWith(
-                                                    decoration: TextDecoration
-                                                        .underline,
-                                                    fontSize: 12.sp),
-                                          )),
-                                    ))
-                                  ],
-                                ),
-                                const Spacer(),
-                              ],
-                            ),
-                          ))
-                        ],
-                      ),
-                    ))
+                                        Text(
+                                          'Premium user has unlimited access to the services. Payment will be charged to Google Account at purchase confirmation.',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.defaultStyle
+                                              .setTextSize(10.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                                child: Center(
+                                                  child: Touchable(
+                                                    onTap: () {
+                                                      controller.openPrivacy();
+                                                    },
+                                                    child: Text(
+                                                      "Privacy Policy",
+                                                      style: TextStyles
+                                                          .defaultStyle
+                                                          .setColor(
+                                                          Colors.black)
+                                                          .copyWith(
+                                                          decoration:
+                                                          TextDecoration
+                                                              .underline,
+                                                          fontSize: 12.sp),
+                                                    ),
+                                                  ),
+                                                )),
+                                            Expanded(
+                                                child: Center(
+                                                  child: Touchable(
+                                                      onTap: () {
+                                                        controller.openTerm();
+                                                      },
+                                                      child: Text(
+                                                        "Terms & Conditions",
+                                                        style: TextStyles
+                                                            .defaultStyle
+                                                            .setColor(
+                                                            Colors.black)
+                                                            .copyWith(
+                                                            decoration: TextDecoration
+                                                                .underline,
+                                                            fontSize: 12.sp),
+                                                      )),
+                                                ))
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                      ],
+                                    ),
+                                  ))
+                            ],
+                          ),
+                        ))
                   ],
                 ),
                 Align(
@@ -278,10 +295,10 @@ extension on PremiumScreen {
           ),
           Expanded(
               child: Text(
-            title,
-            style:
+                title,
+                style:
                 TextStyles.defaultStyle.setColor(Colors.black).setHeight(1.3),
-          ))
+              ))
         ],
       ),
     );
