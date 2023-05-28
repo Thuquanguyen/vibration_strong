@@ -19,6 +19,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
   Widget build(BuildContext context) {
     return AppScaffold(
         hideAppBar: true,
+        paddingTop: 0,
         body: Obx(() => Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
               width: Dimens.screenWidth,

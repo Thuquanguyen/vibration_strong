@@ -23,6 +23,7 @@ class PremiumScreen extends GetView<PremiumController> {
   Widget build(BuildContext context) {
     return AppScaffold(
       color: Colors.white,
+      paddingTop: 0,
       body: Stack(
         children: [
           Container(
