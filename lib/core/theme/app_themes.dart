@@ -44,7 +44,6 @@ class AppThemes {
       backgroundColor: Colors.white,
       fontFamily: _fontFamily,
       primaryColor: AppColors.customColor21,
-      accentColor: AppColors.customColor22,
       scaffoldBackgroundColor: AppColors.customColor20,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppColors.customColor21,
@@ -55,7 +54,6 @@ class AppThemes {
       ),
       bottomAppBarColor: Colors.white,
       appBarTheme: AppBarTheme(
-        brightness: Brightness.light,
         color: AppColors.customColor21,
         iconTheme: IconThemeData(color: AppColors.primaryColor1),
       ),
@@ -82,7 +80,6 @@ class AppThemes {
       brightness: Brightness.dark,
       fontFamily: _fontFamily,
       primaryColor: AppColors.customColor21,
-      accentColor: AppColors.customColor22,
       scaffoldBackgroundColor: AppColors.customColor23,
       bottomAppBarColor: AppColors.customColor23,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -93,7 +90,6 @@ class AppThemes {
         unselectedItemColor: Colors.red,
       ),
       appBarTheme: AppBarTheme(
-        brightness: Brightness.dark,
         color: AppColors.customColor21,
         iconTheme: IconThemeData(color: AppColors.customColor24),
       ),

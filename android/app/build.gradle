@@ -52,9 +52,9 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.flutter.flutter_app_vibrator_strong"
-        minSdkVersion 19
+        minSdkVersion 20
         targetSdkVersion flutter.targetSdkVersion
-        versionCode 18
+        versionCode 20
         versionName "1.0.1"
         resConfigs "en"
         multiDexEnabled true
@@ -67,6 +67,8 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    namespace 'com.flutter.flutter_app_vibrator_strong'
 }
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

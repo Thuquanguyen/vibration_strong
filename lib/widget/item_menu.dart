@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../core/model/vibration_model.dart';
 import '../core/theme/textstyles.dart';
+import '../in_app_manage.dart';
+import '../screen/more/more_controller.dart';
 import '../utils/touchable.dart';
 
 class ItemMenu extends StatelessWidget {
-  ItemMenu({Key? key, this.vibrationModel}) : super(key: key);
+  ItemMenu({Key? key, this.vibrationModel, this.moreController})
+      : super(key: key);
   VibrationModel? vibrationModel;
+  MoreController? moreController;
 
   @override
   Widget build(BuildContext context) {
     return Touchable(
       onTap: () {
-        vibrationModel?.onTap?.call();
+        if (vibrationModel?.title == 'Not Vibrating?' && !IAPConnection().isAvailable) {
+          moreController?.handleReward();
+        } else {
+          vibrationModel?.onTap?.call();
+        }
       },
       child: Container(
         decoration: BoxDecoration(
@@ -40,9 +47,9 @@ class ItemMenu extends StatelessWidget {
             ),
             Expanded(
                 child: Text(
-              vibrationModel?.title ?? '',
-              style: TextStyles.defaultStyle,
-            )),
+                  vibrationModel?.title ?? '',
+                  style: TextStyles.defaultStyle,
+                )),
             const Icon(
               Icons.navigate_next,
               color: Colors.black26,

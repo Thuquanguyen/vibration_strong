@@ -128,36 +128,44 @@ class AppFunc {
   }
 
   static showAlertDialogConfirm(
-    BuildContext context, {
-    String? message,
-    Function()? callBack,
-    Function()? cancelCallback,
-  }) {
+      BuildContext context, {
+        String? message,
+        Function()? callBack,
+        Function()? cancelCallback,
+      }) {
     // set up the button
     Widget okButton = TextButton(
-      child: const Text("同意"),
+      child:  Text("Unlock now",style: TextStyles.defaultStyle,),
       onPressed: callBack,
     );
 
     // set up the button
-    Widget cancelButton = TextButton(
-      child: const Text("キャンセル"),
+    Widget viewAds = TextButton(
+      child:  Text("View ads",style: TextStyles.defaultStyle,),
       onPressed: () {
         Get.back();
         cancelCallback?.call();
       },
     );
 
+    Widget cancelButton = TextButton(
+      child: Text("Cancel",style: TextStyles.defaultStyle,),
+      onPressed: () {
+        Get.back();
+      },
+    );
+
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: const Text("通知する!"),
+      title: const Text("Hi! I'm Vibration"),
       content: Text(message ?? ''),
-      actions: [okButton, cancelButton],
+      actions: [okButton, viewAds ,cancelButton],
     );
 
     // show the dialog
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (BuildContext context) {
         return alert;
       },

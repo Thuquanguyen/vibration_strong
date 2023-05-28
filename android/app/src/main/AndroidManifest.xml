@@ -8,9 +8,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
@@ -23,12 +22,7 @@
 
     <application
         android:label="Phone Vibration Strong"
-        android:name="${applicationName}"
-        android:usesCleartextTraffic="true"
         android:icon="@drawable/ic_app">
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8205486426165236~3346097267"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -64,6 +58,11 @@
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1009313376075664~3800182933" />
+<!--            android:value="ca-app-pub-3940256099942544~3347511713" />-->
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

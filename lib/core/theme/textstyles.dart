@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
@@ -54,7 +53,6 @@ class TextStyles {
   static final TextStyle defaultStyle = TextStyle(
           fontSize: textSize14,
           height: _height,
-          fontFamily: GoogleFonts.aleo().fontFamily,
           color: AppColors.neutralColor2)
       .regular;
 

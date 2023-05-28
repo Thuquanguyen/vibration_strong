@@ -41,7 +41,6 @@ dev_dependencies:
   share_plus: ^6.3.1
   flutter_email_sender: ^5.2.0
   flutter_local_notifications: ^13.0.0
-  flutter_native_timezone: ^2.0.0
   timezone: ^0.9.1
   get_storage: ^2.1.1
   vibration: ^1.7.6
@@ -73,7 +72,7 @@ dev_dependencies:
   fluttertoast:
   url_launcher: ^6.1.7
 #  flutter_social_content_share: ^1.0.2
-  google_fonts: ^3.0.1
+#  google_fonts: ^3.0.1
   shared_preferences:
   flutter_share_me: ^1.4.0
   google_mobile_ads: ^2.3.0

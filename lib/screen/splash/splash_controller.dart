@@ -32,24 +32,21 @@ class SplashController extends BaseController {
     DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
     String? data = await SharePreferencesHelper.getString(KEY_PURCHASE);
     bool isWelcome = await SharePreferencesHelper.getBool(KEY_WELCOME) ?? false;
-    if (data == null) {
+    if (data == null || data == 'null') {
       AppFunc.setTimeout(() {
         IAPConnection().isAvailable = false;
-        Get.offAndToNamed(!isWelcome ? Routes.WELCOME : Routes.PREMIUM);
+        Get.offAndToNamed(!isWelcome ? Routes.WELCOME : Routes.MAIN);
       }, 3000);
     } else {
       DateTime dateTime = dateFormat.parse(data ?? '');
       if (dateTime.isBefore(DateTime.now())) {
-        AppFunc.setTimeout(() {
-          IAPConnection().isAvailable = false;
-          Get.offAndToNamed(Routes.PREMIUM);
-        }, 3000);
+        IAPConnection().isAvailable = false;
       } else {
-        AppFunc.setTimeout(() {
-          IAPConnection().updateAvailable();
-          Get.offAndToNamed(Routes.MAIN);
-        }, 3000);
+        IAPConnection().updateAvailable();
       }
+      AppFunc.setTimeout(() {
+        Get.offAndToNamed(Routes.MAIN);
+      }, 3000);
     }
   }
 

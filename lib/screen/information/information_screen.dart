@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_vibrator_strong/utils/app_scaffold.dart';
 import 'package:get/get.dart';
 
+import '../../in_app_manage.dart';
+import '../../utils/app_scaffold.dart';
 import 'information_controller.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class InformationScreen extends GetView<InformationController> {
   const InformationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return AppScaffold(
       title: 'Information',
       paddingTop: 0,
@@ -40,7 +41,7 @@ class InformationScreen extends GetView<InformationController> {
             ),
             Flexible(
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20,right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   child: Text('''Vibrate massager simulated for you!
 This applications will helps your phone is will vibrating almost like a massage device handy. It is simulated application.
 Enabling applications with the features and select the mode:  - You can customize some interface components.
@@ -54,6 +55,20 @@ Note: This application is like a joke on the phone, it is only complementary sol
 
 are, as well as the battery life of the device.'''),
                 )),
+            Spacer(),
+            if (!IAPConnection().isAvailable)
+              Obx(() => Visibility(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    width: controller.bannerAd.value.size.width.toDouble(),
+                    height:
+                    controller.bannerAd.value.size.height.toDouble(),
+                    child: AdWidget(ad: controller.bannerAd.value),
+                  ),
+                ),
+                visible: controller.isLoadAds.value,
+              )),
           ],
         ),
       ),

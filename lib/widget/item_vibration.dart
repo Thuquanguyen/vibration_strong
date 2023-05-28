@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:vibration/vibration.dart';
 
 import '../core/assets/app_assets.dart';
+import '../core/common/app_func.dart';
 import '../core/common/imagehelper.dart';
 import '../core/model/vibration_model.dart';
 import '../core/theme/textstyles.dart';
@@ -15,7 +16,7 @@ import '../utils/app_utils.dart';
 import '../utils/touchable.dart';
 
 class ItemVibration extends StatelessWidget {
-  ItemVibration({Key? key, this.vibrationModel,this.controller, this.index})
+  ItemVibration({Key? key, this.vibrationModel, this.controller, this.index})
       : super(key: key);
   VibrationModel? vibrationModel;
   VibrationController? controller;
@@ -25,13 +26,30 @@ class ItemVibration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Touchable(
       onTap: () {
-        if (!IAPConnection().isAvailable &&  index != 0 && index != 1) {
+        if (!IAPConnection().isAvailable && vibrationModel?.isPremium == true) {
           Vibration.cancel();
-          goToScreen(PremiumScreen());
+          AppFunc.showAlertDialogConfirm(context,
+              message: 'Would you like to try this vibration once?',
+              callBack: () {
+                goToScreen(PremiumScreen());
+              },
+              cancelCallback: () {
+                controller?.rewardedAd?.show(onUserEarnedReward: (a,b){
+                  vibrationModel?.onTap?.call();
+                });
+              });
         } else {
-          controller?.changeSelected(index ?? 0);
-          Vibration.cancel();
-          vibrationModel?.onTap?.call();
+          if ((index ?? 0) > 4 && (index ?? 0) < 10 && !IAPConnection().isAvailable){
+            controller?.rewardedAd?.show(onUserEarnedReward: (aa, reward) {
+              controller?.changeSelected(index ?? 0);
+              Vibration.cancel();
+              vibrationModel?.onTap?.call();
+            });
+          } else {
+            controller?.changeSelected(index ?? 0);
+            Vibration.cancel();
+            vibrationModel?.onTap?.call();
+          }
         }
       },
       child: Container(
@@ -66,7 +84,8 @@ class ItemVibration extends StatelessWidget {
                           height: 18.w),
                     ),
                   ),
-                  if (!IAPConnection().isAvailable && index != 0 && index != 1)
+                  if (!IAPConnection().isAvailable &&
+                      vibrationModel?.isPremium == true)
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(

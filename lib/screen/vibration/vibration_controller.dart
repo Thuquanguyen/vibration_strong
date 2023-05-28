@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:vibration/vibration.dart';
+import '../../ad_manager.dart';
 import '../../audio_player.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/model/music_model.dart';
 import '../../core/model/vibration_model.dart';
 import '../../core/service/notification_service.dart';
 import '../../in_app_manage.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class VibrationController extends BaseController {
   RxList<VibrationModel> vibrations = <VibrationModel>[
@@ -92,7 +94,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 20);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Dry',
@@ -122,7 +124,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 255);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Expand',
@@ -152,7 +154,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 255);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Refresh',
@@ -164,7 +166,7 @@ class VibrationController extends BaseController {
               repeat: 1,
               amplitude: 255);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Breeze',
@@ -198,7 +200,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 128);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Rise',
@@ -256,7 +258,7 @@ class VibrationController extends BaseController {
             10
           ], repeat: 1, amplitude: 10);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Dramatic',
@@ -289,7 +291,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 128);
         },
-        isPremium: true,
+        isPremium: false,
         isSelected: false),
     VibrationModel(
         title: 'Heavy',
@@ -444,8 +446,18 @@ class VibrationController extends BaseController {
   RxString song = 'Sing my song'.obs;
   RxString backgroundColor = ''.obs;
 
+  InterstitialAd? interstitialAd;
+  RewardedAd? rewardedAd;
+  Rx<BannerAd> bannerAd = BannerAd(
+      size: AdSize(width: 0, height: 0),
+      adUnitId: AdManager.bannerAdUnitId,
+      listener: BannerAdListener(),
+      request: AdRequest())
+      .obs;
+
   RxDouble progress = 0.0.obs;
   RxDouble initValue = 0.0.obs;
+  RxBool isLoadAds = false.obs;
 
   getTitle(double value) {
     if (value < 500) {
@@ -461,8 +473,18 @@ class VibrationController extends BaseController {
   void onInit() {
     // TODO: implement onInit
     NotificationService().showNotification();
-    print('IAPConnection().isAvailable = ${IAPConnection().isAvailable}');
+    loadBannerAds();
+    loadInterstitialAd();
+    loadRewardedAd();
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    bannerAd.value.dispose();
+    interstitialAd?.dispose();
+    rewardedAd?.dispose();
+    super.dispose();
   }
 
   void changeSelected(int index) {
@@ -476,5 +498,67 @@ class VibrationController extends BaseController {
 
   Future<bool> checkPurchase() async {
     return await IAPConnection.instance.isAvailable();
+  }
+
+  void loadBannerAds(){
+    BannerAd(
+      adUnitId: AdManager.bannerAdUnitId,
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          bannerAd.value = ad as BannerAd;
+          isLoadAds.value = true;
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message} - ${ad.adUnitId}');
+          ad.dispose();
+        },
+      ),
+    ).load();
+  }
+  void loadRewardedAd() {
+    RewardedAd.load(
+      adUnitId: AdManager.rewardedAdUnitId,
+      request: AdRequest(),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (ad) {
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              ad.dispose();
+              rewardedAd = null;
+              loadRewardedAd();
+            },
+          );
+          rewardedAd = ad;
+        },
+        onAdFailedToLoad: (err) {
+          print('Failed to load a rewarded ad: ${err.message}');
+        },
+      ),
+    );
+  }
+
+  void loadInterstitialAd() {
+    InterstitialAd.load(
+      adUnitId: AdManager.interstitialAdUnitId,
+      request: AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              ad.dispose();
+              interstitialAd = null;
+              loadInterstitialAd();
+              print("onAdDismissedFullScreenContent");
+            },
+          );
+          interstitialAd = ad;
+        },
+        onAdFailedToLoad: (err) {
+          print('Failed to load an interstitial ad: ${err.message}');
+        },
+      ),
+    );
   }
 }
