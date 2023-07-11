@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4ab1679-f3b7-49c8-b425-4ba4dc8374a9" name="Changes" comment="">
+    <list default="true" id="eb255ac0-7918-4032-b4b7-081a79320033" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../lib/ads/app_lifecircle_factory.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lib/ads/open_app_ads_manage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/dart_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/dart_plugin_registrant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.flutter-plugins" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.flutter-plugins-dependencies" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/screen/premium/premium_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/premium/premium_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/screen/splash/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/splash/splash_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ad_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ad_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/screen/vibration/vibration_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/vibration/vibration_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lib/screen/welcome/welcome_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/welcome/welcome_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +52,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QQdCrb0LKhui13W0hHil2sC0Dh" />
+  <component name="ProjectId" id="2SPleGbtSh0b6QKObJCcLAQRY1t" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,7 +67,7 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "memory.settings.postsync.last.time.stamp": "1685289653811",
+    "memory.settings.postsync.last.time.stamp": "1689056291180",
     "show.migrate.to.gradle.popup": "false"
   },
   "keyToStringList": {
@@ -122,11 +139,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d4ab1679-f3b7-49c8-b425-4ba4dc8374a9" name="Changes" comment="" />
-      <created>1685289614346</created>
+      <changelist id="eb255ac0-7918-4032-b4b7-081a79320033" name="Changes" comment="" />
+      <created>1689056191393</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685289614346</updated>
+      <updated>1689056191393</updated>
     </task>
     <servers />
   </component>

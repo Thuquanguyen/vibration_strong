@@ -92,6 +92,7 @@ extension on WelcomeScreen {
         Touchable(
             onTap: () {
               controller.firstScreen.value = false;
+              controller.firstScreen.refresh();
             },
             child: Container(
               decoration: BoxDecoration(

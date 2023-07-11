@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:vibration/vibration.dart';
 import '../../ad_manager.dart';
+import '../../ads/app_lifecircle_factory.dart';
+import '../../ads/open_app_ads_manage.dart';
 import '../../audio_player.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/model/music_model.dart';
@@ -476,6 +478,9 @@ class VibrationController extends BaseController {
     loadBannerAds();
     loadInterstitialAd();
     loadRewardedAd();
+    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    AppLifecycleReactor(appOpenAdManager: appOpenAdManager)
+        .listenToAppStateChanges();
     super.onInit();
   }
 

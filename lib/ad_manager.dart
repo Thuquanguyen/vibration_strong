@@ -40,6 +40,16 @@ class AdManager {
     }
   }
 
+  static String get openAppAdUnitId {
+    if (Platform.isAndroid) {
+      return "ca-app-pub-1009313376075664/8083354901";
+    } else if (Platform.isIOS) {
+      return "ca-app-pub-3940256099942544/1712485313";
+    } else {
+      throw new UnsupportedError("Unsupported platform");
+    }
+  }
+
 // static String get bannerAdUnitId {
 //   if (Platform.isAndroid) {
 //     return 'ca-app-pub-3940256099942544/6300978111';
@@ -69,4 +79,14 @@ class AdManager {
 //     throw new UnsupportedError("Unsupported platform");
 //   }
 // }
+//
+//   static String get openAppAdUnitId {
+//     if (Platform.isAndroid) {
+//       return "ca-app-pub-3940256099942544/3419835294";
+//     } else if (Platform.isIOS) {
+//       return "ca-app-pub-3940256099942544/1712485313";
+//     } else {
+//       throw new UnsupportedError("Unsupported platform");
+//     }
+//   }
 }
