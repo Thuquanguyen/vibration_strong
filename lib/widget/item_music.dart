@@ -8,6 +8,7 @@ import 'package:just_audio/just_audio.dart';
 
 import '../audio_player.dart';
 import '../core/assets/app_assets.dart';
+import '../core/common/app_func.dart';
 import '../core/common/imagehelper.dart';
 import '../core/model/music_model.dart';
 import '../core/theme/textstyles.dart';
@@ -29,7 +30,20 @@ class ItemMusic extends StatelessWidget {
     return Touchable(
       onTap: () {
         if (!IAPConnection().isAvailable && index != 0 && index != 1) {
-          goToScreen(PremiumScreen());
+          AppFunc.showAlertDialogConfirm(context,
+              message: 'You need to be active or watch ads to listen to this song. Do you wanna hear?',
+              callBack: () {
+                goToScreen(PremiumScreen());
+              },
+              cancelCallback: () {
+                controller?.rewardedAd?.show(onUserEarnedReward: (a,b){
+                  controller?.changeSelectedMusic(index ?? 0);
+                  musicModel?.onTab?.call();
+                  AudioPlayerVibration().currentUrl = musicModel?.path ?? AppAssets.musicCover1;
+                  AudioPlayerVibration()
+                      .playAudio(title: musicModel?.title ?? '');
+                });
+              });
         } else {
           controller?.changeSelectedMusic(index ?? 0);
           musicModel?.onTab?.call();

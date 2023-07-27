@@ -60,7 +60,7 @@
             android:value="true" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1009313376075664~3800182933" />
+            android:value="ca-app-pub-5379224969805616~8043798204" />
 <!--            android:value="ca-app-pub-3940256099942544~3347511713" />-->
 
         <meta-data

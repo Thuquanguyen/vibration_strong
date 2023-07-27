@@ -58,7 +58,7 @@ class MoreController extends BaseController {
 
 
   InterstitialAd? interstitialAd;
-  RewardedAd? rewardedAd;
+  // RewardedAd? rewardedAd;
   Rx<BannerAd> bannerAd = BannerAd(
       size: AdSize(width: 0, height: 0),
       adUnitId: AdManager.bannerAdUnitId,
@@ -72,14 +72,13 @@ class MoreController extends BaseController {
     // TODO: implement onInit
     loadBannerAds();
     loadInterstitialAd();
-    loadRewardedAd();
+    // loadRewardedAd();
     super.onInit();
   }
 
   handleReward(){
-    rewardedAd?.show(onUserEarnedReward: (a,b){
-      goToScreen(NotVibrationScreen());
-    });
+    interstitialAd?.show();
+    goToScreen(NotVibrationScreen());
   }
   void loadBannerAds(){
     BannerAd(
@@ -99,27 +98,27 @@ class MoreController extends BaseController {
     ).load();
   }
 
-  void loadRewardedAd() {
-    RewardedAd.load(
-      adUnitId: AdManager.rewardedAdUnitId,
-      request: AdRequest(),
-      rewardedAdLoadCallback: RewardedAdLoadCallback(
-        onAdLoaded: (ad) {
-          ad.fullScreenContentCallback = FullScreenContentCallback(
-            onAdDismissedFullScreenContent: (ad) {
-              ad.dispose();
-              rewardedAd = null;
-              loadRewardedAd();
-            },
-          );
-          rewardedAd = ad;
-        },
-        onAdFailedToLoad: (err) {
-          print('Failed to load a rewarded ad: ${err.message}');
-        },
-      ),
-    );
-  }
+  // void loadRewardedAd() {
+  //   RewardedAd.load(
+  //     adUnitId: AdManager.rewardedAdUnitId,
+  //     request: AdRequest(),
+  //     rewardedAdLoadCallback: RewardedAdLoadCallback(
+  //       onAdLoaded: (ad) {
+  //         ad.fullScreenContentCallback = FullScreenContentCallback(
+  //           onAdDismissedFullScreenContent: (ad) {
+  //             ad.dispose();
+  //             rewardedAd = null;
+  //             loadRewardedAd();
+  //           },
+  //         );
+  //         rewardedAd = ad;
+  //       },
+  //       onAdFailedToLoad: (err) {
+  //         print('Failed to load a rewarded ad: ${err.message}');
+  //       },
+  //     ),
+  //   );
+  // }
 
   void loadInterstitialAd() {
     InterstitialAd.load(

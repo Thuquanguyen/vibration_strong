@@ -40,11 +40,10 @@ class ItemVibration extends StatelessWidget {
               });
         } else {
           if ((index ?? 0) > 4 && (index ?? 0) < 10 && !IAPConnection().isAvailable){
-            controller?.rewardedAd?.show(onUserEarnedReward: (aa, reward) {
-              controller?.changeSelected(index ?? 0);
-              Vibration.cancel();
-              vibrationModel?.onTap?.call();
-            });
+            controller?.interstitialAd?.show();
+            controller?.changeSelected(index ?? 0);
+            Vibration.cancel();
+            vibrationModel?.onTap?.call();
           } else {
             controller?.changeSelected(index ?? 0);
             Vibration.cancel();
