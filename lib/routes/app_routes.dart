@@ -15,6 +15,8 @@ abstract class Routes {
   static const VIBRATION = _Paths.VIBRATION;
   static const INFORMATION = _Paths.INFORMATION;
   static const NOT_VIBRATION = _Paths.NOT_VIBRATION;
+  static const MEDITATE = _Paths.MEDITATE;
+  static const SLEEP = _Paths.SLEEP;
 }
 
 abstract class _Paths {
@@ -30,4 +32,6 @@ abstract class _Paths {
   static const PRIVACY = '/PRIVACY';
   static const INFORMATION = '/INFORMATION';
   static const NOT_VIBRATION = '/NOT_VIBRATION';
+  static const MEDITATE = '/MEDITATE';
+  static const SLEEP = '/SLEEP';
 }

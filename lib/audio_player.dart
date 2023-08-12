@@ -1,10 +1,12 @@
-import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:get/get.dart';
 
+import 'screen/vibration/vibration_controller.dart';
+
 class AudioPlayerVibration {
   static final AudioPlayerVibration _singleton =
-      AudioPlayerVibration._internal();
+  AudioPlayerVibration._internal();
 
   factory AudioPlayerVibration() {
     return _singleton;
@@ -33,7 +35,7 @@ class AudioPlayerVibration {
   void playAudio({String? title}) async {
     Get.find<VibrationController>().song.value = title ?? '';
     String audioAsset = currentUrl;
-    await player.setAsset(audioAsset);
+    await player.setUrl(audioAsset);
     player.play();
     if(url.isEmpty){
       url = currentUrl;

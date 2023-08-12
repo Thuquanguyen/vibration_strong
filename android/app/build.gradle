@@ -54,7 +54,7 @@ android {
         applicationId "com.flutter.flutter_app_vibrator_strong"
         minSdkVersion 20
         targetSdkVersion flutter.targetSdkVersion
-        versionCode 23
+        versionCode 24
         versionName "1.0.2"
         resConfigs "en"
         multiDexEnabled true

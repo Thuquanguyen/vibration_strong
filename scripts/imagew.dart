@@ -56,7 +56,7 @@ Future<List<FileSystemEntity>> getFilesInDir(Directory dir) {
 
 Future<void> start() async {
   print('***[AssetHelper] STARTED ***');
-  List<String> folders = ['images', 'icons','music'];
+  List<String> folders = ['images', 'icons'];
   int total = await gen(folders);
   print('***[AssetHelper] GENERATED ${folders.length} folders and $total files ***');
 }

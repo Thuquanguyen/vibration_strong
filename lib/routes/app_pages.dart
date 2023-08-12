@@ -8,6 +8,8 @@ import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
 
+import '../meditate/meditate_binding.dart';
+import '../meditate/meditate_screen.dart';
 import '../screen/information/information_binding.dart';
 import '../screen/information/information_screen.dart';
 import '../screen/not_vibration/not_vibration_binding.dart';
@@ -23,6 +25,8 @@ import '../screen/term/term_screen.dart';
 import '../screen/vibration/vibration_binding.dart';
 import '../screen/welcome/welcome_binding.dart';
 import '../screen/welcome/welcome_screen.dart';
+import '../sleep/sleep_binding.dart';
+import '../sleep/sleep_screen.dart';
 
 part 'app_routes.dart';
 
@@ -36,6 +40,16 @@ class AppPages {
       name: _Paths.SPLASH,
       page: () => SplashScreen(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEDITATE,
+      page: () => MeditateScreen(),
+      binding: MeditateBinding(),
+    ),
+    GetPage(
+      name: _Paths.SLEEP,
+      page: () => SleepScreen(),
+      binding: SleepBinding(),
     ),
     GetPage(
       name: _Paths.VIBRATION,

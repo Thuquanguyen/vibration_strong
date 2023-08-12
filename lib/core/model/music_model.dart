@@ -1,10 +1,11 @@
 class MusicModel{
   String? title;
   String? thumb;
-  String? path;
+  String? url;
+  double? size;
   Function? onTab;
   bool? isPremium;
   bool? isSelected;
 
-  MusicModel({this.title,this.thumb,this.onTab,this.isPremium,this.isSelected,this.path});
+  MusicModel({this.title,this.thumb,this.onTab,this.isPremium,this.isSelected,this.url,this.size});
 }

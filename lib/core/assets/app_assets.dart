@@ -2,8 +2,21 @@ class AppAssets {
 	//Assets in images
 	static const String icApp = 'assets/images/ic_app.png';
 	static const String icCrow = 'assets/images/ic_crow.png';
+	static const String icPhone = 'assets/images/ic_phone.png';
 	static const String icSplat = 'assets/images/ic_splat.jpg';
 	static const String image1 = 'assets/images/image_1.jpeg';
+	static const String img1 = 'assets/images/img_1.jpeg';
+	static const String img10 = 'assets/images/img_10.jpeg';
+	static const String img11 = 'assets/images/img_11.jpeg';
+	static const String img12 = 'assets/images/img_12.jpeg';
+	static const String img2 = 'assets/images/img_2.jpeg';
+	static const String img3 = 'assets/images/img_3.jpeg';
+	static const String img4 = 'assets/images/img_4.jpeg';
+	static const String img5 = 'assets/images/img_5.jpeg';
+	static const String img6 = 'assets/images/img_6.jpeg';
+	static const String img7 = 'assets/images/img_7.jpeg';
+	static const String img8 = 'assets/images/img_8.jpeg';
+	static const String img9 = 'assets/images/img_9.jpeg';
 	static const String imgBacground = 'assets/images/img_bacground.png';
 	static const String imgBgPremium = 'assets/images/img_bg_premium.png';
 	static const String imgBreeze = 'assets/images/img_breeze.png';
@@ -12,16 +25,47 @@ class AppAssets {
 	static const String imgDry = 'assets/images/img_dry.png';
 	static const String imgExpand = 'assets/images/img_expand.png';
 	static const String imgHeart = 'assets/images/img_heart.png';
-	static const String imgHeavy = 'assets/images/img_heavy.png';
+	static const String imgHeavy = 'assets/images/img_heavy.jpeg';
+	static const String imgHeavy1 = 'assets/images/img_heavy.png';
 	static const String imgMagic = 'assets/images/img_magic.png';
 	static const String imgRefresh = 'assets/images/img_refresh.png';
 	static const String imgRise = 'assets/images/img_rise.png';
 	static const String imgSnow = 'assets/images/img_snow.png';
 	static const String imgSplash = 'assets/images/img_splash.png';
-	static const String imgSunny = 'assets/images/img_sunny.png';
+	static const String imgSunny = 'assets/images/img_sunny.jpeg';
+	static const String imgSunny1 = 'assets/images/img_sunny.png';
 	static const String imgTingle = 'assets/images/img_tingle.png';
 	static const String imgWarn = 'assets/images/img_warn.png';
 	static const String imgWave = 'assets/images/img_wave.png';
+	static const String mediation1 = 'assets/images/mediation_1.png';
+	static const String mediation2 = 'assets/images/mediation_2.webp';
+	static const String mediation3 = 'assets/images/mediation_3.jpeg';
+	static const String mediation4 = 'assets/images/mediation_4.jpeg';
+	static const String mediation5 = 'assets/images/mediation_5.jpeg';
+	static const String meditation10 = 'assets/images/meditation_10.png';
+	static const String meditation11 = 'assets/images/meditation_11.png';
+	static const String meditation12 = 'assets/images/meditation_12.png';
+	static const String meditation13 = 'assets/images/meditation_13.png';
+	static const String meditation14 = 'assets/images/meditation_14.png';
+	static const String meditation6 = 'assets/images/meditation_6.png';
+	static const String meditation7 = 'assets/images/meditation_7.jpeg';
+	static const String meditation8 = 'assets/images/meditation_8.png';
+	static const String meditation9 = 'assets/images/meditation_9.jpeg';
+	static const String sleep1 = 'assets/images/sleep_1.png';
+	static const String sleep10 = 'assets/images/sleep_10.png';
+	static const String sleep11 = 'assets/images/sleep_11.png';
+	static const String sleep12 = 'assets/images/sleep_12.png';
+	static const String sleep13 = 'assets/images/sleep_13.jpeg';
+	static const String sleep14 = 'assets/images/sleep_14.png';
+	static const String sleep2 = 'assets/images/sleep_2.png';
+	static const String sleep3 = 'assets/images/sleep_3.png';
+	static const String sleep4 = 'assets/images/sleep_4.png';
+	static const String sleep5 = 'assets/images/sleep_5.png';
+	static const String sleep6 = 'assets/images/sleep_6.png';
+	static const String sleep7 = 'assets/images/sleep_7.png';
+	static const String sleep8 = 'assets/images/sleep_8.jpeg';
+	static const String sleep9 = 'assets/images/sleep_9.png';
+	static const String slepp15 = 'assets/images/slepp_15.png';
 
 	//Assets in icons
 	static const String icMagic = 'assets/icons/ic_Magic.png';
@@ -44,26 +88,24 @@ class AppAssets {
 	static const String icWave = 'assets/icons/ic_wave.png';
 	static const String icWelcome = 'assets/icons/ic_welcome.png';
 
-	//Assets in music
-	static const String autumnInMyHeart = 'assets/music/Autumn In My Heart.mp3';
-	static const String forever = 'assets/music/Forever.mp3';
-	static const String furEliseVariousArtists = 'assets/music/Fur Elise Various Artists.mp3';
-	static const String missYouISoMuch = 'assets/music/Miss You I So Much.mp3';
-	static const String mucsicCover2 = 'assets/music/Mucsic Cover 2.mp3';
-	static const String musicCover1 = 'assets/music/Music Cover 1.mp3';
-	static const String musicCover3 = 'assets/music/Music Cover 3.mp3';
-	static const String riverFlowsInYou = 'assets/music/River Flows In You.mp3';
-	static const String romeoJuliette = 'assets/music/Romeo Juliette.mp3';
-	static const String secretGarden = 'assets/music/Secret Garden.mp3';
-	static const String songFromSecretGarden = 'assets/music/Song From Secret Garden.mp3';
-	static const String theDayDream = 'assets/music/The Day Dream.mp3';
-	static const String forever1 = 'assets/music/forever_1.mp3';
-
   static const Map<String, bool> hasAsset = {
 	'assets/images/ic_app.png': true,
 	'assets/images/ic_crow.png': true,
+	'assets/images/ic_phone.png': true,
 	'assets/images/ic_splat.jpg': true,
 	'assets/images/image_1.jpeg': true,
+	'assets/images/img_1.jpeg': true,
+	'assets/images/img_10.jpeg': true,
+	'assets/images/img_11.jpeg': true,
+	'assets/images/img_12.jpeg': true,
+	'assets/images/img_2.jpeg': true,
+	'assets/images/img_3.jpeg': true,
+	'assets/images/img_4.jpeg': true,
+	'assets/images/img_5.jpeg': true,
+	'assets/images/img_6.jpeg': true,
+	'assets/images/img_7.jpeg': true,
+	'assets/images/img_8.jpeg': true,
+	'assets/images/img_9.jpeg': true,
 	'assets/images/img_bacground.png': true,
 	'assets/images/img_bg_premium.png': true,
 	'assets/images/img_breeze.png': true,
@@ -72,16 +114,47 @@ class AppAssets {
 	'assets/images/img_dry.png': true,
 	'assets/images/img_expand.png': true,
 	'assets/images/img_heart.png': true,
+	'assets/images/img_heavy.jpeg': true,
 	'assets/images/img_heavy.png': true,
 	'assets/images/img_magic.png': true,
 	'assets/images/img_refresh.png': true,
 	'assets/images/img_rise.png': true,
 	'assets/images/img_snow.png': true,
 	'assets/images/img_splash.png': true,
+	'assets/images/img_sunny.jpeg': true,
 	'assets/images/img_sunny.png': true,
 	'assets/images/img_tingle.png': true,
 	'assets/images/img_warn.png': true,
 	'assets/images/img_wave.png': true,
+	'assets/images/mediation_1.png': true,
+	'assets/images/mediation_2.webp': true,
+	'assets/images/mediation_3.jpeg': true,
+	'assets/images/mediation_4.jpeg': true,
+	'assets/images/mediation_5.jpeg': true,
+	'assets/images/meditation_10.png': true,
+	'assets/images/meditation_11.png': true,
+	'assets/images/meditation_12.png': true,
+	'assets/images/meditation_13.png': true,
+	'assets/images/meditation_14.png': true,
+	'assets/images/meditation_6.png': true,
+	'assets/images/meditation_7.jpeg': true,
+	'assets/images/meditation_8.png': true,
+	'assets/images/meditation_9.jpeg': true,
+	'assets/images/sleep_1.png': true,
+	'assets/images/sleep_10.png': true,
+	'assets/images/sleep_11.png': true,
+	'assets/images/sleep_12.png': true,
+	'assets/images/sleep_13.jpeg': true,
+	'assets/images/sleep_14.png': true,
+	'assets/images/sleep_2.png': true,
+	'assets/images/sleep_3.png': true,
+	'assets/images/sleep_4.png': true,
+	'assets/images/sleep_5.png': true,
+	'assets/images/sleep_6.png': true,
+	'assets/images/sleep_7.png': true,
+	'assets/images/sleep_8.jpeg': true,
+	'assets/images/sleep_9.png': true,
+	'assets/images/slepp_15.png': true,
 	'assets/icons/ic_Magic.png': true,
 	'assets/icons/ic_app.png': true,
 	'assets/icons/ic_back.svg': true,
@@ -101,18 +174,5 @@ class AppAssets {
 	'assets/icons/ic_warn.png': true,
 	'assets/icons/ic_wave.png': true,
 	'assets/icons/ic_welcome.png': true,
-	'assets/music/Autumn In My Heart.mp3': true,
-	'assets/music/Forever.mp3': true,
-	'assets/music/Fur Elise Various Artists.mp3': true,
-	'assets/music/Miss You I So Much.mp3': true,
-	'assets/music/Mucsic Cover 2.mp3': true,
-	'assets/music/Music Cover 1.mp3': true,
-	'assets/music/Music Cover 3.mp3': true,
-	'assets/music/River Flows In You.mp3': true,
-	'assets/music/Romeo Juliette.mp3': true,
-	'assets/music/Secret Garden.mp3': true,
-	'assets/music/Song From Secret Garden.mp3': true,
-	'assets/music/The Day Dream.mp3': true,
-	'assets/music/forever_1.mp3': true,
 };
 }

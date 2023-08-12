@@ -11,91 +11,126 @@ class MusicController extends BaseController {
   RxList<MusicModel> listMusics = [
     MusicModel(
         title: 'Autumn In My Heart',
-        path: AppAssets.autumnInMyHeart,
+        url:
+            "https://storage.googleapis.com/vibrate/Autumn%20In%20My%20Heart.mp3",
         onTab: () {},
         isSelected: false,
+        size: 1.1,
+        thumb: AppAssets.img1,
         isPremium: false),
     MusicModel(
         title: 'Forever',
-        path: AppAssets.forever,
         onTab: () {},
+        url:
+            "https://storage.googleapis.com/vibrate/Forever.mp3",
         isSelected: false,
+        size: 2.7,
+        thumb: AppAssets.img2,
         isPremium: false),
     MusicModel(
         title: 'Fur Elise Various Artists',
-        path: AppAssets.furEliseVariousArtists,
         onTab: () {},
+        url:
+            "https://storage.googleapis.com/vibrate/Fur%20Elise%20Various%20Artists.mp3",
         isSelected: false,
+        size: 3,
+        thumb: AppAssets.img3,
         isPremium: false),
     MusicModel(
         title: 'Miss You I So Much',
-        path: AppAssets.missYouISoMuch,
         onTab: () {},
+        url:
+            "https://storage.googleapis.com/vibrate/Miss%20You%20I%20So%20Much.mp3",
         isSelected: false,
-        isPremium: false),
+        size: 3.1,
+        thumb: AppAssets.img4,
+        isPremium: true),
     MusicModel(
         title: 'River Flows In You',
-        path: AppAssets.riverFlowsInYou,
         onTab: () {},
+        url:
+            "https://storage.googleapis.com/vibrate/River%20Flows%20In%20You.mp3",
         isSelected: false,
-        isPremium: false),
+        size: 2.9,
+        thumb: AppAssets.img5,
+        isPremium: true),
     MusicModel(
         title: 'Romeo Juliette',
-        path: AppAssets.romeoJuliette,
         onTab: () {},
         isSelected: false,
-        isPremium: false),
+        url:
+            "https://storage.googleapis.com/vibrate/Romeo%20Juliette.mp3",
+        size: 2.2,
+        thumb: AppAssets.img6,
+        isPremium: true),
     MusicModel(
         title: 'Secret Garden',
-        path: AppAssets.secretGarden,
         onTab: () {},
+        url:
+            "https://storage.googleapis.com/vibrate/Secret%20Garden.mp3",
         isSelected: false,
-        isPremium: false),
+        size: 2.7,
+        thumb: AppAssets.img7,
+        isPremium: true),
     MusicModel(
         title: 'Song From Secret Garden',
-        path: AppAssets.songFromSecretGarden,
         onTab: () {},
         isSelected: false,
-        isPremium: false),
+        url:
+            "https://storage.googleapis.com/vibrate/Song%20From%20Secret%20Garden.mp3",
+        size: 3.3,
+        thumb: AppAssets.img8,
+        isPremium: true),
     MusicModel(
         title: 'The Day Dream',
-        path: AppAssets.theDayDream,
         onTab: () {},
         isSelected: false,
+        url:
+            "https://storage.googleapis.com/vibrate/The%20Day%20Dream.mp3",
+        size: 3.1,
+        thumb: AppAssets.img9,
         isPremium: true),
     MusicModel(
         title: 'Music Premium 1',
-        path: AppAssets.musicCover1,
         onTab: () {},
         isSelected: false,
+        url:
+            "https://storage.googleapis.com/vibrate/Music%20Cover%201.mp3",
+        size: 8.9,
         isPremium: true),
     MusicModel(
         title: 'Music Premium 2',
-        path: AppAssets.mucsicCover2,
         onTab: () {},
         isSelected: false,
+        url:
+            "https://storage.googleapis.com/vibrate/Mucsic%20Cover%202.mp3",
+        size: 3.7,
+        thumb: AppAssets.img10,
         isPremium: true),
     MusicModel(
         title: 'Music Premium 3',
-        path: AppAssets.musicCover3,
         onTab: () {},
+        url:
+            "https://storage.googleapis.com/vibrate/Music%20Cover%203.mp3",
         isSelected: false,
+        size: 5.2,
+        thumb: AppAssets.img11,
         isPremium: true),
   ].obs;
 
   InterstitialAd? interstitialAd;
   RewardedAd? rewardedAd;
   Rx<BannerAd> bannerAd = BannerAd(
-      size: AdSize(width: 0, height: 0),
-      adUnitId: AdManager.bannerAdUnitId,
-      listener: BannerAdListener(),
-      request: AdRequest())
+          size: AdSize(width: 0, height: 0),
+          adUnitId: AdManager.bannerAdUnitId,
+          listener: BannerAdListener(),
+          request: AdRequest())
       .obs;
   Rx<BannerAd> bannerAdBottom = BannerAd(
-      size: AdSize(width: 0, height: 0),
-      adUnitId: AdManager.bannerAdUnitId,
-      listener: BannerAdListener(),
-      request: AdRequest())
+          size: AdSize(width: 0, height: 0),
+          adUnitId: AdManager.bannerAdUnitId,
+          listener: BannerAdListener(),
+          request: AdRequest())
       .obs;
   RxBool isLoadAds = false.obs;
   RxBool isLoadAdsBottom = false.obs;

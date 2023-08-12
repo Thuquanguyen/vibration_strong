@@ -66,6 +66,7 @@ dev_dependencies:
   in_app_purchase: ^3.1.7
   intl:
   recase: ^4.1.0
+  flutter_staggered_grid_view:
   flutter_keyboard_visibility: ^5.1.0
   path_provider:
 #  store_redirect: ^2.0.0
@@ -93,7 +94,6 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/fonts/
-    - assets/music/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
