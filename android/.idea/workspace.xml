@@ -4,104 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb596859-1f01-4823-b38b-49f2b7b795e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_10.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_11.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_12.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_6.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_9.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_heavy.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/img_sunny.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/mediation_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/mediation_2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/mediation_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/mediation_4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/mediation_5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/meditation_9.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_13.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/sleep_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../assets/images/slepp_15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/meditate/meditate_binding.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/meditate/meditate_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/meditate/meditate_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/screen/meditate/meditate_binding.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/screen/meditate/meditate_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/screen/meditate/meditate_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/screen/sleep/sleep_binding.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/screen/sleep/sleep_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/screen/sleep/sleep_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/sleep/sleep_binding.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/sleep/sleep_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lib/sleep/sleep_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="72526b0a-58fc-4270-93b5-16e8b40ecc8e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Autumn In My Heart.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Forever.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Fur Elise Various Artists.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Miss You I So Much.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Mucsic Cover 2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Music Cover 1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Music Cover 3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/River Flows In You.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Romeo Juliette.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Secret Garden.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/Song From Secret Garden.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/The Day Dream.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/music/forever_1.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lib/ad_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ad_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/audio_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/audio_player.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/core/assets/app_assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/assets/app_assets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/core/model/music_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/model/music_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/routes/app_pages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/routes/app_pages.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/routes/app_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/routes/app_routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/screen/main/main_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/main/main_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/screen/music/music_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/music/music_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/screen/music/music_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/screen/music/music_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib/widget/item_music.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/widget/item_music.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scripts/imagew.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../scripts/imagew.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/macbook/.android/avd/Pixel_4_API_31.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[5e8ea054]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -116,10 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2Tsdkwdg4HNGiSZbWWcVHIlSLXd" />
+  <component name="ProjectId" id="2U6IMB7pARbimKW5Mw06CnbnhwL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -134,7 +46,7 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "memory.settings.postsync.last.time.stamp": "1691835943942",
+    "memory.settings.postsync.last.time.stamp": "1692253587229",
     "show.migrate.to.gradle.popup": "false"
   },
   "keyToStringList": {
@@ -206,11 +118,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fb596859-1f01-4823-b38b-49f2b7b795e8" name="Changes" comment="" />
-      <created>1691835869181</created>
+      <changelist id="72526b0a-58fc-4270-93b5-16e8b40ecc8e" name="Changes" comment="" />
+      <created>1692253552829</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1691835869181</updated>
+      <updated>1692253552829</updated>
     </task>
     <servers />
   </component>
