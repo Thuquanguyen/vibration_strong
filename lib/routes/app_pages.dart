@@ -8,16 +8,18 @@ import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
 
-import '../meditate/meditate_binding.dart';
-import '../meditate/meditate_screen.dart';
 import '../screen/information/information_binding.dart';
 import '../screen/information/information_screen.dart';
+import '../screen/meditate/meditate_binding.dart';
+import '../screen/meditate/meditate_screen.dart';
 import '../screen/not_vibration/not_vibration_binding.dart';
 import '../screen/not_vibration/not_vibration_screen.dart';
 import '../screen/premium/premium_binding.dart';
 import '../screen/premium/premium_screen.dart';
 import '../screen/privacy/privacy_binding.dart';
 import '../screen/privacy/privacy_screen.dart';
+import '../screen/sleep/sleep_binding.dart';
+import '../screen/sleep/sleep_screen.dart';
 import '../screen/splash/splash_binding.dart';
 import '../screen/splash/splash_screen.dart';
 import '../screen/term/term_binding.dart';
@@ -25,8 +27,6 @@ import '../screen/term/term_screen.dart';
 import '../screen/vibration/vibration_binding.dart';
 import '../screen/welcome/welcome_binding.dart';
 import '../screen/welcome/welcome_screen.dart';
-import '../sleep/sleep_binding.dart';
-import '../sleep/sleep_screen.dart';
 
 part 'app_routes.dart';
 

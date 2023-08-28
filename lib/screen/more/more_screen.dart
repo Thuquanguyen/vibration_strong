@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/core/theme/app_colors.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -18,18 +19,36 @@ class MoreScreen extends GetView<MoreController> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      safeArea: true,
-      paddingTop: Dimens.topSafeAreaPadding,
-      title: '',
-      appBarHeight: 0,
-      color: Colors.cyanAccent.withOpacity(0.05),
-      titleStyle: TextStyles.title1,
       hideBackButton: true,
+      appBarHeight: 0,
+      hideAppBar: true,
+      paddingTop: 0,
+      color: AppColors.customColor9,
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 0.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (!IAPConnection().isAvailable)
+            SizedBox(
+              height: Dimens.topSafeAreaPadding + 10,
+            ),
+            if (!IAPConnection().isAvailable)
+              Obx(() => Visibility(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    width: controller.bannerAd.value.size.width.toDouble(),
+                    height:
+                    controller.bannerAd.value.size.height.toDouble(),
+                    child: AdWidget(ad: controller.bannerAd.value),
+                  ),
+                ),
+                visible: controller.isLoadAds.value,
+              )),
+            SizedBox(
+              height: Dimens.topSafeAreaPadding + 10,
+            ),
             if (!IAPConnection().isAvailable) const PremiumWidget(),
             SizedBox(
               height: 30.h,
@@ -46,19 +65,6 @@ class MoreScreen extends GetView<MoreController> {
               moreController: controller,
             )),
             Spacer(),
-            if (!IAPConnection().isAvailable)
-              Obx(() => Visibility(
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    width: controller.bannerAd.value.size.width.toDouble(),
-                    height:
-                    controller.bannerAd.value.size.height.toDouble(),
-                    child: AdWidget(ad: controller.bannerAd.value),
-                  ),
-                ),
-                visible: controller.isLoadAds.value,
-              )),
           ],
         ),
       ),

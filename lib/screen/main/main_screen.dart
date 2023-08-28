@@ -14,6 +14,7 @@ class MainScreen extends GetView<MainController> {
       onWillPop: () async => false,
       child: Obx(() => Scaffold(
           drawerEdgeDragWidth: 0,
+          backgroundColor: Colors.transparent,
           body: IndexedStack(
             children: controller.menuPages,
             index: controller.navMenuIndex(),
@@ -24,8 +25,8 @@ class MainScreen extends GetView<MainController> {
             onTap: (index) {
               controller.onTapBottomBar(index);
             },
-            backgroundColor: Colors.white,
-            selectedItemColor: Colors.purple,
+            backgroundColor: Colors.red,
+            selectedItemColor: Colors.white,
             unselectedItemColor: Colors.pinkAccent,
             unselectedLabelStyle: const TextStyle(color: Colors.grey),
             selectedLabelStyle: TextStyle(color: Colors.pinkAccent),

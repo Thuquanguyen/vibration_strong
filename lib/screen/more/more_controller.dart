@@ -5,6 +5,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../ad_manager.dart';
 import '../../core/base/base_controller.dart';
+import '../../core/common/app_func.dart';
 import '../../core/model/vibration_model.dart';
 import '../../in_app_manage.dart';
 import '../../routes/app_pages.dart';
@@ -19,13 +20,13 @@ class MoreController extends BaseController {
         iconData: Icons.info_outline,
         title: 'Information',
         onTap: () {
-          goToScreen(InformationScreen());
+          Get.toNamed(Routes.INFORMATION);
         }),
     VibrationModel(
         iconData: Icons.warning,
         title: 'Not Vibrating?',
         onTap: () {
-          goToScreen(NotVibrationScreen());
+          Get.toNamed(Routes.NOT_VIBRATION);
         }),
     VibrationModel(
         iconData: Icons.feedback_outlined,
@@ -78,7 +79,9 @@ class MoreController extends BaseController {
 
   handleReward(){
     interstitialAd?.show();
-    goToScreen(NotVibrationScreen());
+    AppFunc.setTimeout((){
+      Get.toNamed(Routes.NOT_VIBRATION);
+    }, 200);
   }
   void loadBannerAds(){
     BannerAd(

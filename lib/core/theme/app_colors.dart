@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 mixin AppColors {
+  static Color colorDefault = const Color(0xfff5019c);
   static Color primaryColor1 = const Color(0xff503500);
   static Color primaryColor2 = const Color(0xff8A5F07);
   static Color primaryColor3 = const Color(0xffE29A09);

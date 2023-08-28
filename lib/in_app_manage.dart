@@ -20,6 +20,7 @@ class IAPConnection {
   }
 
   bool isAvailable = false;
+  bool hasVibrator = true;
 
   void updateAvailable() {
     isAvailable = true;

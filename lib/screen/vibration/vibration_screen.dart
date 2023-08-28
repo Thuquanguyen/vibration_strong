@@ -8,6 +8,7 @@ import 'package:vibration/vibration.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/common/app_func.dart';
 import '../../core/common/imagehelper.dart';
+import '../../core/theme/app_colors.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
@@ -32,7 +33,7 @@ class VibrationScreen extends GetView<VibrationController> {
       appBarHeight: 0,
       hideAppBar: true,
       paddingTop: 0,
-      color: Colors.white,
+      color: AppColors.customColor9,
       body: ExpandableBottomSheet(
         key: key,
         animationDurationExtend: const Duration(milliseconds: 500),
@@ -40,134 +41,147 @@ class VibrationScreen extends GetView<VibrationController> {
         animationCurveExpand: Curves.bounceOut,
         animationCurveContract: Curves.ease,
         persistentContentHeight: Dimens.screenHeight * 0.32,
-        background: Stack(
+        background: Column(
           children: [
-            Obx(() => ImageHelper.loadFromAsset(
-                controller.backgroundColor.value.isEmpty
-                    ? AppAssets.imgBacground
-                    : controller.backgroundColor.value,
-                width: Dimens.screenWidth,
-                height: Dimens.screenHeight,
-                fit: BoxFit.cover)),
-            Column(
-              children: [
-                SizedBox(
-                  height: Dimens.topSafeAreaPadding,
-                ),
-                if (!IAPConnection().isAvailable)
-                  Obx(() => Visibility(
+            if (!IAPConnection().isAvailable)
+            SizedBox(
+              height: Dimens.topSafeAreaPadding,
+            ),
+            if (!IAPConnection().isAvailable)
+              Obx(() => Visibility(
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Container(
-                        width:
-                        controller.bannerAd.value.size.width.toDouble(),
-                        height: controller.bannerAd.value.size.height
-                            .toDouble(),
+                        width: controller.bannerAd.value.size.width.toDouble(),
+                        height:
+                            controller.bannerAd.value.size.height.toDouble(),
                         child: AdWidget(ad: controller.bannerAd.value),
                       ),
                     ),
                     visible: controller.isLoadAds.value,
                   )),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 100.w),
-                  height: 20.h,
-                  child: Obx(() => ScrollingText(
-                    text: controller.song.value,
-                    textStyle: TextStyles.body1.setColor(Colors.white),
-                  )),
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+            if (!IAPConnection().isAvailable)
+            SizedBox(
+              height: 5.h,
+            ),
+            Expanded(
+                child: Stack(
+              children: [
+                Obx(() => ImageHelper.loadFromAsset(
+                    controller.backgroundColor.value.isEmpty
+                        ? AppAssets.imgDry
+                        : controller.backgroundColor.value,
+                    width: Dimens.screenWidth,
+                    height: Dimens.screenHeight,
+                    fit: BoxFit.cover)),
+                Column(
                   children: [
                     SizedBox(
-                      width: 20.w,
+                      height: IAPConnection().isAvailable ? 55.h : 15.h,
                     ),
-                    Obx(() => Container(
-                      decoration: BoxDecoration(boxShadow: [
-                        BoxShadow(
-                            color: Colors.purple.withOpacity(.15),
-                            offset: const Offset(1, 0),
-                            blurRadius: 20,
-                            spreadRadius: 3)
-                      ]),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(60.r),
-                        child: FillingSlider(
-                            initialValue: controller.initValue.value,
-                            width: 100,
-                            height: 250,
-                            onChange: (a, b) {
-                              controller.progress.value = a;
-                              if ((a == 0.5 || a == 0.85) &&
-                                  (!IAPConnection().isAvailable)) {
-                                controller.rewardedAd
-                                    ?.show(onUserEarnedReward: (a, b) {});
-                              }
-                              Vibration.vibrate(
-                                  amplitude: (a * 255).toInt(),
-                                  repeat: 1,
-                                  intensities: [(a * 100).toInt(), 255]);
-                            },
-                            color: Colors.white,
-                            fillColor: Colors.purple,
-                            child: SizedBox(
-                              width: 100,
-                              height: 220,
-                              child: Column(
-                                children: [
-                                  // if (!IAPConnection().isAvailable)
-                                  //   ImageHelper.loadFromAsset(
-                                  //       AppAssets.icPremium,
-                                  //       width: 12.w,
-                                  //       height: 12.w),
-                                  Text("High",
-                                      style: TextStyles.label2.copyWith(
-                                          color:
-                                          controller.progress.value >=
-                                              0.8
-                                              ? Colors.white
-                                              : Colors.black)),
-                                  const Spacer(),
-                                  // if (!IAPConnection().isAvailable)
-                                  //   ImageHelper.loadFromAsset(
-                                  //       AppAssets.icPremium,
-                                  //       width: 12.w,
-                                  //       height: 12.w),
-                                  Text(
-                                    "Medium",
-                                    style: TextStyles.label2.copyWith(
-                                        color:
-                                        controller.progress.value >= 0.5
-                                            ? Colors.white
-                                            : Colors.black),
-                                  ),
-                                  const Spacer(),
-                                  Text(
-                                    "Low",
-                                    style: TextStyles.label2.copyWith(
-                                        color: controller.progress.value >=
-                                            0.08
-                                            ? Colors.white
-                                            : Colors.black),
-                                  ),
-                                ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        Obx(() => Container(
+                              decoration: BoxDecoration(boxShadow: [
+                                BoxShadow(
+                                    color: Colors.purple.withOpacity(.15),
+                                    offset: const Offset(1, 0),
+                                    blurRadius: 20,
+                                    spreadRadius: 3)
+                              ]),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(60.r),
+                                child: FillingSlider(
+                                    initialValue: controller.initValue.value,
+                                    width: 100,
+                                    height: 250,
+                                    onChange: (a, b) {
+                                      controller.progress.value = a;
+                                      if ((a == 0.5 || a == 0.85) &&
+                                          (!IAPConnection().isAvailable)) {
+                                        Get.toNamed(Routes.PREMIUM);
+                                      }
+                                      Vibration.vibrate(
+                                          amplitude: (a * 255).toInt(),
+                                          repeat: 1,
+                                          intensities: [
+                                            (a * 100).toInt(),
+                                            255
+                                          ]);
+                                    },
+                                    color: Colors.white,
+                                    fillColor: Colors.purple,
+                                    child: SizedBox(
+                                      width: 100,
+                                      height: 220,
+                                      child: Column(
+                                        children: [
+                                          if (!IAPConnection().isAvailable)
+                                            ImageHelper.loadFromAsset(
+                                                AppAssets.icPremium,
+                                                width: 12.w,
+                                                height: 12.w),
+                                          Text("High",
+                                              style: TextStyles.label2.copyWith(
+                                                  color: controller
+                                                              .progress.value >=
+                                                          0.8
+                                                      ? Colors.white
+                                                      : Colors.black)),
+                                          const Spacer(),
+                                          if (!IAPConnection().isAvailable)
+                                            ImageHelper.loadFromAsset(
+                                                AppAssets.icPremium,
+                                                width: 12.w,
+                                                height: 12.w),
+                                          Text(
+                                            "Medium",
+                                            style: TextStyles.label2.copyWith(
+                                                color:
+                                                    controller.progress.value >=
+                                                            0.5
+                                                        ? Colors.white
+                                                        : Colors.black),
+                                          ),
+                                          const Spacer(),
+                                          Text(
+                                            "Low",
+                                            style: TextStyles.label2.copyWith(
+                                                color:
+                                                    controller.progress.value >=
+                                                            0.08
+                                                        ? Colors.white
+                                                        : Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    )),
                               ),
                             )),
-                      ),
-                    )),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                      ],
+                    ),
                     SizedBox(
-                      width: 10.w,
+                      height: 20.h,
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 100.w),
+                      height: 30.h,
+                      child: Obx(() => ScrollingText(
+                            text: controller.song.value,
+                            textStyle: TextStyles.body1,
+                          )),
                     ),
                   ],
-                ),
+                )
               ],
-            ),
+            ))
           ],
         ),
         persistentHeader: Container(
@@ -208,7 +222,8 @@ class VibrationScreen extends GetView<VibrationController> {
               Touchable(
                   onTap: () async {
                     Vibration.cancel();
-                    if (controller.interstitialAd != null && !IAPConnection().isAvailable) {
+                    if (controller.interstitialAd != null &&
+                        !IAPConnection().isAvailable) {
                       controller.interstitialAd!.show();
                     }
                     // AppFunc.showAlertDialog(context,
@@ -226,7 +241,7 @@ class VibrationScreen extends GetView<VibrationController> {
                       ),
                     ),
                     padding:
-                    EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     child: Row(
                       children: [
                         Text(
@@ -251,16 +266,16 @@ class VibrationScreen extends GetView<VibrationController> {
           color: Colors.white,
           width: Dimens.screenWidth,
           child: Obx(() => GridView.builder(
-            padding: EdgeInsets.symmetric(vertical: 10.h),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5),
-            itemBuilder: (_, index) => ItemVibration(
-              vibrationModel: controller.vibrations[index],
-              controller: controller,
-              index: index,
-            ),
-            itemCount: controller.vibrations.length,
-          )),
+                padding: EdgeInsets.symmetric(vertical: 10.h),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5),
+                itemBuilder: (_, index) => ItemVibration(
+                  vibrationModel: controller.vibrations[index],
+                  controller: controller,
+                  index: index,
+                ),
+                itemCount: controller.vibrations.length,
+              )),
         ),
         enableToggle: false,
       ),

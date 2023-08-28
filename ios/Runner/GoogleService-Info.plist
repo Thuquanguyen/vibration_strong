@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>991189395096-cji3k6oo56kitb3h43bjuvftvdiuqkud.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.991189395096-cji3k6oo56kitb3h43bjuvftvdiuqkud</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAQel9oGRGUsO_wxQHeAbdpLf-3KvcN2HI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>991189395096</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>phone.vibration.imessage</string>
+	<key>PROJECT_ID</key>
+	<string>phone-vibration-strong-18203</string>
+	<key>STORAGE_BUCKET</key>
+	<string>phone-vibration-strong-18203.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:991189395096:ios:bf5d1a65be973907f7d2ed</string>
+</dict>
+</plist>

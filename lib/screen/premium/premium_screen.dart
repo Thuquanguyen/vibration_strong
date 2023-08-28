@@ -84,7 +84,7 @@ class PremiumScreen extends GetView<PremiumController> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 100.h),
+            margin: EdgeInsets.only(top: 50.h),
             child: Stack(
               children: [
                 Column(

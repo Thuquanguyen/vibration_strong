@@ -27,24 +27,40 @@ class ItemMusic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Touchable(
-      onTap: () {
-        if (!IAPConnection().isAvailable && index != 0 && index != 1) {
-          AppFunc.showAlertDialogConfirm(context,
-              message:
-                  'You need to be active or watch ads to listen to this song. Do you wanna hear?',
-              callBack: () {
-            Get.back();
-            // Navigator.pop(context);
-            Get.toNamed(Routes.PREMIUM);
-          }, cancelCallback: () {
-            controller?.rewardedAd?.show(onUserEarnedReward: (a, b) {
-              controller?.changeSelectedMusic(index ?? 0);
-              musicModel?.onTab?.call();
-              AudioPlayerVibration().currentUrl = musicModel?.url ??
-                  "https://storage.googleapis.com/vibrate/Autumn%20In%20My%20Heart.mp3";
-              AudioPlayerVibration().playAudio(title: musicModel?.title ?? '');
-            });
-          });
+      onTap: () async {
+        if (!IAPConnection().isAvailable && musicModel?.isPremium == true) {
+          if (AudioPlayerVibration().currentUrl == musicModel?.url &&
+              AudioPlayerVibration().player.playing) {
+            AudioPlayerVibration().currentUrl = '';
+            AudioPlayerVibration().stopAudio();
+            controller?.changeSelectedMusic(index ?? 0);
+          } else {
+            if (IAPConnection().hasVibrator) {
+              AppFunc.showAlertDialogConfirm(context,
+                  message:
+                  'Do you need to unlock or see this ad to hear the music?',
+                  callBack: () {
+                    Get.back();
+                    Get.toNamed(Routes.PREMIUM);
+                  }, cancelCallback: () {
+                    controller?.rewardedAd?.show(onUserEarnedReward: (a, b) {
+                      controller?.changeSelectedMusic(index ?? 0);
+                      musicModel?.onTab?.call();
+                      AudioPlayerVibration().currentUrl = musicModel?.url ??
+                          "https://storage.googleapis.com/vibrate/Autumn%20In%20My%20Heart.mp3";
+                      AudioPlayerVibration()
+                          .playAudio(title: musicModel?.title ?? '');
+                    });
+                  });
+            } else {
+              AppFunc.showAlertDialogConfirm(context,
+                  message: 'Need to unlock to listen to this song?',
+                  callBack: () {
+                    Get.back();
+                    Get.toNamed(Routes.PREMIUM);
+                  });
+            }
+          }
         } else {
           controller?.changeSelectedMusic(index ?? 0);
           musicModel?.onTab?.call();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
 import '../../utils/app_scaffold.dart';
@@ -17,19 +18,46 @@ class MusicScreen extends GetView<MusicController> {
     return AppScaffold(
         paddingTop: 0,
         hideBackButton: true,
+        appBarHeight: 0,
+        hideAppBar: true,
         body: Container(
           color: Colors.white,
           child: Column(
             children: [
+                SizedBox(
+                  height: Dimens.topSafeAreaPadding,
+                ),
+              if (!IAPConnection().isAvailable)
+                Obx(() => Visibility(
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Container(
+                      width: controller.bannerAd.value.size.width.toDouble(),
+                      height:
+                      controller.bannerAd.value.size.height.toDouble(),
+                      child: AdWidget(ad: controller.bannerAd.value),
+                    ),
+                  ),
+                  visible: controller.isLoadAds.value,
+                )),
+              if (!IAPConnection().isAvailable)
+                SizedBox(
+                  height: 5.h,
+                ),
               Container(
                 width: Get.width,
                 margin: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 20.h,
+                    ),
                     Text(
                       "Soundscapes",
-                      style: TextStyles.title1.setHeight(0.1).setColor(Colors.black),
+                      style: TextStyles.title1
+                          .setHeight(0.1)
+                          .setColor(Colors.black),
                     ),
                     const SizedBox(
                       height: 6,
@@ -43,7 +71,9 @@ class MusicScreen extends GetView<MusicController> {
                     ),
                     Text(
                       "Out in nature",
-                      style: TextStyles.body3.setHeight(0.7).setColor(Colors.black),
+                      style: TextStyles.body3
+                          .setHeight(0.7)
+                          .setColor(Colors.black),
                     ),
                     const SizedBox(
                       height: 10,
@@ -64,20 +94,6 @@ class MusicScreen extends GetView<MusicController> {
                         itemCount: controller.listMusics.length,
                         crossAxisCount: 2,
                       ))),
-              if (!IAPConnection().isAvailable)
-                Obx(() => Visibility(
-                      visible: controller.isLoadAdsBottom.value,
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: SizedBox(
-                          width: controller.bannerAdBottom.value.size.width
-                              .toDouble(),
-                          height: controller.bannerAdBottom.value.size.height
-                              .toDouble(),
-                          child: AdWidget(ad: controller.bannerAdBottom.value),
-                        ),
-                      ),
-                    ))
             ],
           ),
         ));

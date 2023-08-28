@@ -29,21 +29,26 @@ class ItemVibration extends StatelessWidget {
         if (!IAPConnection().isAvailable && vibrationModel?.isPremium == true) {
           Vibration.cancel();
           AppFunc.showAlertDialogConfirm(context,
-              message: 'Would you like to try this vibration once?',
+              message: 'Need to unlock to enable the new vibration mode',
               callBack: () {
-                goToScreen(PremiumScreen());
-              },
-              cancelCallback: () {
-                controller?.rewardedAd?.show(onUserEarnedReward: (a,b){
-                  vibrationModel?.onTap?.call();
-                });
-              });
+            Get.back();
+            Get.toNamed(Routes.PREMIUM);
+          });
         } else {
-          if ((index ?? 0) > 4 && (index ?? 0) < 10 && !IAPConnection().isAvailable){
-            controller?.interstitialAd?.show();
-            controller?.changeSelected(index ?? 0);
-            Vibration.cancel();
-            vibrationModel?.onTap?.call();
+          if ((index ?? 0) > 4 &&
+              (index ?? 0) < 10 &&
+              !IAPConnection().isAvailable &&
+              IAPConnection().hasVibrator) {
+            AppFunc.showAlertDialogConfirm(context,
+                message:
+                    'You need to see this ad to get the new vibration mode.',
+                cancelCallback: () {
+              controller?.rewardedAd?.show(onUserEarnedReward: (a, b) {
+                controller?.changeSelected(index ?? 0);
+                Vibration.cancel();
+                vibrationModel?.onTap?.call();
+              });
+            });
           } else {
             controller?.changeSelected(index ?? 0);
             Vibration.cancel();

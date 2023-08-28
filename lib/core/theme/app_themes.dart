@@ -59,7 +59,6 @@ class AppThemes {
       ),
       colorScheme: ColorScheme.light(
         primary: AppColors.customColor21,
-        primaryVariant: AppColors.customColor27,
       ),
       dividerTheme: DividerThemeData(color: AppColors.customColor23),
       snackBarTheme:
@@ -95,7 +94,6 @@ class AppThemes {
       ),
       colorScheme: ColorScheme.dark(
         primary: AppColors.customColor21,
-        primaryVariant: AppColors.customColor27,
       ),
       dividerTheme: DividerThemeData(color: AppColors.customColor20),
       snackBarTheme:

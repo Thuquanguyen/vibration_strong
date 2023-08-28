@@ -103,7 +103,10 @@ class AppFunc {
       {String? message, String? title}) {
     // set up the button
     Widget okButton = TextButton(
-      child: Text("OKay!",style: TextStyles.defaultStyle,),
+      child: Text(
+        "OKay!",
+        style: TextStyles.defaultStyle,
+      ),
       onPressed: () {
         Get.back();
       },
@@ -128,20 +131,26 @@ class AppFunc {
   }
 
   static showAlertDialogConfirm(
-      BuildContext context, {
-        String? message,
-        Function()? callBack,
-        Function()? cancelCallback,
-      }) {
+    BuildContext context, {
+    String? message,
+    Function()? callBack,
+    Function()? cancelCallback,
+  }) {
     // set up the button
     Widget okButton = TextButton(
-      child:  Text("Unlock now",style: TextStyles.defaultStyle,),
+      child: Text(
+        "Unlock now",
+        style: TextStyles.defaultStyle,
+      ),
       onPressed: callBack,
     );
 
     // set up the button
     Widget viewAds = TextButton(
-      child:  Text("View ads",style: TextStyles.defaultStyle,),
+      child: Text(
+        "View ads",
+        style: TextStyles.defaultStyle,
+      ),
       onPressed: () {
         Get.back();
         cancelCallback?.call();
@@ -149,7 +158,10 @@ class AppFunc {
     );
 
     Widget cancelButton = TextButton(
-      child: Text("Cancel",style: TextStyles.defaultStyle,),
+      child: Text(
+        "Cancel",
+        style: TextStyles.defaultStyle,
+      ),
       onPressed: () {
         Get.back();
       },
@@ -159,7 +171,9 @@ class AppFunc {
     AlertDialog alert = AlertDialog(
       title: const Text("Hi! I'm Vibration"),
       content: Text(message ?? ''),
-      actions: [okButton, viewAds ,cancelButton],
+      actions: cancelCallback == null
+          ? [okButton, cancelButton]
+          : callBack == null ? [viewAds, cancelButton] : [okButton, viewAds, cancelButton],
     );
 
     // show the dialog

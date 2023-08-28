@@ -31,6 +31,12 @@ class NotVibrationScreen extends GetView<NotVibrationController> {
                           '\n\n5. Enter Settings>More settings>Backup & reset>Restore(Reset) all settings. Don`t worry, no data or media will be deleted.'
                           '\n\nIf above measures are not effective, please seek help from our service center.'),
                 )),
+            Container(
+              height: 1,
+              width: Get.width,
+              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              color: Colors.grey.withOpacity(0.5),
+            ),
             if (!IAPConnection().isAvailable)
               Obx(() => Visibility(
                 child: Align(
@@ -45,7 +51,7 @@ class NotVibrationScreen extends GetView<NotVibrationController> {
                 visible: controller.isLoadAds.value,
               )),
             SizedBox(
-              height: 20.h,
+              height: 10.h,
             )
           ],
         ));

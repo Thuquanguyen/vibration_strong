@@ -12,6 +12,7 @@ import 'core/common/app_func.dart';
 import 'core/service/notification_service.dart';
 import 'core/theme/app_themes.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 void main() {
   void initApp() async {
@@ -21,8 +22,18 @@ void main() {
     FlutterNativeSplash.remove();
     NotificationService().initializePlatformNotifications();
     AppFunc.initLoadingStyle();
+    // If the system can show an authorization request dialog
+    if (await AppTrackingTransparency.trackingAuthorizationStatus ==
+        TrackingStatus.notDetermined) {
+      // Show a custom explainer dialog before the system dialog
+      // Wait for dialog popping animation
+      await Future.delayed(const Duration(milliseconds: 200));
+      // Request system's tracking authorization dialog
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    }
     MobileAds.instance.initialize();
   }
+
 
   runZonedGuarded(() async {
     initApp();

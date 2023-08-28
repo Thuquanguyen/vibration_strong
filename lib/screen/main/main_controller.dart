@@ -3,15 +3,16 @@ import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
-import '../../meditate/meditate_screen.dart';
-import '../../sleep/sleep_screen.dart';
+import '../../in_app_manage.dart';
+import '../meditate/meditate_screen.dart';
 import '../more/more_screen.dart';
+import '../sleep/sleep_screen.dart';
 import 'component/tab_nav.dart';
 import 'keep_alive_page.dart';
 import 'model/screen_model.dart';
+import 'package:vibration/vibration.dart';
 
 class MainController extends BaseController {
-
   final screensData = <ScreenModel>[
     ScreenModel(
         name: "Massage",
@@ -48,14 +49,13 @@ class MainController extends BaseController {
   List<Widget>? _pages;
 
   // get navigators.
-  List<Widget> get menuPages => _pages ??= screensData.map((e) => TabNav(e)).toList();
+  List<Widget> get menuPages =>
+      _pages ??= screensData.map((e) => TabNav(e)).toList();
 
   // widget stuffs.
   List<BottomNavigationBarItem> get navMenuItems => screensData.map((e) {
-    return BottomNavigationBarItem(
-        icon: Icon(e.icon),
-        label: e.name);
-  }).toList();
+        return BottomNavigationBarItem(icon: Icon(e.icon), label: e.name);
+      }).toList();
 
   void onTapBottomBar(int index) {
     navMenuIndex.value = index;
@@ -63,5 +63,19 @@ class MainController extends BaseController {
 
   void popToRoot() {
     (currentScreenModel.screen as KeepAlivePage).popToRoot();
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    checkVibration();
+    super.onInit();
+  }
+
+  void checkVibration() async {
+    bool hasVibrator = await Vibration.hasVibrator() ?? false;
+    print("hasVibrator = ${hasVibrator}");
+    IAPConnection().hasVibrator = hasVibrator;
+    print("IAPConnection().hasVibrator = ${IAPConnection().hasVibrator}");
   }
 }
