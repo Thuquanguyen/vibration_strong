@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/screen/language/language_binding.dart';
+import 'package:flutter_app_vibrator_strong/screen/language/language_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/main/main_binding.dart';
 import 'package:flutter_app_vibrator_strong/screen/main/main_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/more/more_binding.dart';
@@ -53,7 +55,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VIBRATION,
-      page: () => const VibrationScreen(),
+      page: () =>  VibrationScreen(),
       binding: VibrationBinding(),
     ),
     GetPage(
@@ -100,6 +102,11 @@ class AppPages {
       name: _Paths.MORE,
       page: () => const MoreScreen(),
       binding: MoreBinding(),
+    ),
+    GetPage(
+      name: _Paths.LANGUAGE,
+      page: () => const LanguageScreen(),
+      binding: LanguageBinding(),
     ),
   ];
 }

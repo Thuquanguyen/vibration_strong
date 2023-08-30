@@ -59,18 +59,8 @@
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8724493546060841~9809502529" />
-<!--            android:value="ca-app-pub-3940256099942544~3347511713" />-->
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-        <provider
-            android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider[facebook_app_id]"
-            android:exported="false" />
+        <meta-data android:name="applovin.sdk.key"
+            android:value="hSsRnQ4Zzz5gbaWTKEftwpHxlJucNOpkZeBvEPnogcgWAAB9ERVIFHNG_WHhJTkHCh5AyFcRTF6kN711_nKE3d"/>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

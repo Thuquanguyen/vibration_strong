@@ -5,7 +5,6 @@ import '../../in_app_manage.dart';
 import '../../utils/app_scaffold.dart';
 import '../../utils/app_utils.dart';
 import 'not_vibration_controller.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class NotVibrationScreen extends GetView<NotVibrationController> {
   const NotVibrationScreen({Key? key}) : super(key: key);
@@ -31,28 +30,6 @@ class NotVibrationScreen extends GetView<NotVibrationController> {
                           '\n\n5. Enter Settings>More settings>Backup & reset>Restore(Reset) all settings. Don`t worry, no data or media will be deleted.'
                           '\n\nIf above measures are not effective, please seek help from our service center.'),
                 )),
-            Container(
-              height: 1,
-              width: Get.width,
-              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-              color: Colors.grey.withOpacity(0.5),
-            ),
-            if (!IAPConnection().isAvailable)
-              Obx(() => Visibility(
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    width: controller.bannerAd.value.size.width.toDouble(),
-                    height:
-                    controller.bannerAd.value.size.height.toDouble(),
-                    child: AdWidget(ad: controller.bannerAd.value),
-                  ),
-                ),
-                visible: controller.isLoadAds.value,
-              )),
-            SizedBox(
-              height: 10.h,
-            )
           ],
         ));
   }

@@ -9,6 +9,7 @@
         <option name="gradleHome" value="/usr/local/Cellar/gradle/8.1.1/libexec" />
         <option name="modules">
           <set>
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/applovin_max-3.2.0/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/audio_session-0.1.16/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/cloud_firestore-4.8.2/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/cloud_functions-4.3.3/android" />
@@ -24,7 +25,6 @@
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_statusbarcolor_ns-0.4.0/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/fluttertoast-8.2.2/android" />
-            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/google_mobile_ads-2.4.0/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/google_sign_in_android-6.1.18/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/image_picker_android-0.8.7+3/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/in_app_purchase_android-0.3.0+9/android" />

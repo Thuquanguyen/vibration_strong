@@ -1,5 +1,8 @@
 class AppAssets {
 	//Assets in images
+	static const String banner1 = 'assets/images/banner_1.jpeg';
+	static const String banner2 = 'assets/images/banner_2.jpeg';
+	static const String banner3 = 'assets/images/banner_3.jpeg';
 	static const String icApp = 'assets/images/ic_app.png';
 	static const String icCrow = 'assets/images/ic_crow.png';
 	static const String icPhone = 'assets/images/ic_phone.png';
@@ -20,23 +23,23 @@ class AppAssets {
 	static const String imgBacground = 'assets/images/img_bacground.png';
 	static const String imgBgPremium = 'assets/images/img_bg_premium.png';
 	static const String imgBreeze = 'assets/images/img_breeze.png';
-	static const String imgDotted = 'assets/images/img_dotted.png';
+	static const String imgDotted = 'assets/images/img_dotted.jpeg';
 	static const String imgDramatic = 'assets/images/img_dramatic.png';
 	static const String imgDry = 'assets/images/img_dry.png';
 	static const String imgExpand = 'assets/images/img_expand.png';
-	static const String imgHeart = 'assets/images/img_heart.png';
+	static const String imgFil = 'assets/images/img_fil.jpeg';
+	static const String imgHeart = 'assets/images/img_heart.jpeg';
 	static const String imgHeavy = 'assets/images/img_heavy.jpeg';
 	static const String imgHeavy1 = 'assets/images/img_heavy.png';
-	static const String imgMagic = 'assets/images/img_magic.png';
+	static const String imgMagic = 'assets/images/img_magic.jpeg';
 	static const String imgRefresh = 'assets/images/img_refresh.png';
 	static const String imgRise = 'assets/images/img_rise.png';
 	static const String imgSnow = 'assets/images/img_snow.png';
 	static const String imgSplash = 'assets/images/img_splash.png';
-	static const String imgSunny = 'assets/images/img_sunny.jpeg';
-	static const String imgSunny1 = 'assets/images/img_sunny.png';
+	static const String imgSunny = 'assets/images/img_sunny.png';
 	static const String imgTingle = 'assets/images/img_tingle.png';
 	static const String imgWarn = 'assets/images/img_warn.png';
-	static const String imgWave = 'assets/images/img_wave.png';
+	static const String imgWave = 'assets/images/img_wave.jpeg';
 	static const String mediation1 = 'assets/images/mediation_1.png';
 	static const String mediation2 = 'assets/images/mediation_2.webp';
 	static const String mediation3 = 'assets/images/mediation_3.jpeg';
@@ -89,6 +92,9 @@ class AppAssets {
 	static const String icWelcome = 'assets/icons/ic_welcome.png';
 
   static const Map<String, bool> hasAsset = {
+	'assets/images/banner_1.jpeg': true,
+	'assets/images/banner_2.jpeg': true,
+	'assets/images/banner_3.jpeg': true,
 	'assets/images/ic_app.png': true,
 	'assets/images/ic_crow.png': true,
 	'assets/images/ic_phone.png': true,
@@ -109,23 +115,23 @@ class AppAssets {
 	'assets/images/img_bacground.png': true,
 	'assets/images/img_bg_premium.png': true,
 	'assets/images/img_breeze.png': true,
-	'assets/images/img_dotted.png': true,
+	'assets/images/img_dotted.jpeg': true,
 	'assets/images/img_dramatic.png': true,
 	'assets/images/img_dry.png': true,
 	'assets/images/img_expand.png': true,
-	'assets/images/img_heart.png': true,
+	'assets/images/img_fil.jpeg': true,
+	'assets/images/img_heart.jpeg': true,
 	'assets/images/img_heavy.jpeg': true,
 	'assets/images/img_heavy.png': true,
-	'assets/images/img_magic.png': true,
+	'assets/images/img_magic.jpeg': true,
 	'assets/images/img_refresh.png': true,
 	'assets/images/img_rise.png': true,
 	'assets/images/img_snow.png': true,
 	'assets/images/img_splash.png': true,
-	'assets/images/img_sunny.jpeg': true,
 	'assets/images/img_sunny.png': true,
 	'assets/images/img_tingle.png': true,
 	'assets/images/img_warn.png': true,
-	'assets/images/img_wave.png': true,
+	'assets/images/img_wave.jpeg': true,
 	'assets/images/mediation_1.png': true,
 	'assets/images/mediation_2.webp': true,
 	'assets/images/mediation_3.jpeg': true,

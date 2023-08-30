@@ -12,26 +12,45 @@ class MainScreen extends GetView<MainController> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Obx(() => Scaffold(
+      child: Obx(
+        () => Scaffold(
           drawerEdgeDragWidth: 0,
-          backgroundColor: Colors.transparent,
           body: IndexedStack(
             children: controller.menuPages,
             index: controller.navMenuIndex(),
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: controller.navMenuIndex(),
-            items: controller.navMenuItems,
-            onTap: (index) {
-              controller.onTapBottomBar(index);
-            },
-            backgroundColor: Colors.red,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.pinkAccent,
-            unselectedLabelStyle: const TextStyle(color: Colors.grey),
-            selectedLabelStyle: TextStyle(color: Colors.pinkAccent),
-            showUnselectedLabels: true,
-          ))),
+          bottomNavigationBar: Container(
+              decoration: BoxDecoration(
+                color: Colors.redAccent.withOpacity(0.6),
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20)),
+                // boxShadow: const [
+                //   BoxShadow(
+                //       color: Colors.black38, spreadRadius: 0, blurRadius: 3),
+                // ],
+              ),
+              child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20.0),
+                  ),
+                  child: BottomNavigationBar(
+                    currentIndex: controller.navMenuIndex(),
+                    items: controller.navMenuItems,
+                    onTap: (index) {
+                      controller.onTapBottomBar(index);
+                    },
+                    backgroundColor: Colors.transparent,
+                    selectedItemColor: Colors.white,
+                    unselectedItemColor: Colors.white70,
+                    unselectedLabelStyle: const TextStyle(color: Colors.grey),
+                    selectedLabelStyle:
+                    const TextStyle(color: Colors.grey),
+                    showUnselectedLabels: true,
+                  ))),
+        ),
+      ),
     );
   }
 }

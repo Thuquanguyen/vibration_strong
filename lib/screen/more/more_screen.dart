@@ -11,7 +11,6 @@ import '../../utils/app_scaffold.dart';
 import '../../widget/item_menu.dart';
 import '../../widget/premium_widget.dart';
 import 'more_controller.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class MoreScreen extends GetView<MoreController> {
   const MoreScreen({Key? key}) : super(key: key);
@@ -29,25 +28,8 @@ class MoreScreen extends GetView<MoreController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (!IAPConnection().isAvailable)
             SizedBox(
-              height: Dimens.topSafeAreaPadding + 10,
-            ),
-            if (!IAPConnection().isAvailable)
-              Obx(() => Visibility(
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    width: controller.bannerAd.value.size.width.toDouble(),
-                    height:
-                    controller.bannerAd.value.size.height.toDouble(),
-                    child: AdWidget(ad: controller.bannerAd.value),
-                  ),
-                ),
-                visible: controller.isLoadAds.value,
-              )),
-            SizedBox(
-              height: Dimens.topSafeAreaPadding + 10,
+              height: Dimens.topSafeAreaPadding + 50,
             ),
             if (!IAPConnection().isAvailable) const PremiumWidget(),
             SizedBox(
@@ -61,9 +43,9 @@ class MoreScreen extends GetView<MoreController> {
               height: 10.h,
             ),
             ...controller.vibrations.map((e) => ItemMenu(
-              vibrationModel: e,
-              moreController: controller,
-            )),
+                  vibrationModel: e,
+                  moreController: controller,
+                )),
             Spacer(),
           ],
         ),

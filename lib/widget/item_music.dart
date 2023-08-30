@@ -35,31 +35,7 @@ class ItemMusic extends StatelessWidget {
             AudioPlayerVibration().stopAudio();
             controller?.changeSelectedMusic(index ?? 0);
           } else {
-            if (IAPConnection().hasVibrator) {
-              AppFunc.showAlertDialogConfirm(context,
-                  message:
-                  'Do you need to unlock or see this ad to hear the music?',
-                  callBack: () {
-                    Get.back();
-                    Get.toNamed(Routes.PREMIUM);
-                  }, cancelCallback: () {
-                    controller?.rewardedAd?.show(onUserEarnedReward: (a, b) {
-                      controller?.changeSelectedMusic(index ?? 0);
-                      musicModel?.onTab?.call();
-                      AudioPlayerVibration().currentUrl = musicModel?.url ??
-                          "https://storage.googleapis.com/vibrate/Autumn%20In%20My%20Heart.mp3";
-                      AudioPlayerVibration()
-                          .playAudio(title: musicModel?.title ?? '');
-                    });
-                  });
-            } else {
-              AppFunc.showAlertDialogConfirm(context,
-                  message: 'Need to unlock to listen to this song?',
-                  callBack: () {
-                    Get.back();
-                    Get.toNamed(Routes.PREMIUM);
-                  });
-            }
+            Get.toNamed(Routes.PREMIUM);
           }
         } else {
           controller?.changeSelectedMusic(index ?? 0);

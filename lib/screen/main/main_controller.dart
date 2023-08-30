@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/ad_manager.dart';
+import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
@@ -11,12 +13,13 @@ import 'component/tab_nav.dart';
 import 'keep_alive_page.dart';
 import 'model/screen_model.dart';
 import 'package:vibration/vibration.dart';
+import 'package:applovin_max/applovin_max.dart';
 
-class MainController extends BaseController {
+class MainController extends BaseController with WidgetsBindingObserver{
   final screensData = <ScreenModel>[
     ScreenModel(
         name: "Massage",
-        screen: KeepAlivePage(child: const VibrationScreen()),
+        screen: KeepAlivePage(child:  VibrationScreen()),
         navKey: 1,
         icon: Icons.vibration),
     ScreenModel(
@@ -69,7 +72,30 @@ class MainController extends BaseController {
   void onInit() {
     // TODO: implement onInit
     checkVibration();
+    ApplovinManager().initAppOpen();
+    WidgetsBinding.instance.addObserver(this);
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        print("show show shwo");
+        await ApplovinManager().showAdIfReady();
+        break;
+
+      case AppLifecycleState.paused:
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.detached:
+        break;
+    }
   }
 
   void checkVibration() async {

@@ -14,6 +14,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "applovin_max",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/applovin_max-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "archive",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/archive-3.3.7",
       "packageUri": "lib/",
@@ -452,12 +458,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "google_mobile_ads",
-      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/google_mobile_ads-2.4.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "google_sign_in",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/google_sign_in-6.1.4",
       "packageUri": "lib/",
@@ -674,6 +674,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pageview_widget_indicator",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/pageview_widget_indicator-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
@@ -820,6 +826,12 @@
     {
       "name": "rxdart",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/rxdart-0.27.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "scrollable_positioned_list",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/scrollable_positioned_list-0.2.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -1034,12 +1046,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "visibility_detector",
-      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/visibility_detector-0.3.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "web",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/web-0.1.4-beta",
       "packageUri": "lib/",
@@ -1082,7 +1088,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-08-21T06:22:46.871790Z",
+  "generated": "2023-08-30T14:44:44.725907Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

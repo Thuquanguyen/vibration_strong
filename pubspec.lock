@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.4"
+  applovin_max:
+    dependency: "direct dev"
+    description:
+      name: applovin_max
+      sha256: c08341cee8f0b8567f744d5d022e87249189c348ca2cae419eb571cbf5539820
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
   archive:
     dependency: transitive
     description:
@@ -592,14 +600,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.1"
-  google_mobile_ads:
-    dependency: "direct dev"
-    description:
-      name: google_mobile_ads
-      sha256: "010b7a7a81b5c8f760eb2e5add8eaa7e429b4982dc8c8e465b709611f52887be"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.0"
   google_sign_in:
     dependency: "direct dev"
     description:
@@ -888,6 +888,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  pageview_widget_indicator:
+    dependency: "direct dev"
+    description:
+      name: pageview_widget_indicator
+      sha256: f76a5180d8c90a2aaac4b502a8fddca5d1bc0bbf11bb87dcd5bb8bf1a955f400
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   path:
     dependency: transitive
     description:
@@ -1088,6 +1096,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.27.7"
+  scrollable_positioned_list:
+    dependency: transitive
+    description:
+      name: scrollable_positioned_list
+      sha256: "9566352ab9ba05794ee6c8864f154afba5d36c5637d0e3e32c615ba4ceb92772"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3"
   share_plus:
     dependency: "direct dev"
     description:
@@ -1365,14 +1381,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.1"
-  visibility_detector:
-    dependency: transitive
-    description:
-      name: visibility_detector
-      sha256: "15c54a459ec2c17b4705450483f3d5a2858e733aee893dcee9d75fd04814940d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.3"
   web:
     dependency: transitive
     description:

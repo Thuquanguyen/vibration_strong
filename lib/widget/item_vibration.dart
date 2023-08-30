@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/ad_manager.dart';
+import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vibration/vibration.dart';
@@ -14,6 +16,7 @@ import '../screen/premium/premium_screen.dart';
 import '../screen/vibration/vibration_controller.dart';
 import '../utils/app_utils.dart';
 import '../utils/touchable.dart';
+import 'package:applovin_max/applovin_max.dart';
 
 class ItemVibration extends StatelessWidget {
   ItemVibration({Key? key, this.vibrationModel, this.controller, this.index})
@@ -25,35 +28,24 @@ class ItemVibration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Touchable(
-      onTap: () {
-        if (!IAPConnection().isAvailable && vibrationModel?.isPremium == true) {
+      onTap: () async {
+        if (vibrationModel?.isPremium == true && !IAPConnection().isAvailable) {
           Vibration.cancel();
-          AppFunc.showAlertDialogConfirm(context,
-              message: 'Need to unlock to enable the new vibration mode',
-              callBack: () {
-            Get.back();
-            Get.toNamed(Routes.PREMIUM);
-          });
+          Get.toNamed(Routes.PREMIUM);
         } else {
-          if ((index ?? 0) > 4 &&
-              (index ?? 0) < 10 &&
-              !IAPConnection().isAvailable &&
-              IAPConnection().hasVibrator) {
-            AppFunc.showAlertDialogConfirm(context,
-                message:
-                    'You need to see this ad to get the new vibration mode.',
-                cancelCallback: () {
-              controller?.rewardedAd?.show(onUserEarnedReward: (a, b) {
-                controller?.changeSelected(index ?? 0);
-                Vibration.cancel();
-                vibrationModel?.onTap?.call();
-              });
-            });
-          } else {
-            controller?.changeSelected(index ?? 0);
-            Vibration.cancel();
-            vibrationModel?.onTap?.call();
+          if ((index ?? 0) % 2 == 0 && !IAPConnection().isAvailable) {
+            bool isReady = (await AppLovinMAX.isInterstitialReady(
+                AdManager.interstitialAdUnitId))!;
+            print("show show show = $isReady");
+            if (isReady) {
+              AppLovinMAX.showInterstitial(AdManager.interstitialAdUnitId);
+            } else {
+              AppLovinMAX.loadInterstitial(AdManager.interstitialAdUnitId);
+            }
           }
+          controller?.changeSelected(index ?? 0);
+          Vibration.cancel();
+          vibrationModel?.onTap?.call();
         }
       },
       child: Container(

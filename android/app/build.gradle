@@ -68,7 +68,6 @@ android {
         }
     }
 
-    namespace 'com.flutter.flutter_app_vibrator_strong'
 }
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

@@ -16,11 +16,7 @@ class ItemMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Touchable(
       onTap: () {
-        if (vibrationModel?.title == 'Not Vibrating?' && !IAPConnection().isAvailable) {
-          moreController?.handleReward();
-        } else {
-          vibrationModel?.onTap?.call();
-        }
+        vibrationModel?.onTap?.call();
       },
       child: Container(
         decoration: BoxDecoration(

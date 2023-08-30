@@ -17,6 +17,7 @@ abstract class Routes {
   static const NOT_VIBRATION = _Paths.NOT_VIBRATION;
   static const MEDITATE = _Paths.MEDITATE;
   static const SLEEP = _Paths.SLEEP;
+  static const LANGUAGE = _Paths.LANGUAGE;
 }
 
 abstract class _Paths {
@@ -34,4 +35,5 @@ abstract class _Paths {
   static const NOT_VIBRATION = '/NOT_VIBRATION';
   static const MEDITATE = '/MEDITATE';
   static const SLEEP = '/SLEEP';
+  static const LANGUAGE = '/LANGUAGE';
 }

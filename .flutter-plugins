@@ -1,5 +1,6 @@
 # This is a generated file; do not edit or check into version control.
 app_tracking_transparency=/Users/macbook/.pub-cache/hosted/pub.dev/app_tracking_transparency-2.0.4/
+applovin_max=/Users/macbook/.pub-cache/hosted/pub.dev/applovin_max-3.2.0/
 audio_session=/Users/macbook/.pub-cache/hosted/pub.dev/audio_session-0.1.16/
 cloud_firestore=/Users/macbook/.pub-cache/hosted/pub.dev/cloud_firestore-4.8.2/
 cloud_firestore_web=/Users/macbook/.pub-cache/hosted/pub.dev/cloud_firestore_web-3.6.2/
@@ -26,7 +27,6 @@ flutter_plugin_android_lifecycle=/Users/macbook/.pub-cache/hosted/pub.dev/flutte
 flutter_share_me=/Users/macbook/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/
 flutter_statusbarcolor_ns=/Users/macbook/.pub-cache/hosted/pub.dev/flutter_statusbarcolor_ns-0.4.0/
 fluttertoast=/Users/macbook/.pub-cache/hosted/pub.dev/fluttertoast-8.2.2/
-google_mobile_ads=/Users/macbook/.pub-cache/hosted/pub.dev/google_mobile_ads-2.4.0/
 google_sign_in=/Users/macbook/.pub-cache/hosted/pub.dev/google_sign_in-6.1.4/
 google_sign_in_android=/Users/macbook/.pub-cache/hosted/pub.dev/google_sign_in_android-6.1.18/
 google_sign_in_ios=/Users/macbook/.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.2/

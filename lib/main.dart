@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_app_vibrator_strong/ad_manager.dart';
+import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/routes/app_pages.dart';
@@ -11,10 +12,11 @@ import 'core/binding/root_binding.dart';
 import 'core/common/app_func.dart';
 import 'core/service/notification_service.dart';
 import 'core/theme/app_themes.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:applovin_max/applovin_max.dart';
 
 void main() {
+
   void initApp() async {
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -31,12 +33,11 @@ void main() {
       // Request system's tracking authorization dialog
       await AppTrackingTransparency.requestTrackingAuthorization();
     }
-    MobileAds.instance.initialize();
   }
-
 
   runZonedGuarded(() async {
     initApp();
+    ApplovinManager().initializePlugin();
     initLoadingStyle();
     runApp(
       ScreenUtilInit(
@@ -54,9 +55,11 @@ void main() {
                 getPages: AppPages.routes,
                 locale: const Locale('en'),
                 theme: AppThemes().general(),
-                builder: EasyLoading.init(builder: (context,child) => MediaQuery(
-                    data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-                    child: child!))),
+                builder: EasyLoading.init(
+                    builder: (context, child) => MediaQuery(
+                        data:
+                            MediaQuery.of(context).copyWith(textScaleFactor: 1),
+                        child: child!))),
           );
         },
       ),

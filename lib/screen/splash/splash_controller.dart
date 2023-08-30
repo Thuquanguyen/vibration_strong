@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:flutter_app_vibrator_strong/core/common/app_func.dart';
 import 'package:flutter_app_vibrator_strong/routes/app_pages.dart';
@@ -13,6 +14,7 @@ import '../../in_app_manage.dart';
 import 'package:intl/intl.dart';
 
 class SplashController extends BaseController {
+  RxBool isWelcome = false.obs;
 
   @override
   void onInit() {
@@ -24,6 +26,7 @@ class SplashController extends BaseController {
       Dimens.init(Get.context!);
     }
     Vibration.vibrate(duration: 1000, amplitude: 255);
+    ApplovinManager().initAppOpen();
     checkDirect();
     super.onInit();
   }
@@ -31,11 +34,15 @@ class SplashController extends BaseController {
   void checkDirect() async {
     DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
     String? data = await SharePreferencesHelper.getString(KEY_PURCHASE);
-    bool isWelcome = await SharePreferencesHelper.getBool(KEY_WELCOME) ?? false;
+    isWelcome.value =
+        await SharePreferencesHelper.getBool(KEY_WELCOME) ?? false;
     if (data == null || data == 'null') {
       AppFunc.setTimeout(() {
         IAPConnection().isAvailable = false;
-        Get.offAndToNamed(!isWelcome ? Routes.WELCOME : Routes.MAIN);
+        if (!isWelcome.value && ApplovinManager().isInitialized) {
+          ApplovinManager().showAdIfReady();
+        }
+        Get.offAndToNamed(!isWelcome.value ? Routes.LANGUAGE : Routes.MAIN);
       }, 3000);
     } else {
       DateTime dateTime = dateFormat.parse(data ?? '');
