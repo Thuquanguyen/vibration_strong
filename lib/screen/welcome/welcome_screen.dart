@@ -10,7 +10,9 @@ import 'package:get/get.dart';
 import 'package:pageview_widget_indicator/pageview_widget_indicator.dart';
 import '../../ad_manager.dart';
 import '../../applovin_manager.dart';
+import '../../constants.dart';
 import '../../core/assets/app_assets.dart';
+import '../../core/local_storage/localStorageHelper.dart';
 import '../../language/i18n.g.dart';
 import 'welcome_controller.dart';
 import 'package:applovin_max/applovin_max.dart';
@@ -149,6 +151,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                         if (isReady) {
                           AppLovinMAX.showInterstitial(
                               AdManager.interstitialAdUnitId);
+                          SharePreferencesHelper.setBool(KEY_WELCOME, true);
                           Get.offAllNamed(Routes.MAIN);
                         } else {
                           AppLovinMAX.loadInterstitial(
@@ -205,6 +208,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                           if (isReady) {
                             AppLovinMAX.showInterstitial(
                                 AdManager.interstitialAdUnitId);
+                            SharePreferencesHelper.setBool(KEY_WELCOME, true);
                             Get.offAllNamed(Routes.MAIN);
                           } else {
                             AppLovinMAX.loadInterstitial(

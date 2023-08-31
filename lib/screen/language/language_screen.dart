@@ -48,6 +48,7 @@ class LanguageScreen extends GetView<LanguageController> {
                     padding: EdgeInsets.only(top: 10),
                     child: Touchable(
                         onTap: () {
+
                           Get.toNamed(Routes.WELCOME);
                         },
                         child: Row(

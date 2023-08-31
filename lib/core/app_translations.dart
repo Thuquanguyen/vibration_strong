@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/core/local_storage/localStorageHelper.dart';
 import 'package:flutter_app_vibrator_strong/language/id_ID.dart';
 import 'package:flutter_app_vibrator_strong/language/ja_JP.dart';
 import 'package:flutter_app_vibrator_strong/language/ko_KR.dart';
@@ -28,25 +29,16 @@ class AppTranslations extends Translations {
 
   static String localeStr = 'en';
 
-  static void init() {
-    final box = GetStorage();
-    localeStr = box.read("LANGUAGE") ?? localeStr;
-    if (localeStr == null) {
-      String lang = Platform.localeName;
-      Get.updateLocale(
-          Locale(lang.split('_')[0].isNotEmpty ? lang.split('_')[0] : 'en'));
-      box.write("LANGUAGE",
-          lang.split('_')[0].isNotEmpty ? lang.split('_')[0] : 'en');
-    } else {
-      Get.updateLocale(Locale(localeStr));
-      Get.rootController.reactive;
-    }
+  static void init() async{
+    localeStr = await SharePreferencesHelper.getString("LANGUAGE") ?? localeStr;
+    print("localeStr ===  = ${localeStr}");
+    Get.updateLocale(Locale(localeStr));
+    Get.rootController.reactive;
   }
 
   static void updateLocale({required String langCode}) {
-    final box = GetStorage();
     Get.updateLocale(Locale(langCode));
-    box.write("LANGUAGE", langCode);
+    SharePreferencesHelper.setString("LANGUAGE", langCode);
     Get.rootController.reactive;
   }
 

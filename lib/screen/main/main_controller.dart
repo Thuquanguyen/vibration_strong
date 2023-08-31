@@ -3,6 +3,7 @@ import 'package:flutter_app_vibrator_strong/ad_manager.dart';
 import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
+import 'package:flutter_app_vibrator_strong/routes/app_pages.dart';
 import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
@@ -88,8 +89,9 @@ class MainController extends BaseController with WidgetsBindingObserver{
   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.resumed:
-        print("show show shwo");
-        await ApplovinManager().showAdIfReady();
+        if(Get.previousRoute != Routes.LANGUAGE){
+          await ApplovinManager().showAdIfReady();
+        }
         break;
 
       case AppLifecycleState.paused:
