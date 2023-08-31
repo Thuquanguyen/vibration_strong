@@ -7,6 +7,7 @@ import '../../applovin_manager.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../language/i18n.g.dart';
 import '../../utils/app_scaffold.dart';
 import '../../widget/item_music.dart';
 import 'sleep_controller.dart';
@@ -38,7 +39,7 @@ class SleepScreen extends GetView<SleepController> {
                     height: 20.h,
                   ),
                   Text(
-                    "Sleep Music",
+                    I18n().sleepMusicStr.tr,
                     style: TextStyles.title1
                         .setHeight(0.1)
                         .setColor(Colors.black),
@@ -47,7 +48,7 @@ class SleepScreen extends GetView<SleepController> {
                     height: 10,
                   ),
                   Text(
-                      "Sleep music is calm and relaxing music that helps you doze off and sleep effectively.",
+                      I18n().subSleepMusicStr.tr,
                       style: TextStyles.defaultStyle
                           .setTextSize(11)
                           .setColor(Colors.grey)),

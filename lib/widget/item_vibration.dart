@@ -11,6 +11,7 @@ import '../core/common/imagehelper.dart';
 import '../core/model/vibration_model.dart';
 import '../core/theme/textstyles.dart';
 import '../in_app_manage.dart';
+import '../language/i18n.g.dart';
 import '../routes/app_pages.dart';
 import '../screen/premium/premium_screen.dart';
 import '../screen/vibration/vibration_controller.dart';
@@ -105,7 +106,7 @@ class ItemVibration extends StatelessWidget {
               height: 4.h,
             ),
             Text(
-              vibrationModel?.title ?? 'Sunny',
+              vibrationModel?.title ?? I18n().sunnyStr.tr,
               style: TextStyles.defaultStyle.setTextSize(10.sp),
             )
           ],

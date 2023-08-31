@@ -3,6 +3,7 @@ import 'package:flutter_app_vibrator_strong/ad_manager.dart';
 import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/theme/app_colors.dart';
 import 'package:flutter_app_vibrator_strong/core/theme/textstyles.dart';
+import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
 import 'package:flutter_app_vibrator_strong/routes/app_pages.dart';
 import 'package:flutter_app_vibrator_strong/utils/app_scaffold.dart';
 import 'package:flutter_app_vibrator_strong/utils/touchable.dart';
@@ -40,7 +41,7 @@ class LanguageScreen extends GetView<LanguageController> {
                 children: [
                   Expanded(
                       child: Text(
-                    "Select language",
+                    I18n().selectLanguageStr.tr,
                     style: TextStyles.title2.setColor(Colors.white),
                   )),
                   Padding(
@@ -60,7 +61,7 @@ class LanguageScreen extends GetView<LanguageController> {
                               width: 3,
                             ),
                             Text(
-                              "DONE",
+                              I18n().doneStr.tr.toUpperCase(),
                               style: TextStyles.body3.setColor(Colors.white),
                             )
                           ],

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
 import 'package:get/get.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:intl/intl.dart';
@@ -17,13 +18,13 @@ class PremiumController extends BaseController {
   final iapConnection = IAPConnection.instance;
   List<PurchasableProduct> products = [];
   RxList<PackageModel> packages = <PackageModel>[
-    PackageModel(title: 'Popular', unit: 'Weekly', price: '69.000 đ'),
+    PackageModel(title: I18n().popularStr.tr, unit: I18n().weeklyStr.tr, price: '69.000 đ'),
     PackageModel(
-        title: 'Extra\n10 Days',
-        unit: 'Monthly',
+        title: I18n().extra10DayStr.tr,
+        unit: I18n().monthlyStr.tr,
         price: '289.000 đ',
         isSelected: true),
-    PackageModel(title: 'Best Price', unit: 'Lifetime', price: '579.000 đ'),
+    PackageModel(title: I18n().bestPriceStr.tr, unit: I18n().lifetimeStr.tr, price: '579.000 đ'),
   ].obs;
   RxInt indexSelected = 1.obs;
 
@@ -90,11 +91,11 @@ class PremiumController extends BaseController {
 
   getTitle(){
     if(indexSelected.value == 0){
-      return 'You have 1 week to use the advanced features of the app.';
+      return I18n().noteWeekly1Str.tr;
     }else if(indexSelected.value == 1){
-      return 'You have 1 month to use the advanced features of the app. In addition, you get an additional 10 days discount.';
+      return I18n().noteMonthly1Str.tr;
     }
-    return 'You get to use advanced features for life.';
+    return I18n().noteLifetime1Str.tr;
   }
 
   Future<void> buy() async {

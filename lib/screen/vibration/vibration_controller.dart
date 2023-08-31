@@ -13,10 +13,12 @@ import '../../core/service/notification_service.dart';
 import '../../in_app_manage.dart';
 import 'package:applovin_max/applovin_max.dart';
 
+import '../../language/i18n.g.dart';
+
 class VibrationController extends BaseController {
   RxList<VibrationModel> vibrations = <VibrationModel>[
     VibrationModel(
-        title: 'Sunny',
+        title: I18n().sunnyStr.tr,
         icon: AppAssets.icSunny,
         onTap: () {
           Vibration.vibrate(
@@ -28,7 +30,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Heart',
+        title: I18n().heartStr.tr,
         icon: AppAssets.icHeart,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -58,7 +60,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Wave',
+        title: I18n().waveStr.tr,
         icon: AppAssets.icWave,
         onTap: () {
           Vibration.vibrate(
@@ -70,7 +72,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Magic',
+        title: I18n().magicStr.tr,
         icon: AppAssets.icMagic,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -98,7 +100,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Dry',
+        title: I18n().dryStr.tr,
         icon: AppAssets.icDry,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -128,7 +130,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Expand',
+        title: I18n().expandStr.tr,
         icon: AppAssets.icExpand,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -158,7 +160,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Refresh',
+        title: I18n().refreshStr.tr,
         icon: AppAssets.icRefresh,
         onTap: () {
           Vibration.vibrate(
@@ -170,7 +172,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Breeze',
+        title: I18n().breezeStr.tr,
         icon: AppAssets.icBreeze,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -204,7 +206,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Rise',
+        title: I18n().riseStr.tr,
         icon: AppAssets.icRise,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -262,7 +264,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Dramatic',
+        title: I18n().dramaticStr.tr,
         icon: AppAssets.icDrammatic,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -295,7 +297,7 @@ class VibrationController extends BaseController {
         isPremium: false,
         isSelected: false),
     VibrationModel(
-        title: 'Heavy',
+        title: I18n().heavyStr.tr,
         icon: AppAssets.icHeavy,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -327,7 +329,7 @@ class VibrationController extends BaseController {
         isPremium: true,
         isSelected: false),
     VibrationModel(
-        title: 'Snow',
+        title: I18n().snowStr.tr,
         icon: AppAssets.icSnow,
         onTap: () {
           Vibration.vibrate(
@@ -339,7 +341,7 @@ class VibrationController extends BaseController {
         isPremium: true,
         isSelected: false),
     VibrationModel(
-        title: 'Tingle',
+        title: I18n().tingleStr.tr,
         icon: AppAssets.icTingle,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -383,7 +385,7 @@ class VibrationController extends BaseController {
         isPremium: true,
         isSelected: false),
     VibrationModel(
-        title: 'Dotted',
+        title: I18n().dottedStr.tr,
         icon: AppAssets.icDotted,
         onTap: () {
           Vibration.vibrate(pattern: [
@@ -413,7 +415,7 @@ class VibrationController extends BaseController {
         isPremium: true,
         isSelected: false),
     VibrationModel(
-        title: 'Warn',
+        title: I18n().warnStr.tr,
         icon: AppAssets.icWarn,
         onTap: () {
           Vibration.vibrate(
@@ -444,7 +446,7 @@ class VibrationController extends BaseController {
     AppAssets.imgWarn,
   ];
 
-  RxString song = 'Sing my song'.obs;
+  RxString song = I18n().singMySongStr.tr.obs;
   RxString backgroundColor = ''.obs;
 
   RxDouble progress = 0.0.obs;
@@ -453,11 +455,11 @@ class VibrationController extends BaseController {
 
   getTitle(double value) {
     if (value < 500) {
-      return 'Low';
+      return I18n().lowStr.tr;
     } else if (value >= 500 && value < 1000) {
-      return 'Medium';
+      return I18n().mediumStr.tr;
     } else {
-      return 'High';
+      return I18n().highStr.tr;
     }
   }
 

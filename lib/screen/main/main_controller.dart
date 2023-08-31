@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/ad_manager.dart';
 import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
+import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
 import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
@@ -18,27 +19,27 @@ import 'package:applovin_max/applovin_max.dart';
 class MainController extends BaseController with WidgetsBindingObserver{
   final screensData = <ScreenModel>[
     ScreenModel(
-        name: "Massage",
+        name: I18n().massageStr.tr,
         screen: KeepAlivePage(child:  VibrationScreen()),
         navKey: 1,
         icon: Icons.vibration),
     ScreenModel(
-        name: "Sounds",
+        name: I18n().soundsStr.tr,
         screen: KeepAlivePage(child: const MusicScreen()),
         navKey: 2,
         icon: Icons.queue_music_outlined),
     ScreenModel(
-        name: "Meditate",
+        name: I18n().meditateStr.tr,
         screen: KeepAlivePage(child: const MeditateScreen()),
         navKey: 3,
         icon: Icons.ac_unit),
     ScreenModel(
-        name: "Sleep",
+        name: I18n().sleepStr.tr,
         screen: KeepAlivePage(child: const SleepScreen()),
         navKey: 4,
         icon: Icons.adb_rounded),
     ScreenModel(
-        name: "More",
+        name: I18n().moreStr.tr,
         screen: KeepAlivePage(child: const MoreScreen()),
         navKey: 5,
         icon: Icons.more_horiz),

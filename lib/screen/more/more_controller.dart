@@ -8,6 +8,7 @@ import '../../core/base/base_controller.dart';
 import '../../core/common/app_func.dart';
 import '../../core/model/vibration_model.dart';
 import '../../in_app_manage.dart';
+import '../../language/i18n.g.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/app_utils.dart';
 import '../information/information_screen.dart';
@@ -17,19 +18,19 @@ class MoreController extends BaseController {
   List<VibrationModel> vibrations = [
     VibrationModel(
         iconData: Icons.info_outline,
-        title: 'Information',
+        title: I18n().informationStr.tr,
         onTap: () {
           Get.toNamed(Routes.INFORMATION);
         }),
     VibrationModel(
         iconData: Icons.warning,
-        title: 'Not Vibrating?',
+        title: I18n().notVibrationStr.tr,
         onTap: () {
           Get.toNamed(Routes.NOT_VIBRATION);
         }),
     VibrationModel(
         iconData: Icons.feedback_outlined,
-        title: 'Send feedback',
+        title: I18n().sendFeedbackStr.tr,
         onTap: () async {
           final Email email = Email(
             body: 'Email body',
@@ -42,13 +43,13 @@ class MoreController extends BaseController {
         }),
     VibrationModel(
         iconData: Icons.restore,
-        title: 'Restore Purchase',
+        title: I18n().restorePurchaseStr.tr,
         onTap: () {
           IAPConnection.instance.restorePurchases();
         }),
     VibrationModel(
         iconData: Icons.share,
-        title: 'Share',
+        title: I18n().shareStr.tr,
         onTap: () {
           Share.share(
               "https://play.google.com/store/apps/details?id=com.flutter.flutter_app_vibrator_strong&hl=en&gl=US",

@@ -8,6 +8,7 @@ import 'package:flutter_app_vibrator_strong/utils/app_loading.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'core/app_translations.dart';
 import 'core/binding/root_binding.dart';
 import 'core/common/app_func.dart';
 import 'core/service/notification_service.dart';
@@ -37,6 +38,7 @@ void main() {
 
   runZonedGuarded(() async {
     initApp();
+    AppTranslations.init();
     ApplovinManager().initializePlugin();
     initLoadingStyle();
     runApp(
@@ -53,7 +55,8 @@ void main() {
                 initialRoute: AppPages.INITIAL,
                 initialBinding: RootBinding(),
                 getPages: AppPages.routes,
-                locale: const Locale('en'),
+                locale: AppTranslations.fallbackLocale,
+                translations: AppTranslations(),
                 theme: AppThemes().general(),
                 builder: EasyLoading.init(
                     builder: (context, child) => MediaQuery(

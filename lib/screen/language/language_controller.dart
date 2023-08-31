@@ -7,23 +7,22 @@ import 'package:applovin_max/applovin_max.dart';
 
 class LanguageController extends BaseController {
   RxList<LanguageModel> listLanguages = <LanguageModel>[
-    LanguageModel(name: "English", subName: "English", isChecked: true),
-    LanguageModel(name: "Russian", subName: ""),
-    LanguageModel(name: "Brazil", subName: ""),
-    LanguageModel(name: "German", subName: ""),
-    LanguageModel(name: "Portuguese", subName: ""),
-    LanguageModel(name: "Spanish", subName: ""),
-    LanguageModel(name: "French", subName: ""),
-    LanguageModel(name: "Hindi", subName: ""),
-    LanguageModel(name: "Korean", subName: ""),
-    LanguageModel(name: "Japanese", subName: ""),
-    LanguageModel(name: "Italia", subName: ""),
-    LanguageModel(name: "Marathi", subName: ""),
-    LanguageModel(name: "Urdu", subName: ""),
-    LanguageModel(name: "Thailand", subName: ""),
-    LanguageModel(name: "Indonesian", subName: ""),
+    LanguageModel(
+        key: "en", name: "English", subName: "English", isChecked: true),
+    LanguageModel(key: "ru", name: "Russian", subName: "Русский"),
+    LanguageModel(key: "de", name: "German", subName: "Deutsch"),
+    LanguageModel(key: "pt", name: "Portuguese", subName: "Português"),
+    LanguageModel(key: "es", name: "Spanish", subName: "Española"),
+    LanguageModel(key: "fr", name: "French", subName: "Français"),
+    LanguageModel(key: "hi", name: "Hindi", subName: "हिंदी"),
+    LanguageModel(key: "ko", name: "Korean", subName: "한국인"),
+    LanguageModel(key: "ja", name: "Japanese", subName: "日本語"),
+    LanguageModel(key: "mr", name: "Marathi", subName: "मराठी"),
+    LanguageModel(key: "th", name: "Thailand", subName: "ประเทศไทย"),
+    LanguageModel(key: "id", name: "Indonesian", subName: "bahasa Indonesia"),
   ].obs;
-  Rx<MaxNativeAdViewController> nativeAdViewController = MaxNativeAdViewController().obs;
+  Rx<MaxNativeAdViewController> nativeAdViewController =
+      MaxNativeAdViewController().obs;
   static double kMediaViewAspectRatio = 16 / 9;
 
   RxString statusText = "".obs;

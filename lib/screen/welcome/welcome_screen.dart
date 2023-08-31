@@ -11,6 +11,7 @@ import 'package:pageview_widget_indicator/pageview_widget_indicator.dart';
 import '../../ad_manager.dart';
 import '../../applovin_manager.dart';
 import '../../core/assets/app_assets.dart';
+import '../../language/i18n.g.dart';
 import 'welcome_controller.dart';
 import 'package:applovin_max/applovin_max.dart';
 
@@ -48,7 +49,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.black),
                     child: MaxNativeAdView(
-                      adUnitId: AdManager.nativeAppSmallAdUnitId,
+                      adUnitId: AdManager.nativeAppAdUnitId,
                       controller: controller.nativeAdViewController.value,
                       listener: NativeAdListener(onAdLoadedCallback: (ad) {
                         ApplovinManager().logStatus(
@@ -162,7 +163,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                             border: Border.all(color: Colors.white, width: 1)),
                         child: Center(
                           child: Text(
-                            "Skip",
+                            I18n().skipStr.tr,
                             style: TextStyles.label1
                                 .setColor(Colors.white)
                                 .setHeight(1),
@@ -219,7 +220,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                             border: Border.all(color: Colors.white, width: 1)),
                         child: Center(
                           child: Text(
-                            controller.pageIndex.value != 2 ? "Next" : 'Done',
+                            controller.pageIndex.value != 2 ? I18n().nextStr.tr : I18n().doneStr.tr,
                             style: TextStyles.label1
                                 .setColor(Colors.white)
                                 .setHeight(1),

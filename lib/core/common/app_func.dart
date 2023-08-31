@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -139,7 +140,7 @@ class AppFunc {
     // set up the button
     Widget okButton = TextButton(
       child: Text(
-        "Unlock now",
+        I18n().unlockNowStr.tr,
         style: TextStyles.defaultStyle,
       ),
       onPressed: callBack,
@@ -148,7 +149,7 @@ class AppFunc {
     // set up the button
     Widget viewAds = TextButton(
       child: Text(
-        "View ads",
+        I18n().viewAdsStr.tr,
         style: TextStyles.defaultStyle,
       ),
       onPressed: () {
@@ -159,7 +160,7 @@ class AppFunc {
 
     Widget cancelButton = TextButton(
       child: Text(
-        "Cancel",
+        I18n().cancelStr.tr,
         style: TextStyles.defaultStyle,
       ),
       onPressed: () {
@@ -169,7 +170,7 @@ class AppFunc {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: const Text("Hi! I'm Vibration"),
+      title: Text(I18n().hiIAmStr.tr),
       content: Text(message ?? ''),
       actions: cancelCallback == null
           ? [okButton, cancelButton]

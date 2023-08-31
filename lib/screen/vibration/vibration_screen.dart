@@ -14,6 +14,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../language/i18n.g.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/app_scaffold.dart';
 import '../../utils/scrolling_text.dart';
@@ -98,7 +99,7 @@ class VibrationScreen extends GetView<VibrationController> {
                                             AppAssets.icPremium,
                                             width: 12.w,
                                             height: 12.w),
-                                      Text("High",
+                                      Text(I18n().highStr.tr,
                                           style: TextStyles.label2.copyWith(
                                               color:
                                                   controller.progress.value >=
@@ -112,7 +113,7 @@ class VibrationScreen extends GetView<VibrationController> {
                                             width: 12.w,
                                             height: 12.w),
                                       Text(
-                                        "Medium",
+                                        I18n().mediumStr.tr,
                                         style: TextStyles.label2.copyWith(
                                             color:
                                                 controller.progress.value >= 0.5
@@ -121,7 +122,7 @@ class VibrationScreen extends GetView<VibrationController> {
                                       ),
                                       const Spacer(),
                                       Text(
-                                        "Low",
+                                        I18n().lowStr.tr,
                                         style: TextStyles.label2.copyWith(
                                             color: controller.progress.value >=
                                                     0.08
@@ -172,7 +173,7 @@ class VibrationScreen extends GetView<VibrationController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Vibration Patterns',
+                      I18n().vibrationPatternsStr.tr,
                       style: TextStyles.body3
                           .setTextSize(12.sp)
                           .setColor(Colors.black)
@@ -182,7 +183,7 @@ class VibrationScreen extends GetView<VibrationController> {
                       height: 2.h,
                     ),
                     Text(
-                      'Please choose vibration patterns below',
+                      I18n().subVibrationPatternsStr.tr,
                       style: TextStyles.defaultStyle.setTextSize(10.sp),
                     )
                   ],
@@ -213,7 +214,7 @@ class VibrationScreen extends GetView<VibrationController> {
                     child: Row(
                       children: [
                         Text(
-                          "Stop Vibration",
+                          I18n().stopVibrationStr.tr,
                           style: TextStyles.defaultStyle.setTextSize(12.sp),
                         ),
                       ],

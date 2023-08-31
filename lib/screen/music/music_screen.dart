@@ -7,6 +7,7 @@ import '../../applovin_manager.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../language/i18n.g.dart';
 import '../../utils/app_scaffold.dart';
 import '../../widget/item_music.dart';
 import 'music_controller.dart';
@@ -39,7 +40,7 @@ class MusicScreen extends GetView<MusicController> {
                       height: 20.h,
                     ),
                     Text(
-                      "Soundscapes",
+                      I18n().soundscapesStr.tr,
                       style: TextStyles.title1
                           .setHeight(0.1)
                           .setColor(Colors.black),
@@ -47,7 +48,7 @@ class MusicScreen extends GetView<MusicController> {
                     const SizedBox(
                       height: 6,
                     ),
-                    Text("The environment expressed through sound.",
+                    Text(I18n().subSoundscapesStr.tr,
                         style: TextStyles.defaultStyle
                             .setTextSize(11)
                             .setColor(Colors.grey)),
@@ -55,7 +56,7 @@ class MusicScreen extends GetView<MusicController> {
                       height: 12,
                     ),
                     Text(
-                      "Out in nature",
+                      I18n().subSubSoundscapesStr.tr,
                       style: TextStyles.body3
                           .setHeight(0.7)
                           .setColor(Colors.black),

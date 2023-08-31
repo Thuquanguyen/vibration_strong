@@ -5,16 +5,18 @@ import '../../ad_manager.dart';
 import '../../core/base/base_controller.dart';
 import 'package:applovin_max/applovin_max.dart';
 
+import '../../language/i18n.g.dart';
+
 class WelcomeController extends BaseController {
   RxBool firstScreen = true.obs;
   Rx<PageController> controller = PageController().obs;
   RxInt pageIndex = 0.obs;
-  List<String> listTitle = ["Vibration!", "Relax", "Meditation"];
+  List<String> listTitle = [I18n().vibrationStr.tr, I18n().relaxStr.tr, I18n().meditationStr.tr];
 
   List<String> listSubTitle = [
-    "Just perfect vibrator app massager with customizable strong vibration.",
-    "The best and most relaxing massager",
-    "Relax more with meditation music"
+    I18n().bannerTitle1Str.tr,
+    I18n().bannerTitle2Str.tr,
+    I18n().bannerTitle3Str.tr
   ];
 
   Rx<MaxNativeAdViewController> nativeAdViewController =

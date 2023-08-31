@@ -11,6 +11,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../language/i18n.g.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/app_scaffold.dart';
 import '../../utils/touchable.dart';
@@ -57,7 +58,7 @@ class PremiumScreen extends GetView<PremiumController> {
                           controller.restore();
                         },
                         child: Text(
-                          (IAPConnection().isAvailable) ? 'Restore' : '',
+                          (IAPConnection().isAvailable) ? I18n().restorePurchaseStr.tr : '',
                           style: TextStyles.defaultStyle
                               .setColor(Colors.white.withOpacity(1)),
                         ),
@@ -107,7 +108,7 @@ class PremiumScreen extends GetView<PremiumController> {
                           child: Column(
                             children: [
                               Text(
-                                'Experience VibratorZen\nat full power',
+                                I18n().titlePurchaseStr.tr,
                                 textAlign: TextAlign.center,
                                 style: TextStyles.defaultStyle.bold
                                     .setHeight(1.2)
@@ -119,13 +120,13 @@ class PremiumScreen extends GetView<PremiumController> {
                               ),
                               Obx(() => _item(controller.getTitle())),
                               _item(
-                                  'All power levels and he 15 custom massages'),
+                                  I18n().note2Str.tr),
                               _item(
-                                  'Improve your sleep with a relaxing music library to doze off to'),
+                                  I18n().note3Str.tr),
                               _item(
-                                  'Access the meditation library for inner peace, boosted brainpower and much more!'),
-                              _item('Vibration in Background'),
-                              _item('All Ads disabled'),
+                                  I18n().note4Str.tr),
+                              _item(I18n().note5Str.tr),
+                              _item(I18n().note6Str.tr),
                               SizedBox(
                                 height: 20.h,
                               ),
@@ -190,8 +191,8 @@ class PremiumScreen extends GetView<PremiumController> {
                                                       controller.indexSelected
                                                           .value ==
                                                           1
-                                                          ? 'Get Promotion and Subscribe'
-                                                          : 'Subscribe',
+                                                          ? I18n().getPromotionAndSubscribeStr.tr
+                                                          : I18n().subscribeStr.tr,
                                                       style: TextStyles.body2
                                                           .bold
                                                           .setTextSize(16.sp)
@@ -204,7 +205,7 @@ class PremiumScreen extends GetView<PremiumController> {
                                           height: 20.h,
                                         ),
                                         Text(
-                                          'Premium user has unlimited access to the services. Payment will be charged to Google Account at purchase confirmation.',
+                                          I18n().bottomPurchaseStr.tr,
                                           textAlign: TextAlign.center,
                                           style: TextStyles.defaultStyle
                                               .setTextSize(10.sp),
@@ -221,7 +222,7 @@ class PremiumScreen extends GetView<PremiumController> {
                                                       controller.openPrivacy();
                                                     },
                                                     child: Text(
-                                                      "Privacy Policy",
+                                                      I18n().privacyPolicyStr.tr,
                                                       style: TextStyles
                                                           .defaultStyle
                                                           .setColor(
@@ -241,7 +242,7 @@ class PremiumScreen extends GetView<PremiumController> {
                                                         controller.openTerm();
                                                       },
                                                       child: Text(
-                                                        "Terms & Conditions",
+                                                        I18n().termConditionsStr.tr,
                                                         style: TextStyles
                                                             .defaultStyle
                                                             .setColor(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vibrator_strong/core/app_translations.dart';
 import 'package:flutter_app_vibrator_strong/core/model/language_model.dart';
 import 'package:flutter_app_vibrator_strong/screen/language/language_controller.dart';
 import 'package:flutter_app_vibrator_strong/utils/touchable.dart';
@@ -17,6 +18,7 @@ class ItemLanguage extends StatelessWidget {
     return Touchable(
         onTap: () {
           controller?.changeLanguage(index ?? 0);
+          AppTranslations.updateLocale(langCode: languageModel?.key ?? 'en');
         },
         child: Container(
           decoration: BoxDecoration(

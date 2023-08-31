@@ -127,3 +127,5 @@ flutter_native_splash:
   image: assets/images/img_splash.png
   color: "F4F3F1"
   fill: true
+flutter_intl:
+  enabled: true

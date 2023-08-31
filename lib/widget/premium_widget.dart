@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../core/assets/app_assets.dart';
 import '../core/common/imagehelper.dart';
 import '../core/theme/textstyles.dart';
+import '../language/i18n.g.dart';
 import '../routes/app_pages.dart';
 import '../screen/not_vibration/not_vibration_screen.dart';
 import '../screen/premium/premium_screen.dart';
@@ -55,13 +56,13 @@ class PremiumWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Unlock Premium',
+                    I18n().unlockPremiumStr.tr,
                     style: TextStyles.title1
                         .setColor(Colors.white),
                   ),
                   SizedBox(height: 1.h,),
                   Text(
-                    'Feel completely relaxed\nwith no limits.',
+                    I18n().subUnlockPremiumStr.tr,
                     style: TextStyles.defaultStyle.setTextSize(13.sp).setColor(Colors.white),
                   ),
                 ],

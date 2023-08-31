@@ -8,6 +8,7 @@ import '../../applovin_manager.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../language/i18n.g.dart';
 import '../../utils/app_scaffold.dart';
 import '../../widget/item_music.dart';
 import 'meditate_controller.dart';
@@ -40,7 +41,7 @@ class MeditateScreen extends GetView<MeditateController> {
                       height: 20.h,
                     ),
                     Text(
-                      "Meditation Music & ASMR",
+                      I18n().meditationMusicAsmrStr.tr,
                       style: TextStyles.title1
                           .setHeight(0.1)
                           .setColor(Colors.black),
@@ -49,7 +50,7 @@ class MeditateScreen extends GetView<MeditateController> {
                       height: 10,
                     ),
                     Text(
-                        "Meditation music is powerful and listening to it can improve your brainpower and inner peace.",
+                        I18n().subMeditationMusicAsmrStr.tr,
                         style: TextStyles.defaultStyle
                             .setTextSize(11)
                             .setColor(Colors.grey)),
@@ -57,7 +58,7 @@ class MeditateScreen extends GetView<MeditateController> {
                       height: 12,
                     ),
                     Text(
-                      "Browse by goal",
+                      I18n().subSubMeditationMusicAsmrStr.tr,
                       style: TextStyles.body3
                           .setHeight(0.7)
                           .setColor(Colors.black),

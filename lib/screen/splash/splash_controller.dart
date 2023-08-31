@@ -42,7 +42,9 @@ class SplashController extends BaseController {
         if (!isWelcome.value && ApplovinManager().isInitialized) {
           ApplovinManager().showAdIfReady();
         }
-        Get.offAndToNamed(!isWelcome.value ? Routes.LANGUAGE : Routes.MAIN);
+        AppFunc.setTimeout(() {
+          Get.offAndToNamed(!isWelcome.value ? Routes.LANGUAGE : Routes.MAIN);
+        }, 2000);
       }, 3000);
     } else {
       DateTime dateTime = dateFormat.parse(data ?? '');
