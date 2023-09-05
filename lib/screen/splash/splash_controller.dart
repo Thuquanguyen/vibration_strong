@@ -34,16 +34,17 @@ class SplashController extends BaseController {
   void checkDirect() async {
     DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
     String? data = await SharePreferencesHelper.getString(KEY_PURCHASE);
+    bool isLanguage = await SharePreferencesHelper.getBool(KEY_LANGUAGE) ?? false;
     isWelcome.value =
         await SharePreferencesHelper.getBool(KEY_WELCOME) ?? false;
     if (data == null || data == 'null') {
       AppFunc.setTimeout(() {
         IAPConnection().isAvailable = false;
-        if (!isWelcome.value && ApplovinManager().isInitialized) {
+        if ((!isWelcome.value || !isLanguage) && ApplovinManager().isInitialized) {
           ApplovinManager().showAdIfReady();
         }
         AppFunc.setTimeout(() {
-          Get.offAndToNamed(!isWelcome.value ? Routes.LANGUAGE : Routes.MAIN);
+          Get.offAndToNamed((!isWelcome.value || !isLanguage) ? Routes.LANGUAGE : Routes.MAIN);
         }, 2000);
       }, 3000);
     } else {

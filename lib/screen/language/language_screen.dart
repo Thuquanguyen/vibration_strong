@@ -89,7 +89,7 @@ class LanguageScreen extends GetView<LanguageController> {
             ),
             Obx(() => Container(
                   margin: const EdgeInsets.all(8.0),
-                  height: 200,
+                  height: 300,
                   child: MaxNativeAdView(
                     adUnitId: AdManager.nativeAppAdUnitId,
                     controller: controller.nativeAdViewController.value,
@@ -185,7 +185,7 @@ class LanguageScreen extends GetView<LanguageController> {
                                         Color(0xff2d545e)),
                                 textStyle: MaterialStatePropertyAll<TextStyle>(
                                     TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold)),
                               ),
                             ),

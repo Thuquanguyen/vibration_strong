@@ -125,7 +125,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                                         Color(0xff2d545e)),
                                 textStyle: MaterialStatePropertyAll<TextStyle>(
                                     TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold)),
                               ),
                             ),
@@ -152,6 +152,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                           AppLovinMAX.showInterstitial(
                               AdManager.interstitialAdUnitId);
                           SharePreferencesHelper.setBool(KEY_WELCOME, true);
+                          SharePreferencesHelper.setBool(KEY_LANGUAGE, true);
                           Get.offAllNamed(Routes.MAIN);
                         } else {
                           AppLovinMAX.loadInterstitial(
@@ -209,6 +210,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                             AppLovinMAX.showInterstitial(
                                 AdManager.interstitialAdUnitId);
                             SharePreferencesHelper.setBool(KEY_WELCOME, true);
+                            SharePreferencesHelper.setBool(KEY_LANGUAGE, true);
                             Get.offAllNamed(Routes.MAIN);
                           } else {
                             AppLovinMAX.loadInterstitial(
