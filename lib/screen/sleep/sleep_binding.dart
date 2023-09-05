@@ -5,6 +5,6 @@ import 'sleep_controller.dart';
 class SleepBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => SleepController());
+    Get.lazyPut(() => SleepController(),fenix: true);
   }
 }

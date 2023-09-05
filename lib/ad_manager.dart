@@ -66,7 +66,7 @@ static String get bannerAdUnitId {
 
 static String get interstitialAdUnitId {
   if (Platform.isAndroid) {
-    return "ca-app-pub-3940256099942544/1033173712";
+    return "78a669d8a286be73";
   } else if (Platform.isIOS) {
     return "ca-app-pub-3940256099942544/4411468910";
   } else {
@@ -76,7 +76,7 @@ static String get interstitialAdUnitId {
 
 static String get rewardedAdUnitId {
   if (Platform.isAndroid) {
-    return "ca-app-pub-3940256099942544/5224354917";
+    return "b4802f265f352ed8";
   } else if (Platform.isIOS) {
     return "ca-app-pub-3940256099942544/1712485313";
   } else {
