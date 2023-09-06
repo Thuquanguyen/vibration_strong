@@ -93,7 +93,7 @@ class MainController extends BaseController with WidgetsBindingObserver{
           await ApplovinManager().showAdIfReady();
         }
         break;
-
+      case AppLifecycleState.hidden:
       case AppLifecycleState.paused:
       case AppLifecycleState.inactive:
       case AppLifecycleState.detached:
