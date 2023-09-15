@@ -98,4 +98,5 @@ são, bem como a duração da bateria do dispositivo.''',
   'cancel': "Cancelar",
   'hi_i_am': "Olá! Sou Vibração",
   'select_language': "Selecione o idioma",
+  'load_ads': 'Carregando anúncios'
 };

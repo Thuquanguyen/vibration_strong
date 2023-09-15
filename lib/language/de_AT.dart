@@ -109,4 +109,5 @@ sind, sowie die Akkulaufzeit des Geräts.''',
   'cancel': 'Abbrechen',
   'hi_i_am': 'Hallo! Ich bin Vibration',
   'select_language': 'Sprache auswählen',
+  'load_ads': 'Anzeigen werden geladen'
 };

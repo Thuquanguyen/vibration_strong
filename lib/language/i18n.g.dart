@@ -85,4 +85,5 @@ class I18n {
 	String cancelStr = 'cancel';
 	String hiIAmStr = 'hi_i_am';
 	String selectLanguageStr = 'select_language';
+	String loadAdsStr = 'load_ads';
 }

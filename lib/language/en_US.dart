@@ -105,4 +105,5 @@ are, as well as the battery life of the device.''',
   'cancel': "Cancel",
   'hi_i_am': "Hi! I'm Vibration",
   'select_language': "Select language",
+  'load_ads': 'Loading ads'
 };

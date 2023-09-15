@@ -21,22 +21,29 @@ class ItemLanguage extends StatelessWidget {
           AppTranslations.updateLocale(langCode: languageModel?.key ?? 'en');
         },
         child: Container(
-          decoration: BoxDecoration(
-              color: languageModel?.isChecked == true
-                  ? Colors.pinkAccent
-                  : Colors.transparent),
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          decoration: const BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: Colors.white, width: 1))),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
             children: [
               Expanded(
-                  child: Text(
-                languageModel?.name ?? '',
-                style: TextStyles.body1.setColor(Colors.white),
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    languageModel?.name ?? '',
+                    style: TextStyles.body1.setColor(Colors.black),
+                  ),
+                  Text(
+                    languageModel?.subName ?? '',
+                    style: TextStyles.body1.setColor(Colors.grey),
+                  )
+                ],
               )),
-              Text(
-                languageModel?.name ?? '',
-                style: TextStyles.body1.setColor(Colors.white),
-              )
+              if(languageModel?.isChecked == true)
+              Icon(Icons.check_outlined,color: Colors.red,)
             ],
           ),
         ));

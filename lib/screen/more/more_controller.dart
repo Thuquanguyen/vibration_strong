@@ -4,10 +4,11 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../ad_manager.dart';
+import '../../admod_handle.dart';
 import '../../core/base/base_controller.dart';
 import '../../core/common/app_func.dart';
 import '../../core/model/vibration_model.dart';
-import '../../in_app_manage.dart';
+import '../../vibrator_manage.dart';
 import '../../language/i18n.g.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/app_utils.dart';
@@ -42,12 +43,6 @@ class MoreController extends BaseController {
           await FlutterEmailSender.send(email);
         }),
     VibrationModel(
-        iconData: Icons.restore,
-        title: I18n().restorePurchaseStr.tr,
-        onTap: () {
-          IAPConnection.instance.restorePurchases();
-        }),
-    VibrationModel(
         iconData: Icons.share,
         title: I18n().shareStr.tr,
         onTap: () {
@@ -60,6 +55,10 @@ class MoreController extends BaseController {
 
   @override
   void onInit() {
+    if(AdmodHandle().ads.isLimit == false){
+      AdmodHandle().loadAdBanner4();
+    }
+
     super.onInit();
   }
 

@@ -79,6 +79,9 @@ dev_dependencies:
   shared_preferences:
   flutter_share_me: ^1.4.0
   applovin_max: ^3.2.0
+  google_mobile_ads: ^2.3.0
+  loading_indicator: ^3.1.1
+  firebase_database: ^10.2.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

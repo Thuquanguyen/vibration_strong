@@ -278,6 +278,24 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "firebase_database",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/firebase_database-10.2.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_database_platform_interface",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/firebase_database_platform_interface-0.2.5+5",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_database_web",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/firebase_database_web-0.2.3+5",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/macbook/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -458,6 +476,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "google_mobile_ads",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/google_mobile_ads-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "google_sign_in",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/google_sign_in-6.1.4",
       "packageUri": "lib/",
@@ -636,6 +660,12 @@
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/list_counter-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "loading_indicator",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/loading_indicator-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "matcher",
@@ -1046,6 +1076,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "visibility_detector",
+      "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/visibility_detector-0.3.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "web",
       "rootUri": "file:///Users/macbook/.pub-cache/hosted/pub.dev/web-0.1.4-beta",
       "packageUri": "lib/",
@@ -1088,7 +1124,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-08-31T06:01:46.571660Z",
+  "generated": "2023-09-15T07:34:59.628016Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

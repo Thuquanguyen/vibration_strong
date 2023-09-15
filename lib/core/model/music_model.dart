@@ -3,9 +3,9 @@ class MusicModel{
   String? thumb;
   String? url;
   double? size;
+  double? view;
   Function? onTab;
-  bool? isPremium;
   bool? isSelected;
 
-  MusicModel({this.title,this.thumb,this.onTab,this.isPremium,this.isSelected,this.url,this.size});
+  MusicModel({this.title,this.thumb,this.onTab,this.isSelected,this.url,this.size,this.view});
 }

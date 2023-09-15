@@ -1,39 +1,30 @@
 {
   "project_info": {
-    "project_number": "428088490936",
-    "project_id": "phone-vibration-strong-8515b",
-    "storage_bucket": "phone-vibration-strong-8515b.appspot.com"
+    "project_number": "247886007693",
+    "firebase_url": "https://phone-vibration-strong-597a1-default-rtdb.firebaseio.com",
+    "project_id": "phone-vibration-strong-597a1",
+    "storage_bucket": "phone-vibration-strong-597a1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:428088490936:android:390693c5f3482042a7ed4d",
+        "mobilesdk_app_id": "1:247886007693:android:5a6f2ff179d90dd22681c4",
         "android_client_info": {
           "package_name": "com.flutter.flutter_app_vibrator_strong"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "428088490936-380jt4pf4idqt4ng5atre453m0rrc0bi.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDgIZvTV1nCRe63SHJDkwe6DqS7nqoM58Q"
+          "current_key": "AIzaSyBMj4F80i21wd7vsBCIpBB7jDVumj3SF48"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "428088490936-380jt4pf4idqt4ng5atre453m0rrc0bi.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       },
-      "admob_app_id": "ca-app-pub-8724493546060841~9809502529"
+      "admob_app_id": "ca-app-pub-3449522729010597~1129720668"
     }
   ],
   "configuration_version": "1"

@@ -1,17 +1,18 @@
-import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:vibration/vibration.dart';
 import '../../ad_manager.dart';
+import '../../admod_handle.dart';
+import '../../ads/app_lifecircle_factory.dart';
+import '../../ads/open_app_ads_manage.dart';
 import '../../audio_player.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/model/music_model.dart';
 import '../../core/model/vibration_model.dart';
 import '../../core/service/notification_service.dart';
-import '../../in_app_manage.dart';
-import 'package:applovin_max/applovin_max.dart';
+import '../../vibrator_manage.dart';
 
 import '../../language/i18n.g.dart';
 
@@ -453,6 +454,8 @@ class VibrationController extends BaseController {
   RxDouble initValue = 0.0.obs;
   RxBool isLoadAds = false.obs;
 
+  RxInt indexOld = 0.obs;
+
   getTitle(double value) {
     if (value < 500) {
       return I18n().lowStr.tr;
@@ -466,9 +469,13 @@ class VibrationController extends BaseController {
   @override
   void onInit() {
     // TODO: implement onInit
-    ApplovinManager().initInter();
-    AppLovinMAX.loadInterstitial(AdManager.interstitialAdUnitId);
     NotificationService().showNotification();
+    if(AdmodHandle().ads.isLimit == false){
+      AdmodHandle().loadAdInter();
+      AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+      AppLifecycleReactor(appOpenAdManager: appOpenAdManager)
+          .listenToAppStateChanges();
+    }
     super.onInit();
   }
 
@@ -483,10 +490,7 @@ class VibrationController extends BaseController {
     }
     vibrations[index].isSelected = true;
     backgroundColor.value = backgrounds[index];
+    indexOld.value = index;
     vibrations.refresh();
-  }
-
-  Future<bool> checkPurchase() async {
-    return await IAPConnection.instance.isAvailable();
   }
 }

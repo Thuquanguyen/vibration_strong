@@ -15,13 +15,18 @@ class MainScreen extends GetView<MainController> {
       child: Obx(
         () => Scaffold(
           drawerEdgeDragWidth: 0,
+          backgroundColor: (controller.navMenuIndex.value == 1 ||
+                  controller.navMenuIndex.value == 2 ||
+                  controller.navMenuIndex.value == 3)
+              ? Colors.black
+              : Colors.white,
           body: IndexedStack(
             children: controller.menuPages,
             index: controller.navMenuIndex(),
           ),
           bottomNavigationBar: Container(
               decoration: BoxDecoration(
-                color: Colors.redAccent.withOpacity(0.6),
+                color: Colors.redAccent.withOpacity(0.8),
                 borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(20),
                     topLeft: Radius.circular(20)),
@@ -45,8 +50,7 @@ class MainScreen extends GetView<MainController> {
                     selectedItemColor: Colors.white,
                     unselectedItemColor: Colors.white70,
                     unselectedLabelStyle: const TextStyle(color: Colors.grey),
-                    selectedLabelStyle:
-                    const TextStyle(color: Colors.grey),
+                    selectedLabelStyle: const TextStyle(color: Colors.grey),
                     showUnselectedLabels: true,
                   ))),
         ),

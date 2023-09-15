@@ -106,4 +106,5 @@ const Map<String, String> th_TH = {
   'cancel': "ยกเลิก",
   'hi_i_am': "สวัสดี! ฉันสั่นสะเทือน",
   'select_language': "เลือกภาษา",
+  'load_ads': 'กำลังโหลดโฆษณา'
 };

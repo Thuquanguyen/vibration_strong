@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/ad_manager.dart';
-import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
 import 'package:flutter_app_vibrator_strong/routes/app_pages.dart';
 import 'package:flutter_app_vibrator_strong/screen/music/music_screen.dart';
 import 'package:flutter_app_vibrator_strong/screen/vibration/vibration_screen.dart';
 import 'package:get/get.dart';
-import '../../in_app_manage.dart';
+import '../../vibrator_manage.dart';
 import '../meditate/meditate_screen.dart';
 import '../more/more_screen.dart';
 import '../sleep/sleep_screen.dart';
@@ -15,9 +14,8 @@ import 'component/tab_nav.dart';
 import 'keep_alive_page.dart';
 import 'model/screen_model.dart';
 import 'package:vibration/vibration.dart';
-import 'package:applovin_max/applovin_max.dart';
 
-class MainController extends BaseController with WidgetsBindingObserver{
+class MainController extends BaseController{
   final screensData = <ScreenModel>[
     ScreenModel(
         name: I18n().massageStr.tr,
@@ -74,37 +72,15 @@ class MainController extends BaseController with WidgetsBindingObserver{
   void onInit() {
     // TODO: implement onInit
     checkVibration();
-    ApplovinManager().initAppOpen();
-    WidgetsBinding.instance.addObserver(this);
     super.onInit();
   }
 
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
 
-  @override
-  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        if(Get.previousRoute != Routes.LANGUAGE){
-          await ApplovinManager().showAdIfReady();
-        }
-        break;
-      case AppLifecycleState.hidden:
-      case AppLifecycleState.paused:
-      case AppLifecycleState.inactive:
-      case AppLifecycleState.detached:
-        break;
-    }
-  }
 
   void checkVibration() async {
     bool hasVibrator = await Vibration.hasVibrator() ?? false;
     print("hasVibrator = ${hasVibrator}");
-    IAPConnection().hasVibrator = hasVibrator;
-    print("IAPConnection().hasVibrator = ${IAPConnection().hasVibrator}");
+    VibratorManager().hasVibrator = hasVibrator;
+    print("IAPConnection().hasVibrator = ${VibratorManager().hasVibrator}");
   }
 }

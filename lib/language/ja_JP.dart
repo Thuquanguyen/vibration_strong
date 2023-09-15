@@ -98,4 +98,5 @@ const Map<String, String> ja_JP = {
    'cancel': "キャンセル",
    'hi_i_am': "こんにちは! 私はバイブレーションです",
    'select_language': "言語を選択",
+   'load_ads': '広告を読み込んでいます'
 };

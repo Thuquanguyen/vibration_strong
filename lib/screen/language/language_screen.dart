@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_app_vibrator_strong/ad_manager.dart';
-import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/theme/app_colors.dart';
 import 'package:flutter_app_vibrator_strong/core/theme/textstyles.dart';
 import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
@@ -10,9 +11,9 @@ import 'package:flutter_app_vibrator_strong/utils/touchable.dart';
 import 'package:flutter_app_vibrator_strong/widget/item_language.dart';
 import 'package:get/get.dart';
 
+import '../../admod_handle.dart';
 import '../../core/theme/dimens.dart';
 import 'language_controller.dart';
-import 'package:applovin_max/applovin_max.dart';
 
 class LanguageScreen extends GetView<LanguageController> {
   const LanguageScreen({Key? key}) : super(key: key);
@@ -22,19 +23,19 @@ class LanguageScreen extends GetView<LanguageController> {
     return AppScaffold(
       hideAppBar: true,
       appBarHeight: 0,
-      color: AppColors.customColor30,
+      color: Colors.white,
       hideBackButton: true,
       body: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: 10,
-        ),
+        margin: const EdgeInsets.only(bottom: 10),
         child: Column(
           children: [
-            SizedBox(
-              height: Dimens.topSafeAreaPadding - 5,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.only(
+                  left: 15.w,
+                  right: 15.w,
+                  top: Dimens.topSafeAreaPadding + 10,
+                  bottom: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,28 +43,29 @@ class LanguageScreen extends GetView<LanguageController> {
                   Expanded(
                       child: Text(
                     I18n().selectLanguageStr.tr,
-                    style: TextStyles.title2.setColor(Colors.white),
+                    style: TextStyles.title3.setColor(Colors.black),
                   )),
                   Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Touchable(
                         onTap: () {
-
                           Get.toNamed(Routes.WELCOME);
                         },
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.check,
-                              color: Colors.white,
+                              color: Colors.black,
                               size: 20,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 3,
                             ),
                             Text(
                               I18n().doneStr.tr.toUpperCase(),
-                              style: TextStyles.body3.setColor(Colors.white),
+                              style: TextStyles.headline2
+                                  .setColor(Colors.black)
+                                  .setHeight(1.2),
                             )
                           ],
                         )),
@@ -71,130 +73,75 @@ class LanguageScreen extends GetView<LanguageController> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
-                child: Obx(() => ListView.builder(
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (ctx, index) => ItemLanguage(
-                        index: index,
-                        languageModel: controller.listLanguages.value[index],
-                        controller: controller,
+                child: Obx(() => Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      clipBehavior: Clip.hardEdge,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),color: AppColors.customColor42),
+                      child: ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemBuilder: (ctx, index) => ItemLanguage(
+                          index: index,
+                          languageModel: controller.listLanguages.value[index],
+                          controller: controller,
+                        ),
+                        itemCount: controller.listLanguages.length,
                       ),
-                      itemCount: controller.listLanguages.length,
                     ))),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Obx(() => Container(
-                  margin: const EdgeInsets.all(8.0),
-                  height: 300,
-                  child: MaxNativeAdView(
-                    adUnitId: AdManager.nativeAppAdUnitId,
-                    controller: controller.nativeAdViewController.value,
-                    listener: NativeAdListener(onAdLoadedCallback: (ad) {
-                      ApplovinManager()
-                          .logStatus('Native ad loaded from ${ad.networkName}');
-                      controller.mediaViewAspectRatio.value =
-                          ad.nativeAd?.mediaContentAspectRatio ?? 16 / 9;
-                    }, onAdLoadFailedCallback: (adUnitId, error) {
-                      ApplovinManager().logStatus(
-                          'Native ad failed to load with error code ${error.code} and message: ${error.message}');
-                    }, onAdClickedCallback: (ad) {
-                      ApplovinManager().logStatus('Native ad clicked');
-                    }, onAdRevenuePaidCallback: (ad) {
-                      ApplovinManager()
-                          .logStatus('Native ad revenue paid: ${ad.revenue}');
-                    }),
-                    child: Container(
-                      color: const Color(0xffefefef),
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(4.0),
-                                child: const MaxNativeAdIconView(
-                                  width: 48,
-                                  height: 48,
-                                ),
-                              ),
-                              const Flexible(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    MaxNativeAdTitleView(
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.visible,
-                                    ),
-                                    MaxNativeAdAdvertiserView(
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 10),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.fade,
-                                    ),
-                                    MaxNativeAdStarRatingView(
-                                      size: 10,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const MaxNativeAdOptionsView(
-                                width: 20,
-                                height: 20,
-                              ),
-                            ],
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                child: MaxNativeAdBodyView(
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 14),
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Expanded(
-                            child: AspectRatio(
-                              aspectRatio:
-                                  controller.mediaViewAspectRatio.value,
-                              child: const MaxNativeAdMediaView(),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: double.infinity,
-                            child: MaxNativeAdCallToActionView(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStatePropertyAll<Color>(
-                                        Color(0xff2d545e)),
-                                textStyle: MaterialStatePropertyAll<TextStyle>(
-                                    TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold)),
+            if ((AdmodHandle().ads.language == 1) &&
+                (AdmodHandle().ads.isLimit == false))
+              Obx(() => Container(
+                    height: 100,
+                    width: Get.width,
+                    color: Colors.white,
+                    child: AdmodHandle().nativeAdIsLoaded.value
+                        ? AdWidget(ad: AdmodHandle().nativeAdSmall!)
+                        : Center(
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              child: const CircularProgressIndicator(
+                                color: Colors.black,
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    ),
+                  )),
+            if ((AdmodHandle().ads.language == 2) &&
+                (AdmodHandle().ads.isLimit == false))
+              Obx(() => Visibility(
+                  child: Container(
+                    width:
+                        AdmodHandle().bannerAdLanguage!.size.width.toDouble(),
+                    height:
+                        AdmodHandle().bannerAdLanguage!.size.height.toDouble(),
+                    child: AdWidget(ad: AdmodHandle().bannerAdLanguage!),
                   ),
-                )),
+                  visible: AdmodHandle().isLoadedBannerLanguage.value)),
+            if ((AdmodHandle().ads.language == 3) &&
+                (AdmodHandle().ads.isLimit == false))
+              Obx(() => Container(
+                    height: 350,
+                    width: Get.width,
+                    color: Colors.white,
+                    child: AdmodHandle().nativeAdIsLoaded.value
+                        ? AdWidget(ad: AdmodHandle().nativeAd!)
+                        : Center(
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              child: const CircularProgressIndicator(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                  )),
           ],
         ),
       ),

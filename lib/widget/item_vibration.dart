@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/ad_manager.dart';
-import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_app_vibrator_strong/utils/app_loading.dart';
 import 'package:vibration/vibration.dart';
 
+import '../admod_handle.dart';
 import '../core/assets/app_assets.dart';
 import '../core/common/app_func.dart';
 import '../core/common/imagehelper.dart';
 import '../core/model/vibration_model.dart';
 import '../core/theme/textstyles.dart';
 import '../in_app_manage.dart';
+import '../vibrator_manage.dart';
 import '../language/i18n.g.dart';
 import '../routes/app_pages.dart';
-import '../screen/premium/premium_screen.dart';
 import '../screen/vibration/vibration_controller.dart';
 import '../utils/app_utils.dart';
 import '../utils/touchable.dart';
-import 'package:applovin_max/applovin_max.dart';
 
 class ItemVibration extends StatelessWidget {
   ItemVibration({Key? key, this.vibrationModel, this.controller, this.index})
@@ -30,24 +30,22 @@ class ItemVibration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Touchable(
       onTap: () async {
-        if (vibrationModel?.isPremium == true && !IAPConnection().isAvailable) {
-          Vibration.cancel();
-          Get.toNamed(Routes.PREMIUM);
-        } else {
-          if ((index ?? 0) % 2 == 0 && !IAPConnection().isAvailable) {
-            bool isReady = (await AppLovinMAX.isInterstitialReady(
-                AdManager.interstitialAdUnitId))!;
-            print("show show show = $isReady");
-            if (isReady) {
-              AppLovinMAX.showInterstitial(AdManager.interstitialAdUnitId);
-            } else {
-              AppLovinMAX.loadInterstitial(AdManager.interstitialAdUnitId);
-            }
+        if(AdmodHandle().ads.isLimit == false && AdmodHandle().isShowInter && !IAPConnection().isAvailable){
+          AdmodHandle().loadAdInter();
+          if ((index ?? 0) % 2 == 0 &&
+              AdmodHandle().interstitialAd != null &&
+              index != controller?.indexOld.value) {
+            // show ads
+            showLoadingAds();
+            AppFunc.setTimeout(() {
+              hideLoadingAds();
+              AdmodHandle().interstitialAd?.show();
+            }, 2000);
           }
-          controller?.changeSelected(index ?? 0);
-          Vibration.cancel();
-          vibrationModel?.onTap?.call();
         }
+        controller?.changeSelected(index ?? 0);
+        Vibration.cancel();
+        vibrationModel?.onTap?.call();
       },
       child: Container(
         decoration: const BoxDecoration(
@@ -81,24 +79,6 @@ class ItemVibration extends StatelessWidget {
                           height: 18.w),
                     ),
                   ),
-                  if (!IAPConnection().isAvailable &&
-                      vibrationModel?.isPremium == true)
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        width: 16.w,
-                        height: 16.w,
-                        decoration: BoxDecoration(
-                            color: Colors.pinkAccent.withOpacity(0.3),
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(10.r),
-                                bottomLeft: Radius.circular(6.r))),
-                        child: Center(
-                          child: ImageHelper.loadFromAsset(AppAssets.icPremium,
-                              width: 10.w, height: 10.w),
-                        ),
-                      ),
-                    )
                 ],
               ),
             ),

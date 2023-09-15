@@ -104,4 +104,5 @@ cũng như thời lượng pin của thiết bị.''',
   'cancel': "Huỷ",
   'hi_i_am': "Xin chào! Tôi là Vibration",
   'select_language': "Lựa chọn ngôn ngữ",
+  'load_ads': 'Đang tải quảng cáo'
 };

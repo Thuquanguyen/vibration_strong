@@ -98,4 +98,5 @@ const Map<String, String> mr_IN = {
 'cancel': "रद्द करा",
 'hi_i_am': "हाय! मी कंपन आहे",
 'select_language': "भाषा निवडा",
+  'load_ads': 'जाहिराती लोड करत आहे'
 };

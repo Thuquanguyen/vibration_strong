@@ -98,4 +98,5 @@ sont, ainsi que la durée de vie de la batterie de l'appareil.''',
 'cancel': "Annuler",
 'hi_i_am': "Salut ! Je suis Vibration",
 'select_language': "Sélectionner la langue",
+  'load_ads': 'Chargement des annonces'
 };

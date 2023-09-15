@@ -98,4 +98,5 @@ const Map<String, String> ko_KR = {
   'cancel': "취소",
   'hi_i_am': "안녕하세요! 저는 진동입니다",
   'select_language': "언어 선택",
+  'load_ads': '광고 로드 중'
 };

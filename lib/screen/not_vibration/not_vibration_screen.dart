@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/language/i18n.g.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../in_app_manage.dart';
+import '../../vibrator_manage.dart';
 import '../../utils/app_scaffold.dart';
 import '../../utils/app_utils.dart';
 import 'not_vibration_controller.dart';

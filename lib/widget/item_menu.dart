@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../core/model/vibration_model.dart';
 import '../core/theme/textstyles.dart';
-import '../in_app_manage.dart';
+import '../vibrator_manage.dart';
 import '../screen/more/more_controller.dart';
 import '../utils/touchable.dart';
 

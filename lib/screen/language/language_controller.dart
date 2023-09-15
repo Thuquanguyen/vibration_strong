@@ -1,9 +1,15 @@
-import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
+import 'dart:convert';
+
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter_app_vibrator_strong/ad_manager.dart';
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
 import 'package:get/get.dart';
 
+import '../../admod_handle.dart';
+import '../../core/model/data_model.dart';
 import '../../core/model/language_model.dart';
-import 'package:applovin_max/applovin_max.dart';
 
 class LanguageController extends BaseController {
   RxList<LanguageModel> listLanguages = <LanguageModel>[
@@ -21,18 +27,13 @@ class LanguageController extends BaseController {
     LanguageModel(key: "th", name: "Thailand", subName: "ประเทศไทย"),
     LanguageModel(key: "id", name: "Indonesian", subName: "bahasa Indonesia"),
   ].obs;
-  Rx<MaxNativeAdViewController> nativeAdViewController =
-      MaxNativeAdViewController().obs;
-  static double kMediaViewAspectRatio = 16 / 9;
-
-  RxString statusText = "".obs;
-
-  RxDouble mediaViewAspectRatio = kMediaViewAspectRatio.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
-    nativeAdViewController.value.loadAd();
+    if(AdmodHandle().ads.isLimit == false){
+      AdmodHandle().loadAdBannerLanguage();
+    }
     super.onInit();
   }
 

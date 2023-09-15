@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../ad_manager.dart';
+import '../../admod_handle.dart';
 import '../../core/base/base_controller.dart';
-import 'package:applovin_max/applovin_max.dart';
 
 import '../../language/i18n.g.dart';
 
@@ -19,19 +19,13 @@ class WelcomeController extends BaseController {
     I18n().bannerTitle3Str.tr
   ];
 
-  Rx<MaxNativeAdViewController> nativeAdViewController =
-      MaxNativeAdViewController().obs;
-  static double kMediaViewAspectRatio = 4 / 3;
-
-  RxString statusText = "".obs;
-
-  RxDouble mediaViewAspectRatio = kMediaViewAspectRatio.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
-    nativeAdViewController.value.loadAd();
-    AppLovinMAX.loadInterstitial(AdManager.interstitialAdUnitId);
+    if (AdmodHandle().ads.isLimit == false){
+      AdmodHandle().loadAdInter();
+    }
     super.onInit();
   }
 }

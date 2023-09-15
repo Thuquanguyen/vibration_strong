@@ -98,4 +98,5 @@ adalah, serta masa pakai baterai perangkat.''',
   'cancel': "Batal",
   'hi_i_am': "Hai! Aku Getaran",
   'select_language': "Pilih bahasa",
+  'load_ads': 'Memuat iklan'
 };

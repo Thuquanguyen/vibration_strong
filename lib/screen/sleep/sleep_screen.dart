@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../../ad_manager.dart';
-import '../../applovin_manager.dart';
+import '../../admod_handle.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../vibrator_manage.dart';
 import '../../language/i18n.g.dart';
 import '../../utils/app_scaffold.dart';
-import '../../widget/item_music.dart';
+import '../../widget/item_music_list.dart';
 import 'sleep_controller.dart';
-import 'package:applovin_max/applovin_max.dart';
 
 class SleepScreen extends GetView<SleepController> {
   const SleepScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class SleepScreen extends GetView<SleepController> {
         hideBackButton: true,
         appBarHeight: 0,
         hideAppBar: true,
-        color: Colors.white,
+        color: Colors.black,
         body: Column(
           children: [
             SizedBox(
@@ -42,7 +43,7 @@ class SleepScreen extends GetView<SleepController> {
                     I18n().sleepMusicStr.tr,
                     style: TextStyles.title1
                         .setHeight(0.1)
-                        .setColor(Colors.black),
+                        .setColor(Colors.white),
                   ),
                   const SizedBox(
                     height: 10,
@@ -51,7 +52,7 @@ class SleepScreen extends GetView<SleepController> {
                       I18n().subSleepMusicStr.tr,
                       style: TextStyles.defaultStyle
                           .setTextSize(11)
-                          .setColor(Colors.grey)),
+                          .setColor(Colors.white70)),
                   const SizedBox(
                     height: 10,
                   ),
@@ -59,47 +60,32 @@ class SleepScreen extends GetView<SleepController> {
               ),
             ),
             Expanded(
-                child: Obx(() => MasonryGridView.count(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  itemBuilder: (ctx, index) => ItemMusic(
+                child: Obx(() => ListView.builder(
+                  padding: EdgeInsets.only(top: 10),
+                  itemBuilder: (ctx, index) => ItemMusicList(
                     musicModel: controller.listMusics[index],
                     controller: controller,
                     index: index,
                   ),
                   itemCount: controller.listMusics.length,
-                  crossAxisCount: 2,
                 ))),
-            if(!IAPConnection().isAvailable)
+            if(AdmodHandle().ads.isLimit == false && !IAPConnection().isAvailable)
             Container(
                 height: 1,
                 width: Get.width,
                 color: Colors.grey.withOpacity(0.5),
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10)),
-            if(!IAPConnection().isAvailable)
-            MaxAdView(
-                adUnitId: AdManager.bannerAdUnitId,
-                adFormat: AdFormat.banner,
-                isAutoRefreshEnabled: false,
-                listener: AdViewAdListener(onAdLoadedCallback: (ad) {
-                  ApplovinManager().logStatus(
-                      'Banner widget ad loaded from ${ad.networkName}');
-                }, onAdLoadFailedCallback: (adUnitId, error) {
-                  ApplovinManager().logStatus(
-                      'Banner widget ad failed to load with error code ${error.code} and message: ${error.message}');
-                }, onAdClickedCallback: (ad) {
-                  ApplovinManager().logStatus('Banner widget ad clicked');
-                }, onAdExpandedCallback: (ad) {
-                  ApplovinManager().logStatus('Banner widget ad expanded');
-                }, onAdCollapsedCallback: (ad) {
-                  ApplovinManager().logStatus('Banner widget ad collapsed');
-                }, onAdRevenuePaidCallback: (ad) {
-                  ApplovinManager().logStatus(
-                      'Banner widget ad revenue paid: ${ad.revenue}');
-                })),
-            if(!IAPConnection().isAvailable)
-            SizedBox(height: 10,)
+                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10)),
+            if(AdmodHandle().ads.isLimit == false && !IAPConnection().isAvailable)
+            Obx(() => Visibility(
+              visible: AdmodHandle().isLoadedBanner3.value,
+              child: SizedBox(
+                width: AdmodHandle().bannerAd3!.size.width.toDouble(),
+                height: AdmodHandle().bannerAd3!.size.height.toDouble(),
+                child: AdWidget(ad: AdmodHandle().bannerAd3!),
+              ),
+            )),
+            if(AdmodHandle().ads.isLimit == false && !IAPConnection().isAvailable)
+            const SizedBox(height: 10,)
           ],
         ));
   }

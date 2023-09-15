@@ -2,11 +2,12 @@ import 'package:audio_wave/audio_wave.dart';
 import 'package:expandable_bottom_sheet/expandable_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/ad_manager.dart';
-import 'package:flutter_app_vibrator_strong/applovin_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:flutter_app_vibrator_strong/utils/app_loading.dart';
 import 'package:vibration/vibration.dart';
+import '../../admod_handle.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/common/app_func.dart';
 import '../../core/common/imagehelper.dart';
@@ -14,20 +15,20 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/dimens.dart';
 import '../../core/theme/textstyles.dart';
 import '../../in_app_manage.dart';
+import '../../vibrator_manage.dart';
 import '../../language/i18n.g.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/app_scaffold.dart';
 import '../../utils/scrolling_text.dart';
 import '../../utils/touchable.dart';
 import 'package:filling_slider/filling_slider.dart';
-import '../../widget/item_music.dart';
 import '../../widget/item_vibration.dart';
 import 'package:rive/rive.dart';
 import 'vibration_controller.dart';
-import 'package:applovin_max/applovin_max.dart';
 
 class VibrationScreen extends GetView<VibrationController> {
   VibrationScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -79,8 +80,16 @@ class VibrationScreen extends GetView<VibrationController> {
                                 onChange: (a, b) {
                                   controller.progress.value = a;
                                   if ((a == 0.5 || a == 0.85) &&
-                                      (!IAPConnection().isAvailable)) {
-                                    Get.toNamed(Routes.PREMIUM);
+                                      AdmodHandle().interstitialAd != null &&
+                                      AdmodHandle().ads.isLimit == false) {
+                                    showLoadingAds();
+                                    AdmodHandle().loadAdInter();
+                                    AppFunc.setTimeout(() {
+                                      AdmodHandle().interstitialAd?.show();
+                                      hideLoadingAds();
+                                    }, 2000);
+                                  } else {
+                                    hideLoading();
                                   }
                                   Vibration.vibrate(
                                       amplitude: (a * 255).toInt(),
@@ -94,11 +103,6 @@ class VibrationScreen extends GetView<VibrationController> {
                                   height: 220,
                                   child: Column(
                                     children: [
-                                      if (!IAPConnection().isAvailable)
-                                        ImageHelper.loadFromAsset(
-                                            AppAssets.icPremium,
-                                            width: 12.w,
-                                            height: 12.w),
                                       Text(I18n().highStr.tr,
                                           style: TextStyles.label2.copyWith(
                                               color:
@@ -107,11 +111,6 @@ class VibrationScreen extends GetView<VibrationController> {
                                                       ? Colors.white
                                                       : Colors.black)),
                                       const Spacer(),
-                                      if (!IAPConnection().isAvailable)
-                                        ImageHelper.loadFromAsset(
-                                            AppAssets.icPremium,
-                                            width: 12.w,
-                                            height: 12.w),
                                       Text(
                                         I18n().mediumStr.tr,
                                         style: TextStyles.label2.copyWith(
@@ -151,7 +150,25 @@ class VibrationScreen extends GetView<VibrationController> {
                       )),
                 ),
               ],
-            )
+            ),
+            if (!IAPConnection().isAvailable)
+            Positioned(
+              top: 30,
+              right: 15,
+              child: Touchable(onTap: (){
+                Get.toNamed(Routes.PREMIUM);
+              }, child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.redAccent.withOpacity(0.9),
+                ),
+                padding: EdgeInsets.all(5.w),
+                child: const Icon(
+                  Icons.lock_person_outlined,
+                  color: Colors.lime,
+                ),
+              )),
+            ),
           ],
         ),
         persistentHeader: Container(
@@ -192,13 +209,7 @@ class VibrationScreen extends GetView<VibrationController> {
               Touchable(
                   onTap: () async {
                     Vibration.cancel();
-                    bool isReady = (await AppLovinMAX.isInterstitialReady(
-                        AdManager.interstitialAdUnitId))!;
-                    if (isReady && !IAPConnection().isAvailable) {
-                      AppLovinMAX.showInterstitial(AdManager.interstitialAdUnitId);
-                    } else {
-                      AppLovinMAX.loadInterstitial(AdManager.interstitialAdUnitId);
-                    }
+                    //show ads
                   },
                   child: Container(
                     decoration: BoxDecoration(

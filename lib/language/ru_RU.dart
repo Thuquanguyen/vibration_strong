@@ -109,4 +109,5 @@ const Map<String, String> ru_RU = {
   'cancel': "Отменить",
   'hi_i_am': "Привет! Я Вибрация",
   'select_language': "Выберите язык",
+  'load_ads': 'Загрузка рекламы'
 };

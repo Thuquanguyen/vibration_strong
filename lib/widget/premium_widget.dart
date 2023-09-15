@@ -19,7 +19,7 @@ class PremiumWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Touchable(
       onTap: () {
-        goToScreen(PremiumScreen());
+        Get.toNamed(Routes.PREMIUM);
       },
       child: Container(
         decoration: BoxDecoration(

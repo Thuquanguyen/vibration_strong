@@ -20,6 +20,7 @@ class AppAssets {
 	static const String img7 = 'assets/images/img_7.jpeg';
 	static const String img8 = 'assets/images/img_8.jpeg';
 	static const String img9 = 'assets/images/img_9.jpeg';
+	static const String imgAds = 'assets/images/img_ads.png';
 	static const String imgBacground = 'assets/images/img_bacground.png';
 	static const String imgBgPremium = 'assets/images/img_bg_premium.png';
 	static const String imgBreeze = 'assets/images/img_breeze.png';
@@ -30,7 +31,6 @@ class AppAssets {
 	static const String imgFil = 'assets/images/img_fil.jpeg';
 	static const String imgHeart = 'assets/images/img_heart.jpeg';
 	static const String imgHeavy = 'assets/images/img_heavy.jpeg';
-	static const String imgHeavy1 = 'assets/images/img_heavy.png';
 	static const String imgMagic = 'assets/images/img_magic.jpeg';
 	static const String imgRefresh = 'assets/images/img_refresh.png';
 	static const String imgRise = 'assets/images/img_rise.png';
@@ -112,6 +112,7 @@ class AppAssets {
 	'assets/images/img_7.jpeg': true,
 	'assets/images/img_8.jpeg': true,
 	'assets/images/img_9.jpeg': true,
+	'assets/images/img_ads.png': true,
 	'assets/images/img_bacground.png': true,
 	'assets/images/img_bg_premium.png': true,
 	'assets/images/img_breeze.png': true,
@@ -122,7 +123,6 @@ class AppAssets {
 	'assets/images/img_fil.jpeg': true,
 	'assets/images/img_heart.jpeg': true,
 	'assets/images/img_heavy.jpeg': true,
-	'assets/images/img_heavy.png': true,
 	'assets/images/img_magic.jpeg': true,
 	'assets/images/img_refresh.png': true,
 	'assets/images/img_rise.png': true,
