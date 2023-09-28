@@ -2,9 +2,6 @@ import 'dart:convert';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
-import 'package:flutter_app_vibrator_strong/core/common/app_func.dart';
-import 'package:flutter_app_vibrator_strong/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -13,10 +10,13 @@ import '../../admod_handle.dart';
 import '../../ads/app_lifecircle_factory.dart';
 import '../../ads/open_app_ads_manage.dart';
 import '../../constants.dart';
+import '../../core/base/base_controller.dart';
+import '../../core/common/app_func.dart';
 import '../../core/local_storage/localStorageHelper.dart';
 import '../../core/model/data_model.dart';
 import '../../core/theme/dimens.dart';
 import '../../in_app_manage.dart';
+import '../../routes/app_pages.dart';
 import '../../vibrator_manage.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -72,14 +72,14 @@ class SplashController extends BaseController {
                   Get.offAndToNamed((!isWelcome.value || !isLanguage)
                       ? Routes.LANGUAGE
                       : Routes.MAIN);
-                }, 500);
+                }, 2000);
               },
               callbackFail: () {
                 AppFunc.setTimeout(() {
                   Get.offAndToNamed((!isWelcome.value || !isLanguage)
                       ? Routes.LANGUAGE
                       : Routes.MAIN);
-                }, 500);
+                }, 2000);
               });
       } else {
         if(data != null){

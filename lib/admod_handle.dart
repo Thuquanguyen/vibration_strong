@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:flutter_app_vibrator_strong/core/model/data_model.dart';
 
 import 'ad_manager.dart';
+import 'core/model/data_model.dart';
+import 'utils/app_loading.dart';
 
 class AdmodHandle {
   static final AdmodHandle _singleton = AdmodHandle._internal();
@@ -152,14 +153,14 @@ class AdmodHandle {
                 onAdImpression: (ad) {},
                 // Called when the ad failed to show full screen content.
                 onAdFailedToShowFullScreenContent: (ad, err) {
-                  print("errorrr");
+                  hideLoadingAds();
                   // Dispose the ad here to free resources.
                   ad.dispose();
                 },
                 // Called when the ad dismissed full screen content.
                 onAdDismissedFullScreenContent: (ad) {
                   // Dispose the ad here to free resources.
-                  print("dsdsdsdsdsdsd");
+                  hideLoadingAds();
                   ad.dispose();
                 },
                 // Called when a click is recorded for an ad.

@@ -6,13 +6,14 @@ import '../../audio_player.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/base/base_controller.dart';
 import '../../core/model/music_model.dart';
+import '../../in_app_manage.dart';
 
 class MusicController extends BaseController {
   RxList<MusicModel> listMusics = [
     MusicModel(
       title: 'Autumn In My Heart',
       url:
-          "https://storage.googleapis.com/vibrate/Autumn%20In%20My%20Heart.mp3",
+      "https://storage.googleapis.com/vibrate/Autumn%20In%20My%20Heart.mp3",
       onTab: () {},
       isSelected: false,
       size: 1.1,
@@ -32,7 +33,7 @@ class MusicController extends BaseController {
       title: 'Fur Elise Various Artists',
       onTab: () {},
       url:
-          "https://storage.googleapis.com/vibrate/Fur%20Elise%20Various%20Artists.mp3",
+      "https://storage.googleapis.com/vibrate/Fur%20Elise%20Various%20Artists.mp3",
       isSelected: false,
       size: 3,
       view: 256,
@@ -42,7 +43,7 @@ class MusicController extends BaseController {
       title: 'Miss You I So Much',
       onTab: () {},
       url:
-          "https://storage.googleapis.com/vibrate/Miss%20You%20I%20So%20Much.mp3",
+      "https://storage.googleapis.com/vibrate/Miss%20You%20I%20So%20Much.mp3",
       isSelected: false,
       size: 3.1,
       view: 1711,
@@ -52,48 +53,52 @@ class MusicController extends BaseController {
       title: 'River Flows In You',
       onTab: () {},
       url:
-          "https://storage.googleapis.com/vibrate/River%20Flows%20In%20You.mp3",
+      "https://storage.googleapis.com/vibrate/River%20Flows%20In%20You.mp3",
       isSelected: false,
       size: 2.9,
       view: 5822,
       thumb: AppAssets.img5,
     ),
     MusicModel(
-      title: 'Romeo Juliette',
-      onTab: () {},
-      isSelected: false,
-      url: "https://storage.googleapis.com/vibrate/Romeo%20Juliette.mp3",
-      size: 2.2,
-      view: 3511,
-      thumb: AppAssets.img6,
+        title: 'Romeo Juliette',
+        onTab: () {},
+        isSelected: false,
+        url: "https://storage.googleapis.com/vibrate/Romeo%20Juliette.mp3",
+        size: 2.2,
+        view: 3511,
+        thumb: AppAssets.img6,
+        isPremium: true
     ),
     MusicModel(
-      title: 'Secret Garden',
-      onTab: () {},
-      url: "https://storage.googleapis.com/vibrate/Secret%20Garden.mp3",
-      isSelected: false,
-      size: 2.7,
-      view: 620,
-      thumb: AppAssets.img7,
+        title: 'Secret Garden',
+        onTab: () {},
+        url: "https://storage.googleapis.com/vibrate/Secret%20Garden.mp3",
+        isSelected: false,
+        size: 2.7,
+        view: 620,
+        thumb: AppAssets.img7,
+        isPremium: true
     ),
     MusicModel(
-      title: 'Song From Secret Garden',
-      onTab: () {},
-      isSelected: false,
-      url:
-          "https://storage.googleapis.com/vibrate/Song%20From%20Secret%20Garden.mp3",
-      size: 3.3,
-      view: 955,
-      thumb: AppAssets.img8,
+        title: 'Song From Secret Garden',
+        onTab: () {},
+        isSelected: false,
+        url:
+        "https://storage.googleapis.com/vibrate/Song%20From%20Secret%20Garden.mp3",
+        size: 3.3,
+        view: 955,
+        thumb: AppAssets.img8,
+        isPremium: true
     ),
     MusicModel(
-      title: 'The Day Dream',
-      onTab: () {},
-      isSelected: false,
-      url: "https://storage.googleapis.com/vibrate/The%20Day%20Dream.mp3",
-      size: 3.1,
-      view: 1554,
-      thumb: AppAssets.img9,
+        title: 'The Day Dream',
+        onTab: () {},
+        isSelected: false,
+        url: "https://storage.googleapis.com/vibrate/The%20Day%20Dream.mp3",
+        size: 3.1,
+        view: 1554,
+        thumb: AppAssets.img9,
+        isPremium: true
     ),
     MusicModel(
       title: 'Music Premium 1',
@@ -103,22 +108,24 @@ class MusicController extends BaseController {
       size: 8.9,
     ),
     MusicModel(
-      title: 'Music Premium 2',
-      onTab: () {},
-      isSelected: false,
-      url: "https://storage.googleapis.com/vibrate/Mucsic%20Cover%202.mp3",
-      size: 3.7,
-      view: 1024,
-      thumb: AppAssets.img10,
+        title: 'Music Premium 2',
+        onTab: () {},
+        isSelected: false,
+        url: "https://storage.googleapis.com/vibrate/Mucsic%20Cover%202.mp3",
+        size: 3.7,
+        view: 1024,
+        thumb: AppAssets.img10,
+        isPremium: true
     ),
     MusicModel(
-      title: 'Music Premium 3',
-      onTab: () {},
-      url: "https://storage.googleapis.com/vibrate/Music%20Cover%203.mp3",
-      isSelected: false,
-      size: 5.2,
-      view: 2165,
-      thumb: AppAssets.img11,
+        title: 'Music Premium 3',
+        onTab: () {},
+        url: "https://storage.googleapis.com/vibrate/Music%20Cover%203.mp3",
+        isSelected: false,
+        size: 5.2,
+        view: 2165,
+        thumb: AppAssets.img11,
+        isPremium: true
     ),
   ].obs;
 
@@ -128,7 +135,13 @@ class MusicController extends BaseController {
 
   @override
   void onInit() {
-    if (AdmodHandle().ads.isLimit == false) {
+    if(IAPConnection().isAvailable){
+      for(int i = 0;i< listMusics.length;i++){
+        listMusics[i].isPremium = false;
+      }
+      listMusics.refresh();
+    }
+    if(AdmodHandle().ads.isLimit == false){
       AdmodHandle().loadAdBanner();
     }
     super.onInit();

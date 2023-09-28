@@ -22,6 +22,7 @@ import '../../utils/app_scaffold.dart';
 import '../../utils/scrolling_text.dart';
 import '../../utils/touchable.dart';
 import 'package:filling_slider/filling_slider.dart';
+import '../../widget/blink_button.dart';
 import '../../widget/item_vibration.dart';
 import 'package:rive/rive.dart';
 import 'vibration_controller.dart';
@@ -78,23 +79,19 @@ class VibrationScreen extends GetView<VibrationController> {
                                 width: 100,
                                 height: 250,
                                 onChange: (a, b) {
-                                  controller.progress.value = a;
-                                  if ((a == 0.5 || a == 0.85) &&
-                                      AdmodHandle().interstitialAd != null &&
-                                      AdmodHandle().ads.isLimit == false) {
-                                    showLoadingAds();
-                                    AdmodHandle().loadAdInter();
-                                    AppFunc.setTimeout(() {
-                                      AdmodHandle().interstitialAd?.show();
-                                      hideLoadingAds();
-                                    }, 2000);
-                                  } else {
-                                    hideLoading();
+                                  if ((a == 0.5 || a == 0.85) && !IAPConnection().isAvailable) {
+                                    // showLoadingAds();
+                                    // AdmodHandle().loadAdInter();
+                                    // AppFunc.setTimeout(() {
+                                    //   AdmodHandle().interstitialAd?.show();
+                                    // }, 2000);
+                                    Get.toNamed(Routes.PREMIUM);
+                                  }else{
+                                    Vibration.vibrate(
+                                        amplitude: (a * 255).toInt(),
+                                        repeat: 1,
+                                        intensities: [(a * 100).toInt(), 255]);
                                   }
-                                  Vibration.vibrate(
-                                      amplitude: (a * 255).toInt(),
-                                      repeat: 1,
-                                      intensities: [(a * 100).toInt(), 255]);
                                 },
                                 color: Colors.white,
                                 fillColor: Colors.purple,
@@ -103,28 +100,61 @@ class VibrationScreen extends GetView<VibrationController> {
                                   height: 220,
                                   child: Column(
                                     children: [
-                                      Text(I18n().highStr.tr,
-                                          style: TextStyles.label2.copyWith(
-                                              color:
-                                                  controller.progress.value >=
-                                                          0.8
-                                                      ? Colors.white
-                                                      : Colors.black)),
-                                      const Spacer(),
-                                      Text(
-                                        I18n().mediumStr.tr,
-                                        style: TextStyles.label2.copyWith(
-                                            color:
-                                                controller.progress.value >= 0.5
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            I18n().highStr.tr,
+                                            style: TextStyles.label2.copyWith(
+                                                color:
+                                                controller.progress.value >=
+                                                    0.8
                                                     ? Colors.white
                                                     : Colors.black),
+                                          ),
+                                          if(!IAPConnection().isAvailable)
+                                            SizedBox(
+                                              width: 3,
+                                            ),
+                                          if(!IAPConnection().isAvailable)
+                                            ImageHelper.loadFromAsset(
+                                                AppAssets.icPremium,
+                                                width: 12,
+                                                height: 12)
+                                        ],
+                                      ),
+                                      const Spacer(),
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            I18n().mediumStr.tr,
+                                            style: TextStyles.label2.copyWith(
+                                                color:
+                                                controller.progress.value >=
+                                                    0.5
+                                                    ? Colors.white
+                                                    : Colors.black),
+                                          ),
+                                          if(!IAPConnection().isAvailable)
+                                            SizedBox(
+                                              width: 3,
+                                            ),
+                                          if(!IAPConnection().isAvailable)
+                                            ImageHelper.loadFromAsset(
+                                                AppAssets.icPremium,
+                                                width: 12,
+                                                height: 12)
+                                        ],
                                       ),
                                       const Spacer(),
                                       Text(
                                         I18n().lowStr.tr,
                                         style: TextStyles.label2.copyWith(
                                             color: controller.progress.value >=
-                                                    0.08
+                                                0.08
                                                 ? Colors.white
                                                 : Colors.black),
                                       ),
@@ -152,23 +182,15 @@ class VibrationScreen extends GetView<VibrationController> {
               ],
             ),
             if (!IAPConnection().isAvailable)
-            Positioned(
-              top: 30,
-              right: 15,
-              child: Touchable(onTap: (){
-                Get.toNamed(Routes.PREMIUM);
-              }, child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.redAccent.withOpacity(0.9),
-                ),
-                padding: EdgeInsets.all(5.w),
-                child: const Icon(
-                  Icons.lock_person_outlined,
-                  color: Colors.lime,
-                ),
-              )),
-            ),
+              Positioned(
+                top: 30,
+                right: 15,
+                child: Touchable(
+                    onTap: () {
+                      Get.toNamed(Routes.PREMIUM);
+                    },
+                    child: MyBlinkingButton()),
+              ),
           ],
         ),
         persistentHeader: Container(

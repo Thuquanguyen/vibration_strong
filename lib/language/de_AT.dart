@@ -82,7 +82,7 @@ sind, sowie die Akkulaufzeit des Geräts.''',
       'Sie haben 1 Woche Zeit, um die erweiterten Funktionen der App zu nutzen.',
   'note_monthly_1':
       'Sie haben 1 Monat Zeit, um die erweiterten Funktionen der App zu nutzen. Darüber hinaus erhalten Sie zusätzlich 10 Tage Rabatt.',
-  'note_lifetime_1': 'Sie können erweiterte Funktionen ein Leben lang nutzen.',
+  'note_lifetime_1': 'Sie haben 1 Jahr Zeit, um die erweiterten Funktionen der App zu nutzen.',
   'note_2': 'Alle Leistungsstufen und 15 individuelle Massagen',
   'note_3':
       'Verbessern Sie Ihren Schlaf mit einer entspannenden Musikbibliothek zum Einschlafen',

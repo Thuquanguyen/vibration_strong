@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "247886007693",
-    "firebase_url": "https://phone-vibration-strong-597a1-default-rtdb.firebaseio.com",
-    "project_id": "phone-vibration-strong-597a1",
-    "storage_bucket": "phone-vibration-strong-597a1.appspot.com"
+    "project_number": "317372248192",
+    "firebase_url": "https://phone-vibration-strong-d2ca1-default-rtdb.firebaseio.com",
+    "project_id": "phone-vibration-strong-d2ca1",
+    "storage_bucket": "phone-vibration-strong-d2ca1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247886007693:android:5a6f2ff179d90dd22681c4",
+        "mobilesdk_app_id": "1:317372248192:android:4eded2b046df5d45fff665",
         "android_client_info": {
           "package_name": "com.flutter.flutter_app_vibrator_strong"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBMj4F80i21wd7vsBCIpBB7jDVumj3SF48"
+          "current_key": "AIzaSyAFzskLiOMD0aIL9igYpTSeTRgndIk1018"
         }
       ],
       "services": {
@@ -24,7 +24,7 @@
           "other_platform_oauth_client": []
         }
       },
-      "admob_app_id": "ca-app-pub-3449522729010597~1129720668"
+      "admob_app_id": "ca-app-pub-9184134236196103~1707921692"
     }
   ],
   "configuration_version": "1"

@@ -80,7 +80,7 @@ are, as well as the battery life of the device.''',
   'note_weekly_1': 'You have 1 week to use the advanced features of the app.',
   'note_monthly_1':
       'You have 1 month to use the advanced features of the app. In addition, you get an additional 10 days discount.',
-  'note_lifetime_1': 'You get to use advanced features for life.',
+  'note_lifetime_1': 'You have 1 year to use the advanced features of the app.',
   'note_2': 'All power levels and he 15 custom massages',
   'note_3': 'Improve your sleep with a relaxing music library to doze off to',
   'note_4':

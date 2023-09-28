@@ -81,7 +81,7 @@ son, así como la duración de la batería del dispositivo.''',
       'Tienes 1 semana para usar las funciones avanzadas de la aplicación.',
   'note_monthly_1':
       'Tienes 1 mes para utilizar las funciones avanzadas de la aplicación. Además, obtienes un descuento adicional de 10 días.',
-  'note_lifetime_1': 'Puedes utilizar funciones avanzadas de por vida.',
+  'note_lifetime_1': 'Tienes 1 año para usar las funciones avanzadas de la aplicación.',
   'note_2': 'Todos los niveles de potencia y 15 masajes personalizados',
   'note_3':
       'Mejora tu sueño con una biblioteca de música relajante para conciliar el sueño',

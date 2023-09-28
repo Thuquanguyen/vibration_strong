@@ -12,6 +12,7 @@ import '../../core/assets/app_assets.dart';
 import '../../core/model/music_model.dart';
 import '../../core/model/vibration_model.dart';
 import '../../core/service/notification_service.dart';
+import '../../in_app_manage.dart';
 import '../../vibrator_manage.dart';
 
 import '../../language/i18n.g.dart';
@@ -158,7 +159,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 255);
         },
-        isPremium: false,
+        isPremium: true,
         isSelected: false),
     VibrationModel(
         title: I18n().refreshStr.tr,
@@ -170,7 +171,7 @@ class VibrationController extends BaseController {
               repeat: 1,
               amplitude: 255);
         },
-        isPremium: false,
+        isPremium: true,
         isSelected: false),
     VibrationModel(
         title: I18n().breezeStr.tr,
@@ -204,7 +205,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 128);
         },
-        isPremium: false,
+        isPremium: true,
         isSelected: false),
     VibrationModel(
         title: I18n().riseStr.tr,
@@ -262,7 +263,7 @@ class VibrationController extends BaseController {
             10
           ], repeat: 1, amplitude: 10);
         },
-        isPremium: false,
+        isPremium: true,
         isSelected: false),
     VibrationModel(
         title: I18n().dramaticStr.tr,
@@ -295,7 +296,7 @@ class VibrationController extends BaseController {
             255
           ], repeat: 1, amplitude: 128);
         },
-        isPremium: false,
+        isPremium: true,
         isSelected: false),
     VibrationModel(
         title: I18n().heavyStr.tr,
@@ -469,6 +470,12 @@ class VibrationController extends BaseController {
   @override
   void onInit() {
     // TODO: implement onInit
+    if(IAPConnection().isAvailable){
+      for(int i = 0;i< vibrations.length;i++){
+        vibrations[i].isPremium = false;
+      }
+      vibrations.refresh();
+    }
     NotificationService().showNotification();
     if(AdmodHandle().ads.isLimit == false){
       AdmodHandle().loadAdInter();

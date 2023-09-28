@@ -79,7 +79,7 @@ cũng như thời lượng pin của thiết bị.''',
   'note_weekly_1': 'Bạn có 1 tuần để sử dụng các tính năng nâng cao của ứng dụng.',
   'note_monthly_1':
       'Bạn có 1 tháng để sử dụng các tính năng nâng cao của ứng dụng. Ngoài ra, bạn còn được giảm giá thêm 10 ngày.',
-  'note_lifetime_1': 'Bạn có thể sử dụng các tính năng nâng cao suốt đời.',
+  'note_lifetime_1': 'Bạn có 1 năm để sử dụng các tính năng nâng cao của ứng dụng.',
   'note_2': 'Tất cả các cấp độ sức mạnh và 15 liệu pháp mát-xa tùy chỉnh',
   'note_3': 'Cải thiện giấc ngủ của bạn với thư viện âm nhạc thư giãn để chìm vào giấc ngủ',
   'note_4':
