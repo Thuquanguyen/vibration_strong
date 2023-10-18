@@ -31,9 +31,6 @@ class LanguageController extends BaseController {
   @override
   void onInit() {
     // TODO: implement onInit
-    if(AdmodHandle().ads.isLimit == false){
-      AdmodHandle().loadAdBannerLanguage();
-    }
     super.onInit();
   }
 

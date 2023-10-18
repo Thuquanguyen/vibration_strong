@@ -50,18 +50,6 @@ class MoreScreen extends GetView<MoreController> {
                   vibrationModel: e,
                   moreController: controller,
                 )),
-            Spacer(),
-            if (AdmodHandle().ads.isLimit == false)
-            Obx(() => Visibility(
-              child: Container(
-                width: Get.width,
-                height: AdmodHandle().bannerAd4!.size.height.toDouble(),
-                child: AdWidget(ad: AdmodHandle().bannerAd4!),
-              ),
-              visible: AdmodHandle().isLoadedBanner4.value,
-            )),
-            if (AdmodHandle().ads.isLimit == false)
-            SizedBox(height: 10,)
           ],
         ),
       ),

@@ -32,20 +32,6 @@ class ItemVibration extends StatelessWidget {
           Get.toNamed(Routes.PREMIUM);
           return;
         }
-        if (AdmodHandle().ads.isLimit == false &&
-            AdmodHandle().isShowInter &&
-            !IAPConnection().isAvailable) {
-          AdmodHandle().loadAdInter();
-          if ((index ?? 0) % 2 == 0 &&
-              AdmodHandle().interstitialAd != null &&
-              index != controller?.indexOld.value) {
-            // show ads
-            showLoadingAds();
-            AppFunc.setTimeout(() {
-              AdmodHandle().interstitialAd?.show();
-            }, 2000);
-          }
-        }
         controller?.changeSelected(index ?? 0);
         Vibration.cancel();
         vibrationModel?.onTap?.call();

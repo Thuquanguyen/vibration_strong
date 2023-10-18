@@ -72,7 +72,6 @@ class PremiumController extends BaseController {
     };
     final response = await iapConnection.queryProductDetails(ids);
     for (var element in response.notFoundIDs) {
-
       print('Purchase $element not found');
     }
     products = response.productDetails

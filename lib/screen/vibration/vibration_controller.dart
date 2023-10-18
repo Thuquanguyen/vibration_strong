@@ -1,15 +1,7 @@
 import 'package:flutter_app_vibrator_strong/core/base/base_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:vibration/vibration.dart';
-import '../../ad_manager.dart';
-import '../../admod_handle.dart';
-import '../../ads/app_lifecircle_factory.dart';
-import '../../ads/open_app_ads_manage.dart';
-import '../../audio_player.dart';
 import '../../core/assets/app_assets.dart';
-import '../../core/model/music_model.dart';
 import '../../core/model/vibration_model.dart';
 import '../../core/service/notification_service.dart';
 import '../../in_app_manage.dart';
@@ -477,12 +469,6 @@ class VibrationController extends BaseController {
       vibrations.refresh();
     }
     NotificationService().showNotification();
-    if(AdmodHandle().ads.isLimit == false){
-      AdmodHandle().loadAdInter();
-      AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-      AppLifecycleReactor(appOpenAdManager: appOpenAdManager)
-          .listenToAppStateChanges();
-    }
     super.onInit();
   }
 

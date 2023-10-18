@@ -231,7 +231,6 @@ class VibrationScreen extends GetView<VibrationController> {
               Touchable(
                   onTap: () async {
                     Vibration.cancel();
-                    //show ads
                   },
                   child: Container(
                     decoration: BoxDecoration(

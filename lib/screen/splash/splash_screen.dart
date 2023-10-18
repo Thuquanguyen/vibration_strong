@@ -32,22 +32,6 @@ class SplashScreen extends GetView<SplashController> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
               ),
-              Obx(() => Visibility(
-                    visible: controller.isShowLoading.value,
-                    child: Positioned(
-                      bottom: 10,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        height: 10,
-                        child: CustomLinearProgressIndicator(
-                          backgroundColor: AppColors.neutralColor6,
-                          color: AppColors.customColor9,
-                          maxProgressWidth: 100,
-                        ),
-                      ),
-                    ),
-                  )),
             ],
           )),
       appBarHeight: 0,

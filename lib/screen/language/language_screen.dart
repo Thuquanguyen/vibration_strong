@@ -95,53 +95,6 @@ class LanguageScreen extends GetView<LanguageController> {
             const SizedBox(
               height: 10,
             ),
-            if ((AdmodHandle().ads.language == 1) &&
-                (AdmodHandle().ads.isLimit == false))
-              Obx(() => Container(
-                    height: 100,
-                    width: Get.width,
-                    color: Colors.white,
-                    child: AdmodHandle().nativeAdIsLoaded.value
-                        ? AdWidget(ad: AdmodHandle().nativeAdSmall!)
-                        : Center(
-                            child: Container(
-                              width: 20,
-                              height: 20,
-                              child: const CircularProgressIndicator(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                  )),
-            if ((AdmodHandle().ads.language == 2) &&
-                (AdmodHandle().ads.isLimit == false))
-              Obx(() => Visibility(
-                  child: Container(
-                    width:
-                        AdmodHandle().bannerAdLanguage!.size.width.toDouble(),
-                    height:
-                        AdmodHandle().bannerAdLanguage!.size.height.toDouble(),
-                    child: AdWidget(ad: AdmodHandle().bannerAdLanguage!),
-                  ),
-                  visible: AdmodHandle().isLoadedBannerLanguage.value)),
-            if ((AdmodHandle().ads.language == 3) &&
-                (AdmodHandle().ads.isLimit == false))
-              Obx(() => Container(
-                    height: 350,
-                    width: Get.width,
-                    color: Colors.white,
-                    child: AdmodHandle().nativeAdIsLoaded.value
-                        ? AdWidget(ad: AdmodHandle().nativeAd!)
-                        : Center(
-                            child: Container(
-                              width: 20,
-                              height: 20,
-                              child: const CircularProgressIndicator(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                  )),
           ],
         ),
       ),

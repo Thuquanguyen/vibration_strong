@@ -21,11 +21,11 @@ void main() {
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     FlutterNativeSplash.remove();
-    await Firebase.initializeApp();
-    FirebaseDatabase.instance;
+    // await Firebase.initializeApp();
+    // FirebaseDatabase.instance;
     NotificationService().initializePlatformNotifications();
     AppFunc.initLoadingStyle();
-    MobileAds.instance.initialize();
+    // MobileAds.instance.initialize();
   }
 
   runZonedGuarded(() async {

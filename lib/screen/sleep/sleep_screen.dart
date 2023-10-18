@@ -69,23 +69,6 @@ class SleepScreen extends GetView<SleepController> {
                   ),
                   itemCount: controller.listMusics.length,
                 ))),
-            if(AdmodHandle().ads.isLimit == false && !IAPConnection().isAvailable)
-            Container(
-                height: 1,
-                width: Get.width,
-                color: Colors.grey.withOpacity(0.5),
-                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10)),
-            if(AdmodHandle().ads.isLimit == false && !IAPConnection().isAvailable)
-            Obx(() => Visibility(
-              visible: AdmodHandle().isLoadedBanner3.value,
-              child: SizedBox(
-                width: AdmodHandle().bannerAd3!.size.width.toDouble(),
-                height: AdmodHandle().bannerAd3!.size.height.toDouble(),
-                child: AdWidget(ad: AdmodHandle().bannerAd3!),
-              ),
-            )),
-            if(AdmodHandle().ads.isLimit == false && !IAPConnection().isAvailable)
-            const SizedBox(height: 10,)
           ],
         ));
   }

@@ -30,19 +30,6 @@ class ItemMusicList extends StatelessWidget {
           Get.toNamed(Routes.PREMIUM);
           return;
         }
-        if (AdmodHandle().ads.isLimit == false && AdmodHandle().isShowInter) {
-          AdmodHandle().loadAdInter();
-          if ((index ?? 0) % 2 == 0 &&
-              AdmodHandle().interstitialAd != null && index != controller?.indexOld.value) {
-            // show ads
-            showLoadingAds();
-            AppFunc.setTimeout(() {
-              AdmodHandle().interstitialAd?.show();
-            }, 2000);
-          }else{
-            hideLoadingAds();
-          }
-        }
         controller?.changeSelectedMusic(index ?? 0);
         musicModel?.onTab?.call();
         AudioPlayerVibration().currentUrl = musicModel?.url ??

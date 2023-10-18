@@ -55,10 +55,6 @@ class MoreController extends BaseController {
 
   @override
   void onInit() {
-    if(AdmodHandle().ads.isLimit == false){
-      AdmodHandle().loadAdBanner4();
-    }
-
     super.onInit();
   }
 
