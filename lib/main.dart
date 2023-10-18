@@ -20,7 +20,6 @@ void main() {
   void initApp() async {
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-    // await Firebase.initializeApp();
     FlutterNativeSplash.remove();
     await Firebase.initializeApp();
     FirebaseDatabase.instance;
