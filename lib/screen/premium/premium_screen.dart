@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_vibrator_strong/utils/app_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import '../../core/assets/app_assets.dart';
 import '../../core/common/imagehelper.dart';
